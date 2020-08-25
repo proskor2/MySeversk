@@ -35,10 +35,6 @@ class Autor : AppCompatActivity() {
 
 
 
-//        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
-//        editTextPhone3.showSoftInputOnFocus
-//        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
-
 
 
 // Google button
