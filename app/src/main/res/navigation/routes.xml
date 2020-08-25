@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/routes"
+    app:startDestination="@id/fragment_appeals">
+
+    <fragment
+        android:id="@+id/fragment_appeals"
+        android:name="com.example.androidapp1.profile.fragment_appeals"
+        android:label="fragment_appeals"
+        tools:layout="@layout/fragment_appeals" />
+
+
+    <fragment
+            android:id="@+id/fragment_opros"
+            android:name="com.example.androidapp1.profile.fragment_opros"
+            android:label="fragment_opros"
+            tools:layout="@layout/fragment_opros" />
+
+        <fragment
+            android:id="@+id/fragment_iniciativa"
+            android:name="com.example.androidapp1.profile.fragment_iniciativa"
+            android:label="fragment_iniciativa"
+            tools:layout="@layout/fragment_iniciativa" />
+
+        <fragment
+            android:id="@+id/fragment_problems"
+            android:name="com.example.androidapp1.profile.fragment_problems"
+            android:label="fragment_problems"
+            tools:layout="@layout/fragment_problems" />
+    <fragment
+        android:id="@+id/iniciate_detail2"
+        android:name="com.example.androidapp1.profile.iniciate_detail2"
+        android:label="fragment_iniciate_detail2"
+        tools:layout="@layout/fragment_iniciate_detail2" />
+    <fragment
+        android:id="@+id/problem_detail1"
+        android:name="com.example.androidapp1.profile.problem_detail1"
+        android:label="problem_detail1" />
+
+
+</navigation>

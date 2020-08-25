@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgr"
+    tools:context=".sms">
+
+    <LinearLayout
+        android:id="@+id/linearlayout4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:baselineAligned="false"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/left_button"
+            android:layout_width="172dp"
+            android:layout_height="44dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/left" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="7dp"
+            android:layout_marginTop="50dp"
+            android:layout_weight="0.2"
+            android:text="Мы отправили на Ваш номер телефона SMS с кодом подтверждения"
+            android:textAlignment="center"
+            android:textColor="#494949" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_weight="0.05"
+            android:text="Введите полученный код"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/edit_smspass"
+            android:layout_width="100dp"
+            android:layout_height="14dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="0.1"
+            android:ems="10"
+            android:inputType="number"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/but_sms"
+            android:layout_width="176dp"
+            android:layout_height="33dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="0.05"
+            android:backgroundTint="#FFFFFF"
+            android:text="Продолжить"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#1664BB"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/text_resms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:layout_weight="0.1"
+            android:text="Получить код повторно"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/autor_sms2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:layout_weight="0.1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:singleLine="false"
+            android:text="Авторизоваться позднее"
+            android:textAlignment="center"
+            android:textColor="#1664BB" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="© 2020 Администрация ЗАТО Северск"
+            android:textAlignment="center"
+            android:textColor="#CC000000" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.1"
+            android:text="Условия использования приложения"
+            android:textAlignment="center"
+            android:textColor="#1664BB" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

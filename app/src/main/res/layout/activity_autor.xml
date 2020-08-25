@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center|right"
+    android:background="@drawable/backgr"
+    android:clickable="true"
+    android:focusableInTouchMode="false"
+    android:focusable="false"
+    tools:context=".Autor">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="0.1"
+            android:text="Для использования всех функций, пожалуйста, авторизуйтесь"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="7dp"
+            android:layout_weight="0.1"
+            android:text="Укажите ваш номер телефона"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editTextPhone2"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:ems="10"
+                android:enabled="false"
+                android:text="+7"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/editTextPhone3"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="phone"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/but_autor"
+            android:layout_width="176dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:text="Продолжить"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#1664BB"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="0.05"
+            android:text="или" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/card_google"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/logo_google" />
+
+            <ImageButton
+                android:id="@+id/card_esia"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/logo_esia" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/autor_later"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:text="Авторизоваться позднее"
+            android:textAlignment="center"
+            android:textColor="#1664BB" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.012"
+            android:text="© 2020 Администрация ЗАТО Северск"
+            android:textAlignment="center"
+            android:textColor="#CC000000" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="match_parent"
+            android:layout_height="13dp"
+            android:layout_weight="0.05"
+            android:text="Условия использования приложения"
+            android:textAlignment="center"
+            android:textColor="#1664BB" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
