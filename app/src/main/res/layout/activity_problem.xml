@@ -66,7 +66,7 @@
             android:layout_gravity="center"
             android:layout_marginRight="35dp"
             app:cardBackgroundColor="#1664BB"
-            app:cardCornerRadius="40dp">
+            app:cardCornerRadius="10dp">
 
             <TextView
                 android:id="@+id/textpr_status"

@@ -75,7 +75,7 @@
                     android:id="@+id/textView80"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.1"
                     android:text="Фамилия"
                     android:textAlignment="textStart" />
 
@@ -83,7 +83,7 @@
                     android:id="@+id/set_profile_surname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.7"
+                    android:layout_weight="0.9"
                     android:maxLength="15"
                     android:textColor="#000000" />
             </LinearLayout>
@@ -107,7 +107,7 @@
                     android:id="@+id/textView82"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.31"
+                    android:layout_weight="0.1"
                     android:text="Имя"
                     android:textAlignment="textStart" />
 
@@ -115,7 +115,7 @@
                     android:id="@+id/set_profile_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.7"
+                    android:layout_weight="0.4"
                     android:maxLength="10"
                     android:textColor="#000000" />
             </LinearLayout>
@@ -139,7 +139,7 @@
                     android:id="@+id/textView84"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.22"
+                    android:layout_weight="0.1"
                     android:text="Отчество"
                     android:textAlignment="textStart" />
 
@@ -147,7 +147,7 @@
                     android:id="@+id/set_profile_secondname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.7"
+                    android:layout_weight="0.9"
                     android:maxLength="15"
                     android:textColor="#000000" />
             </LinearLayout>
@@ -171,7 +171,7 @@
                     android:id="@+id/textView86"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.23"
+                    android:layout_weight="0.1"
                     android:text="Телефон"
                     android:textAlignment="textStart" />
 
@@ -179,7 +179,7 @@
                     android:id="@+id/set_profile_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.7"
+                    android:layout_weight="0.8"
                     android:maxLength="12"
                     android:textColor="#000000" />
             </LinearLayout>
@@ -203,7 +203,7 @@
                     android:id="@+id/textView88"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.31"
+                    android:layout_weight="0.1"
                     android:text="Пол"
                     android:textAlignment="textStart" />
 
@@ -211,7 +211,7 @@
                     android:id="@+id/set_profile_swx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.7"
+                    android:layout_weight="0.4"
                     android:maxLength="7"
                     android:textColor="#000000" />
             </LinearLayout>
@@ -235,7 +235,7 @@
                     android:id="@+id/textView90"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.11"
+                    android:layout_weight="0.1"
                     android:text="Дата рождения"
                     android:textAlignment="textStart" />
 
@@ -267,7 +267,7 @@
                     android:id="@+id/textView92"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.1"
                     android:text="E-mail"
                     android:textAlignment="textStart" />
 
@@ -299,7 +299,7 @@
                     android:id="@+id/textView94"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.28"
+                    android:layout_weight="0.1"
                     android:text="Адрес"
                     android:textAlignment="textStart" />
 

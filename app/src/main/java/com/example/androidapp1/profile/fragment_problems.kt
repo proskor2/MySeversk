@@ -33,8 +33,8 @@ class fragment_problems : Fragment() {
     val json1 = """
     [{
     "title": "Неубранный мусор",
-    "surname": "Прошенкин",
-    "name": "Станислав",
+    "surname": "Эдуардовна",
+    "name": "Мария",
     "status": "В работе",
     "descr": "От 2 гимназии, вдоль забора до пеше..."
     }]
@@ -68,7 +68,7 @@ class fragment_problems : Fragment() {
 
     override fun onStart() {
         super.onStart()
-
+        profile_problem_image.setImageResource(R.drawable.image)
 
         val token = "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi"
         val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/news?page=1&per-page=10"

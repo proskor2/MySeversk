@@ -13,6 +13,7 @@ import com.example.androidapp1.R
 import com.example.androidapp1.data.News_adapter
 import com.example.androidapp1.data.News_data
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_appeal.*
 import kotlinx.android.synthetic.main.activity_seversk_events.*
 import kotlinx.android.synthetic.main.activity_seversk_news.*
 import okhttp3.*
@@ -25,56 +26,45 @@ class events : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk_events)
     }
+
+    override fun onStart() {
+        super.onStart()
+
+        val token = "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi"
+        val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/news?page=1&per-page=10"
+        var okHttpClient: OkHttpClient = OkHttpClient()
+
+        val request: Request = Request.Builder().url(URL).addHeader("Authorization", token).build()
+
+        okHttpClient.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+            }
+
+            @SuppressLint("WrongConstant")
+            override fun onResponse(call: Call, response: Response) {
+//                    val json = response?.body()?.string()
+
+                val json = """
+    [{
+"id": 130,
+
+"date": "01.09.2020",
+
+"title": "1 сентября - День знаний"
+
+}]
+""".trimIndent()
+                val tex1: String = JSONArray(json).getJSONObject(0).getString("title")
+                val tex2: String = JSONArray(json).getJSONObject(0).getString("date")
+
+
+                runOnUiThread() {
+                    text_event1?.text = tex1
+                    text_event2?.text = tex2
+                    image_events1.setImageResource(R.drawable.city1)
+                }
+            }
+
+        })
+    }
 }
-//        val token = "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi"
-//
-//        val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/afisha?page=1&per-page=5"
-//        var okHttpClient: OkHttpClient = OkHttpClient()
-//
-//        val request: Request = Request.Builder().url(URL).addHeader("Authorization",token).build()
-
-
-
-//    @Override
-//    override fun onStart() {
-//        super.onStart()
-//
-//        runOnUiThread() {
-//
-//            val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
-//            StrictMode.setThreadPolicy(policy)
-//
-//            val token = "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi"
-//            val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/afisha?page=1&per-page=5"
-//            var okHttpClient: OkHttpClient = OkHttpClient()
-//            val request: Request = Request.Builder().url(URL).addHeader("Authorization", token).build()
-//            val response = okHttpClient.newCall(request).execute()
-//            val json = response.body()?.string()
-//
-//            fun generateDummyList(size: Int): ArrayList<News_data> {
-//                val list = ArrayList<News_data>()
-//
-//                for (i in 0..9) {
-////                    val text_title1: String = JSONArray(json).getJSONObject(i).getString("title")
-////                    val text_preview1: String = JSONArray(json).getJSONObject(i).getString("preview")
-////                    val drawable: String = JSONArray(json).getJSONObject(i).getString("photo")
-//
-////                    list.add(i, News_data("$text_title1", "$text_preview1", Uri.parse("https://"+"$drawable")))
-//                }
-//                return list
-//            }
-//            val exampleList = generateDummyList(1)
-//            val adapter = News_adapter(exampleList, this)
-//            recylcer_news.adapter = adapter
-//            recylcer_news.layoutManager = LinearLayoutManager(this)
-//            recylcer_news.setHasFixedSize(true)
-//        }
-//    }
-//
-//    override fun onItemClick(position: Int) {
-//
-//        Toast.makeText(this, "Item $position clicked", Toast.LENGTH_SHORT).show()
-//
-//
-//    }
-//}

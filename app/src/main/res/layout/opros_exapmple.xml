@@ -36,7 +36,7 @@
                 android:layout_gravity="bottom|left"
                 android:layout_margin="5dp"
                 app:cardBackgroundColor="#1664BB"
-                app:cardCornerRadius="25dp">>
+                app:cardCornerRadius="10dp">>
 
                 <TextView
                     android:id="@+id/text_opros1"

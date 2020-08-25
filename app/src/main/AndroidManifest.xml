@@ -51,32 +51,60 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <activity android:name=".activities_appeal.appeal_iniciate" />
-        <activity android:name=".activities_appeal.appeal_problem" />
-        <activity android:name=".activities_appeal.activitiy_request" /> <!-- <activity -->
+            android:label="@string/title_activity_maps"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities_appeal.appeal_iniciate"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities_appeal.appeal_problem"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities_appeal.activitiy_request"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/> <!-- <activity -->
         <!-- android:name=".activities_main.seversk_problems" -->
         <!-- android:label="Проблемы" /> -->
         <activity
             android:name=".activities_main.transport"
-            android:label="Транспорт" />
+            android:label="Транспорт"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities_main.opros"
-            android:label="Опросы" />
+            android:label="Опросы"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities_main.events"
-            android:label="События" />
+            android:label="События"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities_main.news"
-            android:label="Новости" />
-        <activity android:name=".seversk" />
-        <activity android:name=".sms" />
-        <activity android:name=".activities_main.newsid" />
+            android:label="Новости"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".seversk"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".sms"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities_main.newsid"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Autor"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".activities_appeal.activity_request2" />
-        <activity android:name=".activities_appeal.activity_request3" />
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities_appeal.activity_request2"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities_appeal.activity_request3"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity android:name=".startActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
