@@ -8,7 +8,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.example.androidapp1"
+        applicationId "sev.seversk.androidapp1"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
