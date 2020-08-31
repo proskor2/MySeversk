@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:background="@null"
     android:scrollbarTrackVertical="@null"
-    tools:context=".ui.mainscreen.HomeFragment">
-
+    tools:context="sev.seversk.androidapp1.ui.mainscreen.HomeFragment">
+<!--    androidx.constraintlayout.widget.ConstraintLayout-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

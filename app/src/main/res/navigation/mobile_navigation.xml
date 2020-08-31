@@ -8,19 +8,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.androidapp1.ui.mainscreen.HomeFragment"
+        android:name="sev.seversk.androidapp1.ui.mainscreen.HomeFragment"
         android:label="Мой Северск"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.androidapp1.ui.appealscreen.DashboardFragment"
+        android:name="sev.seversk.androidapp1.ui.appealscreen.DashboardFragment"
         android:label="Обратиться"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notification"
-        android:name="com.example.androidapp1.ui.profilescreen.NotificationFragment"
+        android:name="sev.seversk.androidapp1.ui.profilescreen.NotificationFragment"
         android:label="Профиль"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
