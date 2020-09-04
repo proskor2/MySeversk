@@ -47,6 +47,12 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textColor="#FFFFFF" />
             </androidx.cardview.widget.CardView>
+
+            <View
+                android:id="@+id/divider21"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

@@ -4,48 +4,51 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import sev.seversk.androidapp1.R
 import kotlinx.android.synthetic.main.activity_alerts.*
+import kotlinx.android.synthetic.main.activity_seversk_opros.*
 import okhttp3.*
 import org.json.JSONArray
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import sev.seversk.androidapp1.alerts_items.Alert
+import sev.seversk.androidapp1.alerts_items.AlertAdapter
+import sev.seversk.androidapp1.alerts_items.ApiAlert
+import sev.seversk.androidapp1.opros_items.ApiOpros
+import sev.seversk.androidapp1.opros_items.Opros
+import sev.seversk.androidapp1.opros_items.OprosAdapter
 import java.io.IOException
 
 class alerts : AppCompatActivity() {
+
+
+    lateinit var recyclerView: RecyclerView
+    lateinit var recyclerAdapter: AlertAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alerts)
 
+        recyclerView = findViewById(R.id.recycler_alerts)
+        recyclerAdapter = AlertAdapter(this)
+        recycler_alerts.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = recyclerAdapter
 
-        val token = "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi"
+        val apiinterface = ApiAlert.create().getAlert()
 
-        val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/alerts?page=1&per-page=5"
-        var okHttpClient: OkHttpClient = OkHttpClient()
-
-        val request: Request = Request.Builder().url(URL).addHeader("Authorization",token).build()
-
-        okHttpClient.newCall(request).enqueue(object: Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                TODO("Not yet implemented")
+        apiinterface.enqueue(object : Callback<List<Alert>> {
+            override fun onResponse(call: Call<List<Alert>>, response: Response<List<Alert>>?) {
+                if (response?.body() != null)
+                    recyclerAdapter.setAlertListItems(response.body()!!)
             }
 
-            @SuppressLint("WrongConstant")
-            override fun onResponse(call: Call, response: Response) {
-                val json = response?.body()?.string()
+            override fun onFailure(call: Call<List<Alert>>, t: Throwable) {
 
-//                val title1_al = JSONArray(json).getJSONObject(0).getString("title")
-                val desc1_al: String = JSONArray(json).getJSONObject(0).getString("title")
-                val upd_al: String = JSONArray(json).getJSONObject(0).getString("updated")
-
-
-
-                runOnUiThread() {
-//                    text_al1.text = Html.fromHtml(title1_al)
-                    text_al2.text = Html.fromHtml(desc1_al)
-                    text_al3.text = Html.fromHtml("Последнее обновление: "+upd_al)
-                }
-                }
-
-
+            }
         })
     }
-}
+
+    }
