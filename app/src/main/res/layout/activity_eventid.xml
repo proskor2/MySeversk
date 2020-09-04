@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@null">
+    android:layout_height="match_parent"
+    tools:context=".activities_main.eventid">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -16,21 +15,21 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView29"
+            android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@null"
-            android:text="Новости"
-            android:textAlignment="textStart"
-            android:textColor="#000000"
-            android:textSize="24sp" />
+            android:text="TextView" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_news"
+        <TextView
+            android:id="@+id/textView11"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

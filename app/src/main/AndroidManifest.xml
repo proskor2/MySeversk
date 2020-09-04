@@ -17,26 +17,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="sev.seversk.androidapp1.pzdc.newsid10"></activity>
-        <activity android:name="sev.seversk.androidapp1.pzdc.newsid9" />
-        <activity android:name="sev.seversk.androidapp1.pzdc.newsid8" />
-        <activity android:name="sev.seversk.androidapp1.pzdc.newsid7" />
-        <activity android:name="sev.seversk.androidapp1.pzdc.newsid6" />
-        <activity android:name="sev.seversk.androidapp1.pzdc.newsid5" />
-        <activity android:name="sev.seversk.androidapp1.pzdc.newsid4" />
-        <activity android:name="sev.seversk.androidapp1.pzdc.newsid3" />
-        <activity android:name="sev.seversk.androidapp1.pzdc.newsid2" />
-        <activity android:name="sev.seversk.androidapp1.pzdc.newsid1" />
-        <activity android:name="sev.seversk.androidapp1.profile.prodile_settings2" />
-        <activity android:name="sev.seversk.androidapp1.profile.profile_settings" />
-        <activity android:name="sev.seversk.androidapp1.activities_appeal.appeal_problem2" /> <!-- <activity android:name=".news2"></activity> -->
-        <activity android:name="sev.seversk.androidapp1.bus_detail" />
-        <activity android:name="sev.seversk.androidapp1.activities_main.district" />
-        <activity android:name="sev.seversk.androidapp1.activities_main.emergency" />
-        <activity android:name="sev.seversk.androidapp1.activities_main.remont" />
-        <activity android:name="sev.seversk.androidapp1.activities_main.appeal" />
-        <activity android:name="sev.seversk.androidapp1.activities_main.problem" />
-        <activity android:name="sev.seversk.androidapp1.activities_main.alerts" />
+        <activity android:name=".activities_main.eventid"></activity>
+        <activity android:name=".profile.prodile_settings2" />
+        <activity android:name=".profile.profile_settings" />
+        <activity android:name=".activities_appeal.appeal_problem2" /> <!-- <activity android:name=".news2"></activity> -->
+        <activity android:name=".bus_detail" />
+        <activity android:name=".activities_main.district" />
+        <activity android:name=".activities_main.emergency" />
+        <activity android:name=".activities_main.remont" />
+        <activity android:name=".activities_main.appeal" />
+        <activity android:name=".activities_main.problem" />
+        <activity android:name=".activities_main.alerts" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -50,65 +41,75 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="sev.seversk.androidapp1.MapsActivity"
+            android:name=".MapsActivity"
+            android:configChanges="orientation"
             android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities_appeal.appeal_iniciate"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name="sev.seversk.androidapp1.activities_appeal.appeal_iniciate"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities_appeal.appeal_problem"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name="sev.seversk.androidapp1.activities_appeal.appeal_problem"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities_appeal.activitiy_request"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name="sev.seversk.androidapp1.activities_appeal.activitiy_request"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"/> <!-- <activity -->
+            android:screenOrientation="portrait" /> <!-- <activity -->
         <!-- android:name=".activities_main.seversk_problems" -->
         <!-- android:label="Проблемы" /> -->
         <activity
-            android:name="sev.seversk.androidapp1.activities_main.transport"
+            android:name=".activities_main.transport"
+            android:configChanges="orientation"
             android:label="Транспорт"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="sev.seversk.androidapp1.activities_main.opros"
+            android:name=".activities_main.opros"
+            android:configChanges="orientation"
             android:label="Опросы"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="sev.seversk.androidapp1.activities_main.events"
+            android:name=".activities_main.events"
+            android:configChanges="orientation"
             android:label="События"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="sev.seversk.androidapp1.activities_main.news"
+            android:name=".activities_main.news"
+            android:configChanges="orientation"
             android:label="Новости"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name="sev.seversk.androidapp1.seversk"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name="sev.seversk.androidapp1.sms"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name="sev.seversk.androidapp1.activities_main.newsid"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="sev.seversk.androidapp1.Autor"
-            android:windowSoftInputMode="stateAlwaysHidden"
+            android:name=".seversk"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name="sev.seversk.androidapp1.activities_appeal.activity_request2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".sms"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name="sev.seversk.androidapp1.activities_appeal.activity_request3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities_main.newsid"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name="sev.seversk.androidapp1.startActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Autor"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activities_appeal.activity_request2"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities_appeal.activity_request3"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".startActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

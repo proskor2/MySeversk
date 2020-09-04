@@ -1,67 +1,58 @@
 package sev.seversk.androidapp1.activities_main
 
+import android.graphics.Path
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_seversk_events.*
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.data.opros_adapter
-import sev.seversk.androidapp1.data.opros_data
 import kotlinx.android.synthetic.main.activity_seversk_opros.*
 import okhttp3.*
 import org.json.JSONArray
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import sev.seversk.androidapp1.events_items.Afisha
+import sev.seversk.androidapp1.events_items.AfishaAdapter
+import sev.seversk.androidapp1.events_items.ApiAfisha
+import sev.seversk.androidapp1.opros_items.*
 
-class opros : AppCompatActivity(), opros_adapter.OnItemClickListener {
+class opros : AppCompatActivity() {
+
+    lateinit var recyclerView: RecyclerView
+    lateinit var recyclerAdapter: OprosAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk_opros)
-    }
 
+        recyclerView = findViewById(R.id.recycler_opros)
+        recyclerAdapter = OprosAdapter(this)
+        recycler_opros.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = recyclerAdapter
 
-    @Override
-    override fun onStart() {
-        super.onStart()
+        val apiinterface = ApiOpros.create().getOpros()
 
-        runOnUiThread() {
-
-            val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
-            StrictMode.setThreadPolicy(policy)
-
-            val token = "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi"
-            val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/questionnaires"
-            var okHttpClient: OkHttpClient = OkHttpClient()
-            val request: Request = Request.Builder().url(URL).addHeader("Authorization", token).build()
-            val response = okHttpClient.newCall(request).execute()
-            val json = response.body()?.string()
-
-            fun generateDummyList(size: Int): ArrayList<opros_data> {
-                val list = ArrayList<opros_data>()
-
-                for (i in 0..9) {
-                    val text_title1: String = JSONArray(json).getJSONObject(i).getString("name_questionnaire")
-                    val text_status1: String = JSONArray(json).getJSONObject(i).getString("status")
-
-
-                    list.add(i, opros_data("$text_title1", "$text_status1"))
-                }
-                return list
+        apiinterface.enqueue(object : Callback<List<Opros>> {
+            override fun onResponse(call: Call<List<Opros>>, response: Response<List<Opros>>?) {
+                if (response?.body() != null)
+                    recyclerAdapter.setOprosListItems(response.body()!!)
             }
-            val exampleList = generateDummyList(1)
-            val adapter = opros_adapter(exampleList, this)
-           recycler_opros.adapter = adapter
-               recycler_opros.layoutManager = LinearLayoutManager(this)
-            recycler_opros.setHasFixedSize(true)
-        }
+
+            override fun onFailure(call: Call<List<Opros>>, t: Throwable) {
+
+            }
+        })
     }
 
-    override fun onItemClick(position: Int) {
-
-        Toast.makeText(this, "Item $position clicked", Toast.LENGTH_SHORT).show()
-
-
-    }
 }
+
+
+
+
 
 

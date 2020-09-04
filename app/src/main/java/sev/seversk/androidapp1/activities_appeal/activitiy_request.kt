@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.data.Data1
 import sev.seversk.androidapp1.seversk
 import kotlinx.android.synthetic.main.activitiy_appeal_request.*
 
@@ -42,16 +41,6 @@ class activitiy_request : AppCompatActivity() {
         }
 //        newPersonData(data1 = firstPerson)
     }
-
-
-    var firstPerson:Data1 = Data1(1, "7812-3265-7078", "10.08.2020", "20.08.2020", "В работе", "Иванов", "Иван", "Петрович", "9137778555", "Добрый день", " ")
-
-//    fun newPersonData(data1: Data1) {
-//        var personFirst = data1
-//        personFirst.name = text_appeal_name.text.toString()
-//        personFirst.surname = text_appeal_surname.text.toString()
-//        personFirst.patronymic = text_appeal_secondname.text.toString()
-//    }
 
 
 

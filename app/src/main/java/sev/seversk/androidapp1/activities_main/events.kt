@@ -1,59 +1,48 @@
 package sev.seversk.androidapp1.activities_main
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import sev.seversk.androidapp1.R
 import kotlinx.android.synthetic.main.activity_seversk_events.*
-import okhttp3.*
-import org.json.JSONArray
-import java.io.IOException
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import sev.seversk.androidapp1.events_items.Afisha
+import sev.seversk.androidapp1.events_items.AfishaAdapter
+import sev.seversk.androidapp1.events_items.ApiAfisha
+
 
 class events : AppCompatActivity() {
+
+    lateinit var recyclerView: RecyclerView
+    lateinit var recyclerAdapter: AfishaAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk_events)
-    }
 
-    override fun onStart() {
-        super.onStart()
+        recyclerView = findViewById(R.id.recycler_afisha)
+        recyclerAdapter = AfishaAdapter(this)
+        recycler_afisha.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = recyclerAdapter
 
-        val token = "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi"
-        val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/news?page=1&per-page=10"
-        var okHttpClient: OkHttpClient = OkHttpClient()
+        val apiinterface = ApiAfisha.create().getAfisha()
 
-        val request: Request = Request.Builder().url(URL).addHeader("Authorization", token).build()
-
-        okHttpClient.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
+        apiinterface.enqueue(object : Callback<List<Afisha>> {
+            override fun onResponse(call: Call<List<Afisha>>, response: Response<List<Afisha>>?) {
+                if (response?.body() != null)
+                    recyclerAdapter.setAfishaListItems(response.body()!!)
             }
 
-            @SuppressLint("WrongConstant")
-            override fun onResponse(call: Call, response: Response) {
-//                    val json = response?.body()?.string()
+            override fun onFailure(call: Call<List<Afisha>>, t: Throwable) {
 
-                val json = """
-    [{
-"id": 130,
-
-"date": "01.09.2020",
-
-"title": "1 сентября - День знаний"
-
-}]
-""".trimIndent()
-                val tex1: String = JSONArray(json).getJSONObject(0).getString("title")
-                val tex2: String = JSONArray(json).getJSONObject(0).getString("date")
-
-
-                runOnUiThread() {
-                    text_event1?.text = tex1
-                    text_event2?.text = tex2
-                    image_events1.setImageResource(R.drawable.city1)
-                }
             }
-
         })
     }
+
 }
+
+
+

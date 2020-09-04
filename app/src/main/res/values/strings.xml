@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidApp1</string>
+    <string name="app_name">Мой Северск</string>
     <string name="title_activity_seversk">seversk</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

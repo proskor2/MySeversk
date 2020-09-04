@@ -130,7 +130,7 @@
             android:text="Описание:" />
 
         <EditText
-            android:id="@+id/text_problem_descr"
+            android:id="@+id/text_problem_d"
             style="@style/Base.Widget.MaterialComponents.TextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

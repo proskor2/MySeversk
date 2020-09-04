@@ -4,54 +4,51 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import sev.seversk.androidapp1.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_problem.*
+import kotlinx.android.synthetic.main.activity_seversk_news.*
 import okhttp3.*
 import org.json.JSONArray
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import sev.seversk.androidapp1.news_items.ApiInterface
+import sev.seversk.androidapp1.news_items.News
+import sev.seversk.androidapp1.news_items.RecyclerAdapter
+import sev.seversk.androidapp1.problems_items.ApiProblems
+import sev.seversk.androidapp1.problems_items.Problem
+import sev.seversk.androidapp1.problems_items.ProblemAdapter
 import java.io.IOException
 
 class problem : AppCompatActivity() {
+
+    lateinit var recyclerView: RecyclerView
+    lateinit var recyclerAdapter: ProblemAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_problem)
 
-        val token = "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi"
 
-        val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/treatments?page=1&per-page=5"
-        var okHttpClient: OkHttpClient = OkHttpClient()
+        recyclerView = findViewById(R.id.recycler_problem)
+        recyclerAdapter = ProblemAdapter(this)
+        recycler_problem.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = recyclerAdapter
 
-        val request: Request = Request.Builder().url(URL).addHeader("Authorization",token).build()
+        val apiinterface = ApiProblems.create().getProblems()
 
-        okHttpClient.newCall(request).enqueue(object: Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                TODO("Not yet implemented")
+        apiinterface.enqueue(object : Callback<List<Problem>> {
+            override fun onResponse(call: Call<List<Problem>>, response: Response<List<Problem>>?) {
+                if (response?.body() != null)
+                    recyclerAdapter.setProblemListItems(response.body()!!)
             }
 
-            @SuppressLint("WrongConstant")
-            override fun onResponse(call: Call, response: Response) {
-                val json = response?.body()?.string()
-
-                val title1_pr = JSONArray(json).getJSONObject(1).getString("title")
-                val desc1_pr: String = JSONArray(json).getJSONObject(1).getString("description")
-                val upd_pr: String = JSONArray(json).getJSONObject(1).getString("updated")
-                val user_pr: String = JSONArray(json).getJSONObject(1).getString("user")
-                val status_pr: String = JSONArray(json).getJSONObject(1).getString("status")
-                val photo_pr: String = JSONArray(json).getJSONObject(1).getString("photo")
-
-
-
-                runOnUiThread() {
-                   textpr_title.text = Html.fromHtml(title1_pr)
-                   textpr_descr.text = Html.fromHtml(desc1_pr)
-                    textpr_status.text = Html.fromHtml(status_pr)
-                    textpr_user.text = Html.fromHtml(user_pr)
-
-                    val image = Picasso.get().load("https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai"+(photo_pr)).into(imageView_pr)
-                }
+            override fun onFailure(call: Call<List<Problem>>, t: Throwable) {
+//                Toast.makeText(this@MainActivity, "${t.message}", Toast.LENGTH_SHORT).show()
             }
-
-
         })
     }
-}
+    }
