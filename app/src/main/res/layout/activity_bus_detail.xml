@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".bus_detail">
+    tools:context=".transport_items.bus_detail">
 
     <TextView
         android:id="@+id/busdetail_number"

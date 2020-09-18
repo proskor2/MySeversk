@@ -16,10 +16,12 @@ import com.bumptech.glide.request.RequestOptions
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.activities_main.newsid
 import sev.seversk.androidapp1.events_items.Afisha
+import sev.seversk.androidapp1.ui.mainscreen.Activ
 
 class RecyclerAdapter(val context: Context): RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
 
     var newsList: List<News> = listOf()
+    var activList: List<Activ> = listOf()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -63,6 +65,11 @@ class RecyclerAdapter(val context: Context): RecyclerView.Adapter<RecyclerAdapte
 
     fun setNewsListItems(newsList: List<News>){
         this.newsList = newsList
+        notifyDataSetChanged()
+    }
+
+    fun setActivListItems(activList: List<Activ>){
+        this.activList = activList
         notifyDataSetChanged()
     }
 

@@ -142,7 +142,7 @@
                 android:layout_gravity="center|left"
                 android:paddingStart="5dp"
                 app:cardBackgroundColor="#1664BB"
-                app:cardCornerRadius="40dp">
+                app:cardCornerRadius="10dp">
 
                 <TextView
                     android:id="@+id/text_appeal_status"

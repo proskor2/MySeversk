@@ -1,35 +1,33 @@
 package sev.seversk.androidapp1
 
-import androidx.appcompat.app.AppCompatActivity
+import android.R
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Transformations.map
+import com.yandex.mapkit.Animation
+import com.yandex.mapkit.MapKitFactory
+import com.yandex.mapkit.geometry.Point
+import com.yandex.mapkit.map.CameraPosition
+import com.yandex.mapkit.mapview.MapView
 
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity() {
 
-    private lateinit var mMap: GoogleMap
+
+lateinit var mapview: MapView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_maps)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-    }
-
-
-    override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-
-        // Add a marker in Sydney and move the camera
-        val seversk1 = LatLng(56.602741, 84.881042)
-        mMap.addMarker(MarkerOptions().position(seversk1).title("Marker in Seversk"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(seversk1))
+//        MapKitFactory.setApiKey("3ad79f77-ac08-49b0-af8d-3a39283cd78a")
+//        MapKitFactory.initialize(this)
+//        setContentView(R.layout.map)
+//
+//        mapview = findViewById<View>(R.id.mapview) as MapView
+//        mapview.getMap().move(
+//            CameraPosition(Point(55.751574, 37.573856), 11.0f, 0.0f, 0.0f),
+//            Animation(Animation.Type.SMOOTH, 0F),
+//            null
+//        )
     }
 }

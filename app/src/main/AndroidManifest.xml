@@ -17,11 +17,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities_main.eventid"></activity>
+        <activity android:name=".yandex_maps"></activity>
+        <activity android:name=".ui.mainscreen.Activid" />
+        <activity android:name=".activities_main.eventid" />
         <activity android:name=".profile.prodile_settings2" />
         <activity android:name=".profile.profile_settings" />
         <activity android:name=".activities_appeal.appeal_problem2" /> <!-- <activity android:name=".news2"></activity> -->
-        <activity android:name=".bus_detail" />
+        <activity android:name=".transport_items.bus_detail" />
         <activity android:name=".activities_main.district" />
         <activity android:name=".activities_main.emergency" />
         <activity android:name=".activities_main.remont" />

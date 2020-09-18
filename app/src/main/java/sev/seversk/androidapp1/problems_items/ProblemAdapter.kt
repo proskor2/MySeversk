@@ -67,8 +67,8 @@ class ProblemAdapter(val context: Context): RecyclerView.Adapter<ProblemAdapter.
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val problems_user = itemView.findViewById<TextView>(R.id.text_problem_user)
-        val problems_title = itemView.findViewById<TextView>(R.id.text_problem_title)
-        val problem_descr = itemView.findViewById<TextView>(R.id.text_problem_d)
+        val problems_title = itemView.findViewById<TextView>(R.id.text_newproblem_title)
+        val problem_descr = itemView.findViewById<TextView>(R.id.text_newproblem_descr)
         val problem_status = itemView.findViewById<TextView>(R.id.text_problem_status)
         val problem_photo = itemView.findViewById<ImageView>(R.id.image_problem)
         val card = itemView.findViewById<CardView>(R.id.card_problem)

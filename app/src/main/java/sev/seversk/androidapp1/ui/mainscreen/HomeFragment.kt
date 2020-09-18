@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_seversk_news.*
 import sev.seversk.androidapp1.MapsActivity
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.activities_main.*
@@ -21,6 +22,7 @@ import retrofit2.Response
 import sev.seversk.androidapp1.news_items.ApiInterface
 import sev.seversk.androidapp1.news_items.News
 import sev.seversk.androidapp1.news_items.RecyclerAdapter
+import sev.seversk.androidapp1.yandex_maps
 
 @Suppress("UNREACHABLE_CODE")
 class HomeFragment : Fragment() {
@@ -85,7 +87,7 @@ class HomeFragment : Fragment() {
 //        }
 
         button_map.setOnClickListener() {
-            val map1 = Intent(context, MapsActivity::class.java)
+            val map1 = Intent(context, yandex_maps::class.java)
             startActivity(map1)
         }
 
@@ -108,14 +110,34 @@ class HomeFragment : Fragment() {
         }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//
+//        recycler_activ.apply {
+//            layoutManager = LinearLayoutManager(activity)
+//            recyclerAdapter = ActivAdapter(context)
+//            adapter = recyclerAdapter
+//        }
+//
+//
+//        val apiinterface = ApiActivity.create().getActiv()
+//
+//        apiinterface.enqueue(object : Callback<List<Activ>> {
+//            override fun onResponse(call: Call<List<Activ>>, response: Response<List<Activ>>?) {
+//                if (response?.body() != null)
+//                    recyclerAdapter.setActivListItems(response.body()!!)
+//            }
+//
+//            override fun onFailure(call: Call<List<Activ>>, t: Throwable) {
+////                Toast.makeText(this@MainActivity, "${t.message}", Toast.LENGTH_SHORT).show()
+//            }
+//        })
+//    }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        recycler_main.apply {
-            layoutManager = LinearLayoutManager(activity)
+       recycler_activ.apply {
+           layoutManager = LinearLayoutManager(activity)
             recyclerAdapter = RecyclerAdapter(context)
             adapter = recyclerAdapter
-        }
-
-
+       }
         val apiinterface = ApiInterface.create().getNews()
 
         apiinterface.enqueue(object : Callback<List<News>> {
@@ -129,10 +151,8 @@ class HomeFragment : Fragment() {
             }
         })
     }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+}
 
-
-    }
 
 
 

@@ -1,4 +1,4 @@
-package sev.seversk.androidapp1
+package sev.seversk.androidapp1.transport_items
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import android.text.Html
 import kotlinx.android.synthetic.main.activity_bus_detail.*
 import okhttp3.*
 import org.json.JSONArray
+import sev.seversk.androidapp1.R
 import java.io.IOException
 
 class bus_detail : AppCompatActivity() {

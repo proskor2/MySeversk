@@ -35,7 +35,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/text_problem_title"
+                    android:id="@+id/text_newproblem_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#000000" />
@@ -63,7 +63,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/text_problem_d"
+                    android:id="@+id/text_newproblem_descr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 

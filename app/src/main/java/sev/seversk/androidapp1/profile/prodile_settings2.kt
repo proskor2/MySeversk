@@ -1,9 +1,12 @@
 package sev.seversk.androidapp1.profile
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -24,6 +27,7 @@ class prodile_settings2 : AppCompatActivity() {
             window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         }
     }
+    val CAMERA_REQUEST_CODE = 0
 
     @SuppressLint("WorldReadableFiles")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,9 +56,30 @@ layout1123.setOnClickListener(){
         button_profile2_save.setOnClickListener(){
             val toast1= Toast.makeText(applicationContext, "Изменения сохранены", Toast.LENGTH_SHORT)
             toast1.show()
-
         }
 
+        button_addprofilephoto.setOnClickListener(){
+            val callCameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            if (callCameraIntent.resolveActivity(packageManager) != null) {
+                startActivityForResult(callCameraIntent, CAMERA_REQUEST_CODE)
+            }
+        }
+
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode) {
+            CAMERA_REQUEST_CODE -> {
+                if (resultCode == Activity.RESULT_OK && data != null) {
+                    add_profilephoto.setImageBitmap(data.extras?.get("data") as Bitmap)
+                }
+            }
+            else -> {
+                Toast.makeText(this, "Unrecognized request code", Toast.LENGTH_SHORT)
+            }
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -63,9 +88,6 @@ layout1123.setOnClickListener(){
         var name2 = set_profile_surname.text
         outState.putString("name", name1.toString())
         super.onSaveInstanceState(outState)
-
-
-
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -73,8 +95,10 @@ layout1123.setOnClickListener(){
 
         var name2 = savedInstanceState.getString("name")
         set_profile_name.setText(name2)
-
-
     }
+
+
+
+
 }
 

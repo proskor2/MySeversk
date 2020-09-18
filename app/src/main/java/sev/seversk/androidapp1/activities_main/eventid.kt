@@ -9,7 +9,7 @@ class eventid : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_eventid)
 
-        val intent1 = intent.extras
+
 
     }
 }

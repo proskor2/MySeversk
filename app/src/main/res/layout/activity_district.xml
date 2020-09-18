@@ -7,40 +7,27 @@
     android:paddingLeft="5dp"
     tools:context=".activities_main.district">
 
-    <TextView
-        android:id="@+id/textView43"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="8dp"
-        android:text="Округа"
-        android:textAlignment="textStart"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        app:cardCornerRadius="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView43">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView44"
+            android:id="@+id/textView43"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingLeft="5dp"
-            android:paddingTop="5dp"
-            android:text="Избирательный округ №1"
-            android:textColor="#000000" />
-    </androidx.cardview.widget.CardView>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="8dp"
+            android:text="Округа"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_district"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
