@@ -38,14 +38,14 @@ class ProblemAdapter(val context: Context): RecyclerView.Adapter<ProblemAdapter.
         var user1 = Html.fromHtml(problemsList.get(position).user)
         var pre_photo = problemsList.get(position).photo
         var photo1 = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai" + pre_photo
-//        val description1 = Html.fromHtml(problemsList.get(position).description)
+        val description1 = Html.fromHtml(problemsList.get(position).description)
         var create1 = Html.fromHtml(problemsList.get(position).created)
         var update1 = Html.fromHtml(problemsList.get(position).updated)
         var status1 = Html.fromHtml(problemsList.get(position).status)
 
         holder.problems_title.text = title1
-        holder.problems_user.text = user1
-//        holder.problem_descr.text = description1
+        holder.problems_user.text = ("Автор: "+user1)
+        holder.problem_descr.text = description1
         holder.problem_status.text = status1
         Glide.with(context).load(photo1)
             .apply(RequestOptions().centerCrop())

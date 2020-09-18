@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.graphics.drawable.toBitmap
+import androidx.core.graphics.scale
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.core.DataPart
 import com.github.kittinunf.fuel.core.FileDataPart
@@ -60,8 +61,8 @@ class appeal_problem : AppCompatActivity() {
 //////////////////////////////////////////////////////////////////////////////////////////// POST //////////////////////////////////////////////////////////////////////////////////////////////////////
         var mainurl = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/treatments"
         var gettitle = text_newproblem_title.text
-        var getdescr = text_newproblem_descr.text.toString()
-        var getaddress = text_newproblem_address.text.toString()
+        var getdescr = text_newproblem_descr.text
+        var getaddress = text_newproblem_address.text
 
 
 
@@ -69,6 +70,7 @@ class appeal_problem : AppCompatActivity() {
             val fromphoto:ImageView = findViewById(R.id.add_photo_new)
             var getphoto = fromphoto.drawable
             val getphoto1 = getphoto.toBitmap()
+            getphoto1.scale(10, 10)
 
             val bytes: ByteArrayOutputStream = ByteArrayOutputStream()
             getphoto1.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
