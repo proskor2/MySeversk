@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "416902314870",
+    "firebase_url": "https://androidapp1-c4d7c.firebaseio.com",
+    "project_id": "androidapp1-c4d7c",
+    "storage_bucket": "androidapp1-c4d7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416902314870:android:cbdbb25c932deb50125857",
+        "android_client_info": {
+          "package_name": "sev.seversk.androidapp1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416902314870-lkk4ldd50hfn4i9jrrout032j069hvg9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvoQFJiA-ifia1UbXkQqxwM_rbYzBk1Co"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416902314870-lkk4ldd50hfn4i9jrrout032j069hvg9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
