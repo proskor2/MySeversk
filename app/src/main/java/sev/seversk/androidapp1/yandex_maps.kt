@@ -8,6 +8,7 @@ import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.mapview.MapView
+import kotlinx.android.synthetic.main.map.*
 
 class yandex_maps : AppCompatActivity() {
 

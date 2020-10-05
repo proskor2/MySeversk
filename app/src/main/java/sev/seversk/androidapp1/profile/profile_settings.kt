@@ -23,9 +23,16 @@ class profile_settings : AppCompatActivity() {
             startActivity(change1)
         }
 // get data from settings2 activity
+
         profile_name_settings.text = ("Имя: "+intent.getStringExtra("name"))
         profile_surname_settings.text = ("Фамилия: "+intent.getStringExtra("surname"))
         profile_phone_settings.text = ("Телефон: "+intent.getStringExtra("phonenum"))
 
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+
+
+        super.onSaveInstanceState(outState)
     }
 }

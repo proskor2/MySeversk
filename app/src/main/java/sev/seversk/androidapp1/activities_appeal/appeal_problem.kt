@@ -4,33 +4,39 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
-import android.nfc.Tag
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.util.Log
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
+import androidx.core.view.get
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.core.FileDataPart
 import com.github.kittinunf.fuel.core.Method
 import kotlinx.android.synthetic.main.activity_newproblem.*
+import kotlinx.android.synthetic.main.activity_yandex_maps.*
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.seversk
+import sev.seversk.androidapp1.yandex_maps
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
-import java.net.URI
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
+@Suppress("DEPRECATION")
 class appeal_problem : AppCompatActivity() {
 
-    private var mImageUri :Uri? = null
+
+    var file: File? = null
 
     fun AppCompatActivity.hideKeyboard() {
         val view = this.currentFocus
@@ -43,9 +49,12 @@ class appeal_problem : AppCompatActivity() {
     }
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_newproblem)
+
 
 
         button_appeal_cancel2.setOnClickListener() {
@@ -54,26 +63,39 @@ class appeal_problem : AppCompatActivity() {
             finish()
         }
 
-        linear7.setOnClickListener() {
-            hideKeyboard()
-        }
 
 //////////////////////////////////////////////////////////////////////////////////////////// POST //////////////////////////////////////////////////////////////////////////////////////////////////////
         var mainurl = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/treatments"
-        var gettitle = text_newproblem_title.text
-        var getdescr = text_newproblem_descr.text
-        var getaddress = text_newproblem_address.text
+//        var gettitle = text_newproblem_title.text
+
+
+
+
+
+        button_tomap.setOnClickListener(){
+            var int1 = Intent(this@appeal_problem, yandex_maps::class.java)
+
+            startActivity(int1)
+
+
+        }
 
 
 // Click on button Ready
         button_newproblem_ready.setOnClickListener() {
+
+
+            var gettitle = spinner.selectedItem.toString()
+            var getdescr = text_newproblem_descr.text
+            var getaddress = text_newproblem_address.text
+
             val fromphoto: ImageView = findViewById(R.id.add_photo_new)
             var getphoto = fromphoto.drawable
-            val getphoto1 = getphoto.toBitmap()
+            val getphoto1 = getphoto?.toBitmap()
 
 
             val bytes: ByteArrayOutputStream = ByteArrayOutputStream()
-            getphoto1.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
+            getphoto1?.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
             val file = createTempFile("photo", ".jpg")
             val fo: FileOutputStream = FileOutputStream(file)
             fo.write(bytes.toByteArray())
@@ -104,11 +126,40 @@ class appeal_problem : AppCompatActivity() {
             showPictureDialog()
 
         }
+
+        linear7.setOnClickListener() {
+            hideKeyboard()
+
+        }
+
+
+
     }
 
 
     private val GALLERY = 1
     private val CAMERA = 2
+
+    var mCurrentPhotoPath: String? = null
+
+    @Throws(IOException::class)
+    private fun createImageFile(): File? {
+        // Create an image file name
+        val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val imageFileName = "JPEG_" + timeStamp + "_"
+        val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        val image = File.createTempFile(
+            imageFileName,  /* prefix */
+            ".jpg",  /* suffix */
+            storageDir /* directory */
+        )
+
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = image.absolutePath
+        return image
+    }
+
+
 
 
 
@@ -134,7 +185,9 @@ class appeal_problem : AppCompatActivity() {
 
     private fun takePhotoFromCamera() {
         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.parse("Android/data/sev.seversk.androidapp1/files/Pictures/temp.jpg"))
         startActivityForResult(cameraIntent, CAMERA)
+
 
     }
 
@@ -157,11 +210,18 @@ class appeal_problem : AppCompatActivity() {
             }
         } else if (requestCode == CAMERA) {
 
-            add_photo_new.setImageBitmap(data?.extras?.get("data") as Bitmap)
+//            add_photo_new.setImageBitmap(data?.extras?.get("data") as Bitmap)
+            val file = File(Environment.getDataDirectory().toString() + File.separator +"temp.jpg")
+            val bit = data.extras
+            val bit2 = bit?.getParcelable<Uri>("data")
+            add_photo_new.setImageURI(bit2)
 
-
+            }
         }
+
 
     }
 
-}
+
+
+

@@ -54,15 +54,11 @@
                 android:text="Тип проблемы:"
                 android:textColor="#7A7A7A" />
 
-            <EditText
-                android:id="@+id/text_newproblem_title"
-                style="@style/Base.Widget.MaterialComponents.TextInputEditText"
+            <Spinner
+                android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:text="Тип проблемы"
-                android:textColor="#000000"
-                android:textSize="12sp" />
+                android:entries="@array/typeList" />
 
         </LinearLayout>
 
@@ -108,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="Введите адрес"
+            android:text="пр.Коммунистический 51"
             android:textColor="#000000"
             android:textSize="12sp" />
 
@@ -196,7 +192,8 @@
             android:background="#FFFFFF"
             android:text="Готово"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="#1664BB" />
+            android:textColor="#1664BB"
+            android:visibility="visible" />
 
     </LinearLayout>
 
