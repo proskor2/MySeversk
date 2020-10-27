@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="пр.Коммунистический 51"
+            android:text="Введите адрес"
             android:textColor="#000000"
             android:textSize="12sp" />
 

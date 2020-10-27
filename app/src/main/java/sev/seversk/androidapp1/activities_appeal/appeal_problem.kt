@@ -7,10 +7,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
@@ -55,7 +57,15 @@ class appeal_problem : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_newproblem)
 
+   val txt = findViewById<TextView>(R.id.text_newproblem_address)
+        val txt2 = findViewById<TextView>(R.id.text_newproblem_descr)
+        txt.setOnFocusChangeListener { v, hasFocus ->
+            if (txt.text.toString() == "Введите адрес") txt.text = ""
+        }
 
+        txt2.setOnFocusChangeListener { v, hasFocus ->
+            if (txt2.text.toString() == "Описание проблемы") txt2.text = ""
+        }
 
         button_appeal_cancel2.setOnClickListener() {
             val appeal3 = Intent(this@appeal_problem, seversk::class.java)
@@ -185,7 +195,7 @@ class appeal_problem : AppCompatActivity() {
 
     private fun takePhotoFromCamera() {
         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.parse("Android/data/sev.seversk.androidapp1/files/Pictures/temp.jpg"))
+//        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.parse("Android/data/sev.seversk.androidapp1/files/Pictures/temp.jpg"))
         startActivityForResult(cameraIntent, CAMERA)
 
 
@@ -210,11 +220,8 @@ class appeal_problem : AppCompatActivity() {
             }
         } else if (requestCode == CAMERA) {
 
-//            add_photo_new.setImageBitmap(data?.extras?.get("data") as Bitmap)
-            val file = File(Environment.getDataDirectory().toString() + File.separator +"temp.jpg")
-            val bit = data.extras
-            val bit2 = bit?.getParcelable<Uri>("data")
-            add_photo_new.setImageURI(bit2)
+            add_photo_new.setImageBitmap(data?.extras?.get("data") as Bitmap)
+
 
             }
         }

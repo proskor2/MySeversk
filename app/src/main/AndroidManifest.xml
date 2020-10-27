@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sev.seversk.androidapp1">
-
-
-
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
-<!--    <uses-permission android:name="android.permission.CAMERA"/>-->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- <uses-permission android:name="android.permission.CAMERA"/> -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.camera"
+
+    <uses-feature
+        android:name="android.hardware.camera"
         android:required="true" />
-
-
-
 
     <application
         android:allowBackup="true"
@@ -29,6 +22,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".disctrict_items.district_description"></activity>
         <activity android:name=".yandex_maps" />
         <activity android:name=".ui.mainscreen.Activid" />
         <activity android:name=".activities_main.eventid" />
@@ -135,9 +129,8 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/pictures"></meta-data>
+                android:resource="@xml/pictures" />
         </provider>
-
     </application>
 
 </manifest>

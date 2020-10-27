@@ -94,8 +94,6 @@ layout1123.setOnClickListener(){
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
 
-
-
         var name1 = savedInstanceState.getString("name")
         var name2 = savedInstanceState.getString("surname")
         set_profile_name.setText(name2)

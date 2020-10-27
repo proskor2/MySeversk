@@ -48,7 +48,7 @@ class DistrictAdapter(val context: Context): RecyclerView.Adapter<DistrictAdapte
     }
 
 
-    fun setOprosListItems(dsitrictList: List<District>) {
+    fun setDistrListItems(dsitrictList: List<District>) {
         this.dsitrictList = dsitrictList
         notifyDataSetChanged()
     }
