@@ -22,7 +22,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".disctrict_items.district_description"></activity>
+        <activity android:name=".activities_main.emergency_detail"></activity>
+        <activity android:name=".disctrict_items.district_description" />
         <activity android:name=".yandex_maps" />
         <activity android:name=".ui.mainscreen.Activid" />
         <activity android:name=".activities_main.eventid" />

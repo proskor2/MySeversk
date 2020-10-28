@@ -1,28 +1,10 @@
 package sev.seversk.androidapp1.activities_main
 
 import android.content.Intent
-import android.graphics.BitmapFactory
-import android.graphics.drawable.Drawable
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.graphics.createBitmap
-import androidx.core.graphics.drawable.toDrawable
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_alerts.*
 import kotlinx.android.synthetic.main.activity_district.*
-import kotlinx.android.synthetic.main.example_district.*
-import org.json.JSONArray
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.alerts_items.Alert
-import sev.seversk.androidapp1.alerts_items.AlertAdapter
-import sev.seversk.androidapp1.alerts_items.ApiAlert
-import sev.seversk.androidapp1.disctrict_items.ApiDistr
-import sev.seversk.androidapp1.disctrict_items.District
 import sev.seversk.androidapp1.disctrict_items.district_description
 
 class district : AppCompatActivity() {
@@ -35,7 +17,8 @@ class district : AppCompatActivity() {
 card_district1.setOnClickListener(){
     val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №1"
     val name = "МАЕВСКИЙ АЛЕКСАНДР ИЗИДОРОВИЧ"
-    val streets = """ УЛИЦЫ, ВХОДЯЩИЕ В ОКРУГ:
+    val streets = """
+УЛИЦЫ, ВХОДЯЩИЕ В ОКРУГ:
 ул. Победы, 14а, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 27, 29, 31, 33, 33а, 35, 35а, 39
 ул. Ленинградская, 2, 4, 6, 6б, 6в, 8, 10, 12, 14, 14а, 16а, 18, 20, 22, 24, 26, 28, 30, 33, 34
 ул. Славского, 20, 34
@@ -59,7 +42,8 @@ card_district1.setOnClickListener(){
         card_district2.setOnClickListener(){
             val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №2"
             val name = "МАКАРЕНКО ВИТАЛИЙ АЛЕКСЕЕВИЧ"
-            val streets = """ УЛИЦЫ, ВХОДЯЩИЕ В ОКРУГ:
+            val streets = """ 
+УЛИЦЫ, ВХОДЯЩИЕ В ОКРУГ:
 ул. Победы, 1, 2, 4, 4а, 5, 6, 6а, 7, 8, 9, 10, 13
 ул. Славского, 2, 4, 6, 6а, 10, 16, 18, 22
 пр. Коммунистический, 120, 122, 124, 126, 130
@@ -330,7 +314,7 @@ card_district1.setOnClickListener(){
             intent.putExtra("name1", name )
             intent.putExtra("num1", num)
             intent.putExtra("streets1", streets)
-            intent.putExtra("resId", R.drawable.stepin)
+            intent.putExtra("resId", R.drawable.ivamov)
             startActivity(intent)
         }
 
