@@ -11,8 +11,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_seversk_news.*
-import sev.seversk.androidapp1.MapsActivity
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.activities_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -110,7 +108,7 @@ class HomeFragment : Fragment() {
         }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//
+
 //        recycler_activ.apply {
 //            layoutManager = LinearLayoutManager(activity)
 //            recyclerAdapter = ActivAdapter(context)
@@ -131,6 +129,7 @@ class HomeFragment : Fragment() {
 //            }
 //        })
 //    }
+//}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
        recycler_activ.apply {

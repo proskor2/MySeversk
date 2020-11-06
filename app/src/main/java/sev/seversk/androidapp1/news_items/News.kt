@@ -1,9 +1,10 @@
 package sev.seversk.androidapp1.news_items
 
 data class News(
-    var title: String,
-    var preview: String,
-    var photo: String,
-    var description: String,
-    var date: String
+    val title: String,
+    val preview: String,
+    val photo: String,
+    val description: String,
+    val date: String,
+    val id: String
 )

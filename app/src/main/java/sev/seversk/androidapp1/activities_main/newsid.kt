@@ -15,6 +15,8 @@ class newsid: AppCompatActivity() {
         val text_det_news = intent1?.get("detail").toString()
         val text_date_news = intent1?.get("daten").toString()
         val photo_n = intent1?.get("photon").toString()
+        val news_id = intent1?.get("newsid").toString()
+
         Glide.with(this).load(photo_n)
             .apply(RequestOptions().centerCrop())
             .into(newsid_image)

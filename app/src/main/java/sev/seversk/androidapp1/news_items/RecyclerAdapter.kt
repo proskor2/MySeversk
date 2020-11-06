@@ -44,7 +44,9 @@ class RecyclerAdapter(val context: Context): RecyclerView.Adapter<RecyclerAdapte
         var pre_photo = newsList.get(position).photo
         var photo1 ="https://"+"$pre_photo"
         var desc = Html.fromHtml(newsList.get(position).description)
+        var desc2 = newsList.get(position).description
         var date1 = Html.fromHtml(newsList.get(position).date)
+        var id_news = Html.fromHtml(newsList.get(position).id)
 
         holder.newsName.text = title1
         holder.newsDescr.text = prev1
@@ -53,10 +55,13 @@ class RecyclerAdapter(val context: Context): RecyclerView.Adapter<RecyclerAdapte
             .into(holder.newsImage)
         holder.card.setOnClickListener(){
 //            Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
-            val intent1 = Intent(this@RecyclerAdapter.context, newsid::class.java)
-            intent1.putExtra("detail", desc)
+
+             val intent1 = Intent(this@RecyclerAdapter.context, news_web::class.java)
+//            val intent1 = Intent(this@RecyclerAdapter.context, newsid::class.java)
+            intent1.putExtra("detail", desc2)
             intent1.putExtra("daten", date1)
             intent1.putExtra("photon", photo1)
+            intent1.putExtra("newsid", id_news)
             ContextCompat.startActivity(context, intent1, null)
         }
 
