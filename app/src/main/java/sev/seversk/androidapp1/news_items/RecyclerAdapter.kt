@@ -48,6 +48,8 @@ class RecyclerAdapter(val context: Context): RecyclerView.Adapter<RecyclerAdapte
         var date1 = Html.fromHtml(newsList.get(position).date)
         var id_news = Html.fromHtml(newsList.get(position).id)
 
+        var comm = Html.fromHtml(newsList.get(position).comments_count.toString())
+
         holder.newsName.text = title1
         holder.newsDescr.text = prev1
         Glide.with(context).load(photo1)
@@ -62,6 +64,7 @@ class RecyclerAdapter(val context: Context): RecyclerView.Adapter<RecyclerAdapte
             intent1.putExtra("daten", date1)
             intent1.putExtra("photon", photo1)
             intent1.putExtra("newsid", id_news)
+            intent1.putExtra("comm", comm)
             ContextCompat.startActivity(context, intent1, null)
         }
 
@@ -83,6 +86,7 @@ class RecyclerAdapter(val context: Context): RecyclerView.Adapter<RecyclerAdapte
         val newsDescr = itemView.findViewById<TextView>(R.id.text_news2)
         val newsImage = itemView.findViewById<ImageView>(R.id.news_photo1)
         val card = itemView.findViewById<CardView>(R.id.card_news)
+
     }
 
 

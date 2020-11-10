@@ -4,4 +4,6 @@ class Activ  (var title: String,
 var preview: String,
 var photo: String,
 var description: String,
-var date: String)
+var date: String,
+var id: String,
+var url: String)
