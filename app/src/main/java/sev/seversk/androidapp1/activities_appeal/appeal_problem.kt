@@ -96,6 +96,7 @@ class appeal_problem : AppCompatActivity() {
 
 
             var gettitle = spinner.selectedItem.toString()
+
             var getdescr = text_newproblem_descr.text
             var getaddress = text_newproblem_address.text
 

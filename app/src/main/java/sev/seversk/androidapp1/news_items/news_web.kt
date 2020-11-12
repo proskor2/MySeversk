@@ -3,11 +3,14 @@ package sev.seversk.androidapp1.news_items
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.webkit.WebSettings
 import android.webkit.WebView
 import androidx.core.text.htmlEncode
 import kotlinx.android.synthetic.main.activity_news_web.*
+import org.jsoup.Jsoup
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.comment.comments1
+import java.net.URL
 
 class news_web : AppCompatActivity() {
 
@@ -18,6 +21,19 @@ class news_web : AppCompatActivity() {
         val intent2 = intent.extras
         val newsnews = intent2?.get("newsid").toString()
         val newsdesc = intent2?.get("detail").toString()
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+        val upl = "/uploads/ckfinder/userfiles/"
+        val newsdesc123 = if (newsdesc.contains(upl)) {
+            newsdesc.replace("/uploads/ckfinder/userfiles/", "https://xn----7sbhlbh0a1awgee.xn--p1ai/uploads/ckfinder/userfiles/")
+
+        } else {
+            newsdesc
+        }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////
 
         val comm = intent2?.get("comm").toString()
 
@@ -33,22 +49,11 @@ class news_web : AppCompatActivity() {
 
         val myweb: WebView = findViewById(R.id.news_webview)
 
-
         val map1: Map<String, String> = mapOf("Authorization" to "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
 
-//        myweb.loadUrl("https://xn----7sbhlbh0a1awgee.xn--p1ai/news/front/view/id/"+"$newsnews")
-//        myweb.loadUrl("https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/news/"+"$newsnews", map1)
-
-        myweb.loadDataWithBaseURL("file:///android_asset/", newsdesc, "text/html", "utf-8", null)
-
-
-//        myweb.loadData( newsdesc, "text/html", "utf-8")
-
-
+        myweb.loadDataWithBaseURL("", newsdesc123, "text/html", "utf-8", "")
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 
 
