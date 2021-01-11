@@ -13,54 +13,6 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:isScrollContainer="false"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/button_profile_appeal"
-                android:layout_width="86dp"
-                android:layout_height="85dp"
-                android:layout_margin="5dp"
-                android:layout_weight="0.25"
-                android:background="#FFFFFF"
-                android:scaleType="fitCenter"
-                android:src="@drawable/frame51" />
-
-            <ImageButton
-                android:id="@+id/button_profile_problem"
-                android:layout_width="86dp"
-                android:layout_height="85dp"
-                android:layout_margin="5dp"
-                android:layout_weight="0.25"
-                android:background="#FFFFFF"
-                android:scaleType="fitCenter"
-                android:src="@drawable/frame61" />
-
-            <ImageButton
-                android:id="@+id/button_profile_opros"
-                android:layout_width="86dp"
-                android:layout_height="85dp"
-                android:layout_margin="5dp"
-                android:layout_weight="0.25"
-                android:background="#FFFFFF"
-                android:scaleType="fitCenter"
-                android:src="@drawable/frame4" />
-
-            <ImageButton
-                android:id="@+id/button_profile_iniciate"
-                android:layout_width="86dp"
-                android:layout_height="85dp"
-                android:layout_margin="5dp"
-                android:layout_weight="0.25"
-                android:background="#FFFFFF"
-                android:scaleType="fitCenter"
-                android:src="@drawable/frame71" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:orientation="vertical">

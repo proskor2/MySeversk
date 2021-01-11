@@ -8,9 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import sev.seversk.androidapp1.R
-import kotlinx.android.synthetic.main.fragment_appeals.view.button_profile_appeal
-import kotlinx.android.synthetic.main.fragment_appeals.view.button_profile_iniciate
-import kotlinx.android.synthetic.main.fragment_appeals.view.button_profile_opros
+
 import kotlinx.android.synthetic.main.fragment_problems.*
 import kotlinx.android.synthetic.main.fragment_problems.view.*
 import okhttp3.*
@@ -56,9 +54,7 @@ class fragment_problems : Fragment() {
         // Inflate the layout for this fragment
         val fragmentLayout = inflater.inflate(R.layout.fragment_problems, container, false)
         val navController = NavHostFragment.findNavController(this)
-        fragmentLayout.button_profile_appeal.setOnClickListener {navController.navigate(R.id.fragment_appeals)}
-        fragmentLayout.button_profile_opros.setOnClickListener{navController.navigate(R.id.fragment_opros)}
-        fragmentLayout.button_profile_iniciate.setOnClickListener{navController.navigate(R.id.fragment_iniciativa)}
+
         fragmentLayout.linear2.setOnClickListener{navController.navigate(R.id.problem_detail1)}
 
         return fragmentLayout

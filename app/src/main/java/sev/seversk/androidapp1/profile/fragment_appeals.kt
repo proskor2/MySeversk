@@ -57,9 +57,6 @@ class fragment_appeals : Fragment() {
         // Inflate the layout for this fragment
        val fragmentLayout = inflater.inflate(R.layout.fragment_appeals, container, false)
         val navController = NavHostFragment.findNavController(this)
-        fragmentLayout.button_profile_problem.setOnClickListener {navController.navigate(R.id.fragment_problems)}
-        fragmentLayout.button_profile_opros.setOnClickListener{navController.navigate(R.id.fragment_opros)}
-        fragmentLayout.button_profile_iniciate.setOnClickListener{navController.navigate(R.id.fragment_iniciativa)}
 
         return fragmentLayout
     }
