@@ -112,7 +112,7 @@ class HomeFragment : Fragment() {
 //        recycler_activ.apply {
 //            layoutManager = LinearLayoutManager(activity)
 //            recyclerAdapter = ActivAdapter(context)
-//            adapter = recyclerAdapter
+//            this.adapter = recyclerAdapter
 //        }
 //
 //

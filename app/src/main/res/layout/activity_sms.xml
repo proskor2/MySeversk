@@ -35,7 +35,8 @@
             android:layout_weight="0.2"
             android:text="Мы отправили на Ваш номер телефона SMS с кодом подтверждения"
             android:textAlignment="center"
-            android:textColor="#494949" />
+            android:textColor="#494949"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView5"
@@ -45,7 +46,8 @@
             android:layout_weight="0.05"
             android:text="Введите полученный код"
             android:textAlignment="center"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/edit_smspass"
@@ -56,6 +58,7 @@
             android:layout_weight="0.1"
             android:ems="10"
             android:inputType="number"
+            android:maxLength="5"
             android:textAlignment="center" />
 
         <Button
@@ -80,7 +83,8 @@
             android:layout_weight="0.1"
             android:text="Получить код повторно"
             android:textAlignment="center"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/autor_sms2"
@@ -94,7 +98,8 @@
             android:singleLine="false"
             android:text="Авторизоваться позднее"
             android:textAlignment="center"
-            android:textColor="#1664BB" />
+            android:textColor="#1664BB"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView7"

@@ -36,26 +36,26 @@ class ActivAdapter(val context: Context): RecyclerView.Adapter<ActivAdapter.MyVi
         override fun onBindViewHolder(holder: ActivAdapter.MyViewHolder, position: Int) {
 
             var title1 = Html.fromHtml(activList.get(position).title)
-//            var pre_photo = activList.get(position).photo
-//            var photo1 ="https://"+"$pre_photo"
-//            var desc = Html.fromHtml(activList.get(position).description)
-//            var date1 = Html.fromHtml(activList.get(position).date)
+            var pre_photo = activList.get(position).photo
+            var photo1 ="https://"+"$pre_photo"
+            var desc = Html.fromHtml(activList.get(position).description)
+            var date1 = Html.fromHtml(activList.get(position).date)
 
 
             holder.activName.text = title1
-//            holder.activDescr.text = date1
+            holder.activDescr.text = date1
 
-//            Glide.with(context).load(photo1)
-//                .apply(RequestOptions().centerCrop())
-//                .into(holder.activImage)
-//            holder.card.setOnClickListener(){
-////            Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
-//                val intent1 = Intent(this@ActivAdapter.context, Activid::class.java)
-//                intent1.putExtra("date", date1)
-//                intent1.putExtra("desc", desc)
-//                intent1.putExtra("photo", photo1)
-//                ContextCompat.startActivity(context, intent1, null)
-//            }
+            Glide.with(context).load(photo1)
+                .apply(RequestOptions().centerCrop())
+                .into(holder.activImage)
+            holder.card.setOnClickListener(){
+//            Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
+                val intent1 = Intent(this@ActivAdapter.context, Activid::class.java)
+                intent1.putExtra("date", date1)
+                intent1.putExtra("desc", desc)
+                intent1.putExtra("photo", photo1)
+                ContextCompat.startActivity(context, intent1, null)
+            }
 
         }
 
@@ -67,9 +67,9 @@ class ActivAdapter(val context: Context): RecyclerView.Adapter<ActivAdapter.MyVi
 
         class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
             val activName = itemView.findViewById<TextView>(R.id.text_activ1)
-//            val activDescr = itemView.findViewById<TextView>(R.id.text_activ2)
-//            val activImage = itemView.findViewById<ImageView>(R.id.activ_photo1)
-//            val card = itemView.findViewById<CardView>(R.id.card_activ)
+            val activDescr = itemView.findViewById<TextView>(R.id.text_activ2)
+            val activImage = itemView.findViewById<ImageView>(R.id.activ_photo1)
+            val card = itemView.findViewById<CardView>(R.id.card_activ)
         }
 
 

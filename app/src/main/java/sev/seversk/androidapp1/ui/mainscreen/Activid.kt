@@ -20,7 +20,7 @@ class Activid : AppCompatActivity() {
         Glide.with(this).load(photo_act)
             .apply(RequestOptions().centerCrop())
             .into(activid_image)
-      activid_cont?.text = text_desc_act
+        activid_cont?.text = text_desc_act
         activid_date?.text = text_date_act
     }
 }

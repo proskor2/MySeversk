@@ -50,9 +50,6 @@ class appeal_problem : AppCompatActivity() {
         }
     }
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_newproblem)
@@ -78,18 +75,10 @@ class appeal_problem : AppCompatActivity() {
         var mainurl = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/treatments"
 //        var gettitle = text_newproblem_title.text
 
-
-
-
-
         button_tomap.setOnClickListener(){
             var int1 = Intent(this@appeal_problem, yandex_maps::class.java)
-
             startActivity(int1)
-
-
         }
-
 
 // Click on button Ready
         button_newproblem_ready.setOnClickListener() {
@@ -135,16 +124,11 @@ class appeal_problem : AppCompatActivity() {
 // add photo
         button_problem_addfile.setOnClickListener() {
             showPictureDialog()
-
         }
 
         linear7.setOnClickListener() {
             hideKeyboard()
-
         }
-
-
-
     }
 
 
@@ -171,9 +155,6 @@ class appeal_problem : AppCompatActivity() {
     }
 
 
-
-
-
     private fun showPictureDialog() {
         val pictureDialog = android.app.AlertDialog.Builder(this)
         pictureDialog.setTitle("Выберите действие")
@@ -198,10 +179,7 @@ class appeal_problem : AppCompatActivity() {
         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 //        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.parse("Android/data/sev.seversk.androidapp1/files/Pictures/temp.jpg"))
         startActivityForResult(cameraIntent, CAMERA)
-
-
     }
-
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -213,7 +191,6 @@ class appeal_problem : AppCompatActivity() {
                     val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, contentURI)
                     add_photo_new!!.setImageBitmap(bitmap)
 
-
                 } catch (e: IOException) {
                     e.printStackTrace()
                     Toast.makeText(this@appeal_problem, "Failed", Toast.LENGTH_SHORT).show()
@@ -223,11 +200,8 @@ class appeal_problem : AppCompatActivity() {
 
             add_photo_new.setImageBitmap(data?.extras?.get("data") as Bitmap)
 
-
             }
         }
-
-
     }
 
 
