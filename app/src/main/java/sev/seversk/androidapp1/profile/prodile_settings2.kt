@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import sev.seversk.androidapp1.R
@@ -40,7 +41,7 @@ layout1123.setOnClickListener(){
 }
 
 
-
+val image = findViewById<ImageView>(R.id.add_profilephoto)
 
 // Change Activity to back with data
     button_profile2_back.setOnClickListener(){
@@ -48,6 +49,7 @@ layout1123.setOnClickListener(){
         back1.putExtra("name", set_profile_name?.text.toString())
         back1.putExtra("surname", set_profile_surname?.text.toString())
         back1.putExtra("phonenum", set_profile_phone?.text.toString())
+
         startActivity(back1)
         finish()
     }

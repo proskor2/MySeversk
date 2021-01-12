@@ -58,7 +58,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/image_profile_card"
+                    android:id="@+id/image_profile_card2"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     app:cardCornerRadius="50dp">

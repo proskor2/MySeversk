@@ -68,7 +68,7 @@
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/image_profile_card"
+                        android:id="@+id/image_profile_card2"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_margin="5dp"
@@ -244,17 +244,10 @@
             app:cardElevation="4dp">
 
             <fragment
-                android:id="@+id/fragment12"
-                android:name="sev.seversk.androidapp1.profile.fragment_appeals"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <fragment
                 android:id="@+id/fragment_profile_main"
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone"
                 app:defaultNavHost="true"
                 app:navGraph="@navigation/routes" />
         </androidx.cardview.widget.CardView>

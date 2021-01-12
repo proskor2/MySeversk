@@ -1,28 +1,30 @@
 package sev.seversk.androidapp1.ui.profilescreen
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.Navigation
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.profile.profile_settings
+import android.provider.MediaStore
+import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_newproblem.*
+import kotlinx.android.synthetic.main.activity_prodile_settings2.*
 
 import kotlinx.android.synthetic.main.fragment_notifications.*
+import sev.seversk.androidapp1.R.id.fragment_profile_main
+import java.io.IOException
 
-@Suppress("UNREACHABLE_CODE")
+@Suppress("UNREACHABLE_CODE", "DEPRECATION")
 class NotificationFragment : Fragment() {
 
     private lateinit var notificationsViewModel: NotificationsViewModel
@@ -45,15 +47,10 @@ class NotificationFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        fun addPhoto1(){
-            val addpick = Intent(Intent.ACTION_PICK)
-            addpick.setType("image/*")
-            startActivityForResult(addpick,1)
-            val one = addpick.data
-            image_profile.setImageURI(one)
-        }
-        image_profile_card.setOnClickListener(){
-            addPhoto1()
+
+
+        image_profile_card2.setOnClickListener(){
+
         }
 
         activity?.findViewById<Button>(R.id.button_profile_settings2)?.setOnClickListener(){
@@ -63,45 +60,30 @@ class NotificationFragment : Fragment() {
         }
 
 
-//
-//        val navHostFragment = NavHostFragment.create(R.id.routes)
-//        val navController = navHostFragment.navController
-
-
+// Replace fragments
+        val navController = activity?.let { Navigation.findNavController(it, fragment_profile_main) }
 
 
       activity?.findViewById<CardView>(R.id.cardButton_profile_appeals)?.setOnClickListener(){
-          Toast.makeText(context, "Обращения", Toast.LENGTH_SHORT).show()
-
-
+          navController?.navigate(R.id.fragment_appeals)
       }
 
         activity?.findViewById<CardView>(R.id.cardButton_profile_problems)?.setOnClickListener(){
-            Toast.makeText(context, "Проблемы", Toast.LENGTH_SHORT).show()
-
+            navController?.navigate(R.id.fragment_problems)
         }
 
         activity?.findViewById<CardView>(R.id.cardButton_profile_opross)?.setOnClickListener(){
-            Toast.makeText(context, "Опросы", Toast.LENGTH_SHORT).show()
-
+            navController?.navigate(R.id.fragment_opros)
         }
 
         activity?.findViewById<CardView>(R.id.cardButton_profile_iniciatives)?.setOnClickListener(){
-            Toast.makeText(context, "Предложения", Toast.LENGTH_SHORT).show()
-
+            navController?.navigate(R.id.fragment_iniciativa)
         }
+
 
 
 
     }
-
-
-
-
-
-
-
-
 
 }
 

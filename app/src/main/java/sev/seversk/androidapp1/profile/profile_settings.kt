@@ -6,6 +6,7 @@ import android.os.Bundle
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.seversk
 import kotlinx.android.synthetic.main.activity_profile_settings.*
+import sev.seversk.androidapp1.ui.profilescreen.NotificationFragment
 
 class profile_settings : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +14,7 @@ class profile_settings : AppCompatActivity() {
         setContentView(R.layout.activity_profile_settings)
 // button change screen settings to main screen
         button_profilesettings_back.setOnClickListener(){
-            val back = Intent(this@profile_settings, seversk::class.java)
+            val back = Intent(this@profile_settings, NotificationFragment::class.java)
             startActivity(back)
             finish()
         }

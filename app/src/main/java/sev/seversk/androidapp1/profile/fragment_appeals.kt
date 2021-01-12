@@ -47,7 +47,6 @@ class fragment_appeals : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-
             }
 
     override fun onCreateView(
@@ -56,16 +55,11 @@ class fragment_appeals : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
        val fragmentLayout = inflater.inflate(R.layout.fragment_appeals, container, false)
-        val navController = NavHostFragment.findNavController(this)
-
         return fragmentLayout
     }
 
     override fun onStart() {
         super.onStart()
-
-
-
 
         val token = "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi"
         val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/news?page=1&per-page=10"
@@ -79,7 +73,6 @@ class fragment_appeals : Fragment() {
 
             @SuppressLint("WrongConstant")
             override fun onResponse(call: Call, response: Response) {
-
 
                 val tex1: String = JSONArray(json1).getJSONObject(0).getString("code")
                 val tex2: String = JSONArray(json1).getJSONObject(0).getString("status")
@@ -97,17 +90,6 @@ class fragment_appeals : Fragment() {
             }
 
 
-
-//            companion object {
-//                @JvmStatic
-//                fun newInstance(param1: String, param2: String) =
-//                    fragment_appeals().apply {
-//                        arguments = Bundle().apply {
-//                            putString(ARG_PARAM1, param1)
-//                            putString(ARG_PARAM2, param2)
-//                        }
-//                    }
-//            }
         })
 
 
