@@ -3,9 +3,11 @@ package sev.seversk.androidapp1.profile
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.replace
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.seversk
 import kotlinx.android.synthetic.main.activity_profile_settings.*
+import kotlinx.android.synthetic.main.activity_seversk.*
 import sev.seversk.androidapp1.ui.profilescreen.NotificationFragment
 
 class profile_settings : AppCompatActivity() {
@@ -14,14 +16,14 @@ class profile_settings : AppCompatActivity() {
         setContentView(R.layout.activity_profile_settings)
 // button change screen settings to main screen
         button_profilesettings_back.setOnClickListener(){
-            val back = Intent(this@profile_settings, NotificationFragment::class.java)
+            val back = Intent(this@profile_settings, seversk::class.java)
             startActivity(back)
             finish()
         }
 // button change screen settings to detals settings screen
         button_profile1_change.setOnClickListener(){
-            val change1 = Intent(this@profile_settings, prodile_settings2::class.java)
-            startActivity(change1)
+        val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.routes, newprofileset())
         }
 // get data from settings2 activity
 

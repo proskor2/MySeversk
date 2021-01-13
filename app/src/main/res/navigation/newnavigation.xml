@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/newnavigation"
+    app:startDestination="@id/newprofileset">
+
+    <fragment
+        android:id="@+id/newprofileset"
+        android:name="sev.seversk.androidapp1.profile.newprofileset"
+        android:label="newprofileset" />
+    <fragment
+        android:id="@+id/newprofileset2"
+        android:name="sev.seversk.androidapp1.profile.newprofileset2"
+        android:label="newprofileset2" />
+</navigation>

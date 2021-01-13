@@ -17,11 +17,15 @@ import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.profile.profile_settings
 import android.provider.MediaStore
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.replace
 import kotlinx.android.synthetic.main.activity_newproblem.*
 import kotlinx.android.synthetic.main.activity_prodile_settings2.*
 
 import kotlinx.android.synthetic.main.fragment_notifications.*
 import sev.seversk.androidapp1.R.id.fragment_profile_main
+import sev.seversk.androidapp1.profile.newprofileset
+import sev.seversk.androidapp1.profile.newprofileset2
 import java.io.IOException
 
 @Suppress("UNREACHABLE_CODE", "DEPRECATION")
@@ -50,12 +54,12 @@ class NotificationFragment : Fragment() {
 
 
         image_profile_card2.setOnClickListener(){
-
         }
 
         activity?.findViewById<Button>(R.id.button_profile_settings2)?.setOnClickListener(){
-            val settings1 = Intent (this@NotificationFragment.context, profile_settings::class.java)
-            startActivity(settings1)
+//            val settings1 = Intent (this@NotificationFragment.context, profile_settings::class.java)
+//            startActivity(settings1)
+
 
         }
 
@@ -80,9 +84,17 @@ class NotificationFragment : Fragment() {
             navController?.navigate(R.id.fragment_iniciativa)
         }
 
+        activity?.findViewById<CardView>(R.id.card_profile_set)?.setOnClickListener(){
+//           replaceFragment(newprofileset2())
+        }
 
 
+    }
 
+    private fun replaceFragment(fragment: Fragment){
+        val trans = fragmentManager?.beginTransaction()
+        trans?.replace(R.id.mobile_navigation, fragment)
+        trans?.commit()
     }
 
 }

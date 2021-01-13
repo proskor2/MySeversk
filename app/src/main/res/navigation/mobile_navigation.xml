@@ -22,5 +22,21 @@
         android:id="@+id/navigation_notification"
         android:name="sev.seversk.androidapp1.ui.profilescreen.NotificationFragment"
         android:label="Профиль"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_notifications" >
+        <action
+            android:id="@+id/action_navigation_notification_to_newprofileset2"
+            app:destination="@id/newprofileset" />
+    </fragment>
+    <fragment
+        android:id="@+id/newprofileset"
+        android:name="sev.seversk.androidapp1.profile.newprofileset"
+        android:label="newprofileset">
+        <action
+            android:id="@+id/action_newprofileset_to_newprofileset2"
+            app:destination="@id/newprofileset2" />
+    </fragment>
+    <fragment
+        android:id="@+id/newprofileset2"
+        android:name="sev.seversk.androidapp1.profile.newprofileset2"
+        android:label="newprofileset2" />
 </navigation>
