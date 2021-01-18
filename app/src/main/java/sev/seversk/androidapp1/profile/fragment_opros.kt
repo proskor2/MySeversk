@@ -61,7 +61,6 @@ class fragment_opros : Fragment() {
 
 
 
-
         val token = "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi"
         val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/news?page=1&per-page=10"
         var okHttpClient: OkHttpClient = OkHttpClient()

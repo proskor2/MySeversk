@@ -1,5 +1,6 @@
 package sev.seversk.androidapp1.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,12 +25,24 @@ class newprofileset: Fragment(){
     override fun onStart() {
         super.onStart()
 
+//        activity?.findViewById<CardView>(R.id.card_profile_set)?.setOnClickListener(){
+//            val transaction = fragmentManager?.beginTransaction()
+//            transaction?.replace(R.id.fragment_cont1, newprofileset2())
+//            transaction?.commit()
+//
+//        }
+
+
         activity?.findViewById<CardView>(R.id.card_profile_set)?.setOnClickListener(){
-            val transaction = fragmentManager?.beginTransaction()
-            transaction?.replace(R.id.fragment_cont1, newprofileset2())
-            transaction?.commit()
+            val intent = Intent(context, newprofileset3::class.java)
+            startActivity(intent)
+
 
         }
+
+        val extr = activity?.intent?.extras
+        val newname = extr?.getString("name")
+        val surname = extr?.getString("surname")
 
 
     }

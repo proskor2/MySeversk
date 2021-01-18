@@ -133,6 +133,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:maxLength="15"
+                    android:textAlignment="center"
                     android:textColor="#000000" />
             </LinearLayout>
 
@@ -165,6 +166,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:maxLength="15"
+                    android:textAlignment="center"
                     android:textColor="#000000" />
             </LinearLayout>
 
@@ -196,7 +198,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
+                    android:inputType="number"
                     android:maxLength="12"
+                    android:phoneNumber="true"
+                    android:textAlignment="center"
                     android:textColor="#000000" />
             </LinearLayout>
 
@@ -229,6 +234,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:maxLength="7"
+                    android:textAlignment="center"
                     android:textColor="#000000" />
             </LinearLayout>
 
@@ -261,6 +267,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:maxLength="10"
+                    android:textAlignment="center"
                     android:textColor="#000000" />
             </LinearLayout>
 
@@ -292,7 +299,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
+                    android:inputType="textWebEmailAddress"
                     android:maxLength="20"
+                    android:textAlignment="center"
                     android:textColor="#000000" />
             </LinearLayout>
 
@@ -325,6 +334,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:maxLength="30"
+                    android:textAlignment="center"
                     android:textColor="#000000" />
             </LinearLayout>
 

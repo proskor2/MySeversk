@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -82,12 +83,11 @@ class seversk() : AppCompatActivity() {
             }
 
 
-}
-
-
-
+            }
 
 }
+
+
 
 
 

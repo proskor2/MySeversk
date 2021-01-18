@@ -1,18 +1,25 @@
 package sev.seversk.androidapp1.profile
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.provider.MediaStore
+import android.telecom.Call
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.cardview.widget.CardView
+import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.fragment.app.Fragment
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_newproblem.*
+import kotlinx.android.synthetic.main.activity_prodile_settings2.*
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.ui.profilescreen.ProfileFragment
 import java.io.IOException
@@ -48,8 +55,20 @@ class newprofileset2: Fragment()  {
             replaceFragment(ProfileFragment())
         }
 
+        activity?.findViewById<CardView>(R.id.add_profilephoto_card)?.setOnClickListener(){
+            val callCameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            if (activity?.packageManager?.let { it1 -> callCameraIntent.resolveActivity(it1) } != null) {
+
+                startActivityForResult(callCameraIntent, 1)
+            }
+        }
+
+
 
     }
+
+
+
 
     private fun replaceFragment(fragment: Fragment){
         val trans = fragmentManager?.beginTransaction()
@@ -60,6 +79,7 @@ class newprofileset2: Fragment()  {
 
 
     fun saveData(){
+
         var usersurname = activity?.findViewById<EditText>(R.id.set_profile_surname)
         var username = activity?.findViewById<EditText>(R.id.set_profile_name)
         var userpatr = activity?.findViewById<EditText>(R.id.set_profile_secondname)
@@ -90,6 +110,9 @@ class newprofileset2: Fragment()  {
         editor?.putString("gender", insertgender.toString())
         editor?.apply()
 
+
+
+
     }
 
     fun loadData(){
@@ -102,6 +125,7 @@ class newprofileset2: Fragment()  {
         val savedmail = sharedPreferences?.getString("mail", null)
         val savedaddress = sharedPreferences?.getString("address", null)
         val savedgender = sharedPreferences?.getString("gender", null)
+
 
         var usersurname = activity?.findViewById<EditText>(R.id.set_profile_surname)
         var username = activity?.findViewById<EditText>(R.id.set_profile_name)
@@ -124,10 +148,19 @@ class newprofileset2: Fragment()  {
 
     }
 
-
-
-
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode) {
+            1 -> {
+                if (resultCode == Activity.RESULT_OK && data != null) {
+                    add_profilephoto.setImageBitmap(data.extras?.get("data") as Bitmap)
+                }
+            }
+            else -> {
+                Toast.makeText(this.context, "Unrecognized request code", Toast.LENGTH_SHORT)
+            }
+        }
+    }
 
     }
 

@@ -44,19 +44,9 @@ class ProfileFragment : Fragment() {
         return root
     }
 
-
-
     @SuppressLint("ResourceType")
     override fun onStart() {
         super.onStart()
-
-
-
-        image_profile_card2.setOnClickListener(){
-        }
-
-        
-
 
 // Replace fragments
         val navController = activity?.let { Navigation.findNavController(it, fragment_profile_main) }
@@ -91,9 +81,6 @@ class ProfileFragment : Fragment() {
         trans?.commit()
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-    }
 
 }
 

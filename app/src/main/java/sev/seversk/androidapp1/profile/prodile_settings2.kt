@@ -84,22 +84,6 @@ val image = findViewById<ImageView>(R.id.add_profilephoto)
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-
-        var name1 = set_profile_name.text
-        var name2 = set_profile_surname.text
-        outState.putString("name", name1.toString())
-        outState.putString("surname", name2.toString())
-        super.onSaveInstanceState(outState)
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-
-        var name1 = savedInstanceState.getString("name")
-        var name2 = savedInstanceState.getString("surname")
-        set_profile_name.setText(name2)
-    }
 
 
 
