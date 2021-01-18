@@ -2,8 +2,12 @@ package sev.seversk.androidapp1
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
+import android.widget.EditText
+import android.widget.ImageView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
@@ -18,19 +22,16 @@ import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 
 class seversk() : AppCompatActivity() {
 
+    private lateinit var editname: EditText
+    private lateinit var newtext: String
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk)
 
-//        val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
-//        StrictMode.setThreadPolicy(policy)
-// Navigation (bottom bar)
 
-//        val exampleList = ArrayList<News_data>()
-//        val adapter = News_adapter(exampleList, this)
-//        recylcer_news.adapter = adapter
-//        recylcer_news.layoutManager = LinearLayoutManager(this)
-//        recylcer_news.setHasFixedSize(true)
+
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
@@ -40,6 +41,8 @@ class seversk() : AppCompatActivity() {
         )
 
         navView.setupWithNavController(navController)
+
+
 
 
         test_button.setOnClickListener(){
@@ -80,6 +83,9 @@ class seversk() : AppCompatActivity() {
 
 
 }
+
+
+
 
 }
 

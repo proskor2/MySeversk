@@ -3,12 +3,10 @@ package sev.seversk.androidapp1.profile
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.replace
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.seversk
 import kotlinx.android.synthetic.main.activity_profile_settings.*
 import kotlinx.android.synthetic.main.activity_seversk.*
-import sev.seversk.androidapp1.ui.profilescreen.NotificationFragment
 
 class profile_settings : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

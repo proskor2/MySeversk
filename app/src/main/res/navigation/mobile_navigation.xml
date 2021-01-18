@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/navigation_notification"
-        android:name="sev.seversk.androidapp1.ui.profilescreen.NotificationFragment"
+        android:name="sev.seversk.androidapp1.ui.profilescreen.ProfileFragment"
         android:label="Профиль"
         tools:layout="@layout/fragment_notifications" >
         <action

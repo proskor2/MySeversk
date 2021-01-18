@@ -29,7 +29,7 @@ import sev.seversk.androidapp1.profile.newprofileset2
 import java.io.IOException
 
 @Suppress("UNREACHABLE_CODE", "DEPRECATION")
-class NotificationFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
     private lateinit var notificationsViewModel: NotificationsViewModel
 
@@ -39,8 +39,7 @@ class NotificationFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-            ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
+        notificationsViewModel = ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
         return root
     }
@@ -56,12 +55,7 @@ class NotificationFragment : Fragment() {
         image_profile_card2.setOnClickListener(){
         }
 
-        activity?.findViewById<Button>(R.id.button_profile_settings2)?.setOnClickListener(){
-//            val settings1 = Intent (this@NotificationFragment.context, profile_settings::class.java)
-//            startActivity(settings1)
-
-
-        }
+        
 
 
 // Replace fragments
@@ -85,7 +79,7 @@ class NotificationFragment : Fragment() {
         }
 
         activity?.findViewById<CardView>(R.id.card_profile_set)?.setOnClickListener(){
-//           replaceFragment(newprofileset2())
+           replaceFragment(newprofileset2())
         }
 
 
@@ -93,8 +87,12 @@ class NotificationFragment : Fragment() {
 
     private fun replaceFragment(fragment: Fragment){
         val trans = fragmentManager?.beginTransaction()
-        trans?.replace(R.id.mobile_navigation, fragment)
+        trans?.replace(R.id.fragment_cont1, fragment)
         trans?.commit()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
     }
 
 }

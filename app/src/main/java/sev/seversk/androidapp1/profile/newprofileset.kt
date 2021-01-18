@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import sev.seversk.androidapp1.R
 import java.util.zip.Inflater
 
-open class newprofileset: Fragment(){
+class newprofileset: Fragment(){
 
     override fun onCreateView(
         inflater: LayoutInflater,
