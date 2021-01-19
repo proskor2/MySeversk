@@ -95,8 +95,6 @@ class newprofileset3: AppCompatActivity() {
         editor?.apply()
 
 
-
-
     }
 
     fun loadData(){

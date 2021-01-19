@@ -5,12 +5,17 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.WindowManager
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_autor.*
 
 
 class Autor : AppCompatActivity() {
+
 
     fun AppCompatActivity.hideKeyboard() {
         val view = this.currentFocus
@@ -29,40 +34,52 @@ class Autor : AppCompatActivity() {
         setContentView(R.layout.activity_autor)
 
 
+        val phonenum = findViewById<EditText>(R.id.editTextPhone3).text
 
+        val auth = FirebaseAuth.getInstance()
 
-
-// Google button
-        card_google.setOnClickListener() {
-            val ref_ggl = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.sev"))
-            startActivity(ref_ggl)
-        }
-
-// Esia button
-        card_esia.setOnClickListener() {
-            val ref_esia = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.gosuslugi.sev"))
-            startActivity(ref_esia)
-        }
 // Later autorization
         autor_later.setOnClickListener() {
-            val autor_later = Intent(Intent(this@Autor, seversk::class.java))
-            startActivity(autor_later)
 
+            auth.signInAnonymously().addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Toast.makeText( applicationContext, "signInAnonymously:success", Toast.LENGTH_SHORT).show()
+                        val user = auth.currentUser
+
+
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Toast.makeText( applicationContext, "signInAnonymously:failure", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, "Authentication failed.",
+                            Toast.LENGTH_SHORT).show()
+
+
+                }
+
+                    val autor_later = Intent(Intent(this@Autor, seversk::class.java))
+                    startActivity(autor_later)
         }
 //Move to SMS
         but_autor.setOnClickListener() {
-            val autor_sms = Intent(this@Autor, sms::class.java)
-            startActivity(autor_sms)
-finish()
-        }
+            if (phonenum.isEmpty() || phonenum.count().toInt() < 10) {
+                Toast.makeText(this, R.string.errorphone, Toast.LENGTH_SHORT).show()
 
-        linearLayout3.setOnClickListener(){
-            hideKeyboard()
+            } else {
+                val autor_sms = Intent(this@Autor, sms::class.java)
+                autor_sms.putExtra("phonenumber", phonenum.toString())
+                startActivity(autor_sms)
+
+            }
+
+            linearLayout3.setOnClickListener() {
+                hideKeyboard()
+            }
+
         }
 
     }
-
-
+}
 }
 
 

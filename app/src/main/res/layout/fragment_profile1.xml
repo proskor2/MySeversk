@@ -133,6 +133,13 @@
                                     android:textAlignment="center" />
                             </LinearLayout>
                         </LinearLayout>
+
+                        <Button
+                            android:id="@+id/butto_logout"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Выйти" />
+
                     </LinearLayout>
 
                 </LinearLayout>
