@@ -39,4 +39,8 @@
         android:id="@+id/newprofileset2"
         android:name="sev.seversk.androidapp1.profile.newprofileset2"
         android:label="newprofileset2" />
+    <fragment
+        android:id="@+id/fragment_nonauth"
+        android:name="sev.seversk.androidapp1.profile.fragment_nonauth"
+        android:label="fragment_nonauth" />
 </navigation>

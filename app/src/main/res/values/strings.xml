@@ -9,6 +9,7 @@
     <string name="textview">TextView</string>
     <string name="token">Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi</string>
     <string name="errorphone">Пожалуйста, введите корректный номер телефона</string>
+    <string name="notauth">Для использования всех функций приложения, пожалуйста авторизуйтесь</string>
 
     <string-array name="typeList">
         <item>Благоустройство</item>

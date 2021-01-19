@@ -50,16 +50,21 @@ class sms : AppCompatActivity() {
 
         // move to My Seversk screen
         but_sms.setOnClickListener(){
+            if (smsField.text.isEmpty() || smsField.text.length < 6){
+                Toast.makeText(this.applicationContext, "Пожалуйста введите корректный код", Toast.LENGTH_SHORT).show()
+            } else {
             verifyVerificationCode(smsField.text.toString())
             val autor_mysev = Intent (this@sms, seversk::class.java)
             startActivity(autor_mysev)
-        finish()}
+                finish()
+            }
+        }
 
 
 
         // SMS once again
         text_resms.setOnClickListener(){
-            val resms = Toast.makeText(applicationContext, "Повторно выслали код", Toast.LENGTH_SHORT)
+            val resms = Toast.makeText(applicationContext, "Мы повторно выслали Вам код", Toast.LENGTH_SHORT)
             resms.show()
 
         }

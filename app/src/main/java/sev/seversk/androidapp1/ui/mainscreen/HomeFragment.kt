@@ -35,10 +35,8 @@ class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -87,6 +85,7 @@ class HomeFragment : Fragment() {
         button_map.setOnClickListener() {
             val map1 = Intent(context, yandex_maps::class.java)
             startActivity(map1)
+
         }
 
         button_alerts.setOnClickListener() {

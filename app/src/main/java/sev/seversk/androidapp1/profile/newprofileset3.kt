@@ -8,11 +8,15 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Base64
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.drawToBitmap
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_prodile_settings2.*
 import org.jsoup.Connection
 import sev.seversk.androidapp1.R
@@ -22,12 +26,28 @@ import java.io.ByteArrayOutputStream
 
 class newprofileset3: AppCompatActivity() {
 
+
+
+    fun AppCompatActivity.hideKeyboard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+        else {
+            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_prodile_settings2)
 
         loadData()
+
+        findViewById<LinearLayout>(R.id.layout1123)?.setOnClickListener(){
+            hideKeyboard()
+        }
 
        findViewById<Button>(R.id.button_profile2_save)?.setOnClickListener(){
             saveData()
@@ -95,6 +115,8 @@ class newprofileset3: AppCompatActivity() {
         editor?.apply()
 
 
+
+
     }
 
     fun loadData(){
@@ -133,8 +155,6 @@ class newprofileset3: AppCompatActivity() {
 //        val imageBytes = Base64.decode(savedphoto, Base64.DEFAULT)
 //        val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
 //        photo.setImageBitmap(decodedImage)
-
-
 
 
 

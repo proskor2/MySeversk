@@ -19,11 +19,13 @@ import android.provider.MediaStore
 import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.replace
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_newproblem.*
 import kotlinx.android.synthetic.main.activity_prodile_settings2.*
 
 import kotlinx.android.synthetic.main.fragment_notifications.*
 import sev.seversk.androidapp1.R.id.fragment_profile_main
+import sev.seversk.androidapp1.profile.fragment_nonauth
 import sev.seversk.androidapp1.profile.newprofileset
 import sev.seversk.androidapp1.profile.newprofileset2
 import java.io.IOException
@@ -32,18 +34,24 @@ import java.io.IOException
 class ProfileFragment : Fragment() {
 
     private lateinit var notificationsViewModel: NotificationsViewModel
-
+    private var auth = FirebaseAuth.getInstance().currentUser
+    private var auth2 = FirebaseAuth.getInstance().currentUser?.isAnonymous
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel = ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_profile, container, false)
-        return root
-    }
+        if (auth == null || auth2 == true) {
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.nav_host_fragment, fragment_nonauth())
+            transaction?.commit()
+        }
+            notificationsViewModel = ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
+            val root = inflater.inflate(R.layout.fragment_profile, container, false)
+            return root
 
+    }
     @SuppressLint("ResourceType")
     override fun onStart() {
         super.onStart()
@@ -72,7 +80,6 @@ class ProfileFragment : Fragment() {
            replaceFragment(newprofileset2())
         }
 
-
     }
 
     private fun replaceFragment(fragment: Fragment){
@@ -80,7 +87,6 @@ class ProfileFragment : Fragment() {
         trans?.replace(R.id.fragment_cont1, fragment)
         trans?.commit()
     }
-
 
 }
 

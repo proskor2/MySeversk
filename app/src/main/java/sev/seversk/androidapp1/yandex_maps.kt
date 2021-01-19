@@ -1,8 +1,10 @@
 package sev.seversk.androidapp1
 
+import android.content.Context
 import android.icu.text.Transliterator
 import android.location.Geocoder
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.yandex.mapkit.Animation
@@ -22,10 +24,13 @@ class yandex_maps : AppCompatActivity() {
 
     lateinit var mapView: MapView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MapKitFactory.setApiKey("3ad79f77-ac08-49b0-af8d-3a39283cd78a")
         MapKitFactory.initialize(this)
+
+
         setContentView(R.layout.activity_yandex_maps)
 
 
@@ -37,15 +42,20 @@ class yandex_maps : AppCompatActivity() {
     }
 
     override fun onStop() {
-        super.onStop()
         mapView.onStop()
         MapKitFactory.getInstance().onStop()
+        super.onStop()
     }
 
     override fun onStart() {
         super.onStart()
         mapView.onStart()
         MapKitFactory.getInstance().onStart()
+
+    }
+
+    override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
+        return super.onCreateView(name, context, attrs)
 
 
     }

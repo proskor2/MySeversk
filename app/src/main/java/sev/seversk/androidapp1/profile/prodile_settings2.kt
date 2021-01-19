@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import sev.seversk.androidapp1.R
 import kotlinx.android.synthetic.main.activity_prodile_settings2.*
 
@@ -36,9 +37,13 @@ class prodile_settings2 : AppCompatActivity() {
         setContentView(R.layout.activity_prodile_settings2)
 
 // Start function for hide keyboard
-layout1123.setOnClickListener(){
+layout112233.setOnClickListener(){
     hideKeyboard()
 }
+
+        findViewById<ConstraintLayout>(R.id.layout112233)?.setOnClickListener(){
+            hideKeyboard()
+        }
 
 
 val image = findViewById<ImageView>(R.id.add_profilephoto)

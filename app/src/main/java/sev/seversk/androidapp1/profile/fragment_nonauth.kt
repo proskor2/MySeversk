@@ -1,51 +1,40 @@
 package sev.seversk.androidapp1.profile
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AutoCompleteTextView
 import android.widget.Button
-import android.widget.Toast
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
+import sev.seversk.androidapp1.Autor
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.sms
-import java.util.zip.Inflater
 
-class newprofileset: Fragment(){
-
-    private var auth: FirebaseAuth? = null
+class fragment_nonauth: Fragment(R.layout.fragment_profile_notauth) {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val fragmentLayoutInflater = inflater.inflate(R.layout.fragment_profile1, container, false)
-        return fragmentLayoutInflater
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onStart() {
         super.onStart()
 
-
-        activity?.findViewById<CardView>(R.id.card_profile_set)?.setOnClickListener(){
-            val intent = Intent(context, newprofileset3::class.java)
+        activity?.findViewById<Button>(R.id.button_nonatuth_toauth)?.setOnClickListener(){
+            val intent = Intent(context, Autor::class.java)
             startActivity(intent)
         }
 
-        activity?.findViewById<Button>(R.id.butto_logout)?.setOnClickListener(){
+        activity?.findViewById<Button>(R.id.button_logot_anon)?.setOnClickListener(){
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(context, sev.seversk.androidapp1.startActivity::class.java)
             startActivity(intent)
         }
 
-
     }
-
 }

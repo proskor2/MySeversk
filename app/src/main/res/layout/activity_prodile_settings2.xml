@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout112233"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:translationZ="5dp"
@@ -300,7 +301,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:inputType="textWebEmailAddress"
-                    android:maxLength="20"
+                    android:maxLength="25"
                     android:textAlignment="center"
                     android:textColor="#000000" />
             </LinearLayout>

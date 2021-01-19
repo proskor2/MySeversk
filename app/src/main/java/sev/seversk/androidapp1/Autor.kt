@@ -39,33 +39,43 @@ class Autor : AppCompatActivity() {
 
         val auth = FirebaseAuth.getInstance()
 
+
 // Later autorization
         autor_later.setOnClickListener() {
 
-            auth.signInAnonymously().addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Toast.makeText(applicationContext,
-                        "signInAnonymously:success",
-                        Toast.LENGTH_SHORT).show()
-                    val user = auth.currentUser
-                    updateUI(user)
+            if (auth.currentUser?.isAnonymous == true){
+
+                Toast.makeText(this, "Анонимный поьлзователь", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, seversk::class.java)
+                startActivity(intent)
+
+            } else {
+
+                auth.signInAnonymously().addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Toast.makeText(applicationContext,
+                            "signInAnonymously:success",
+                            Toast.LENGTH_SHORT).show()
+                        val user = auth.currentUser
+                        updateUI(user)
 
 
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Toast.makeText(applicationContext,
-                        "signInAnonymously:failure",
-                        Toast.LENGTH_SHORT).show()
-                    Toast.makeText(baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
-                    updateUI(null)
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Toast.makeText(applicationContext,
+                            "signInAnonymously:failure",
+                            Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, "Authentication failed.",
+                            Toast.LENGTH_SHORT).show()
+                        updateUI(null)
 
 
+                    }
+
+                    val autor_later = Intent(Intent(this@Autor, seversk::class.java))
+                    startActivity(autor_later)
                 }
-
-                val autor_later = Intent(Intent(this@Autor, seversk::class.java))
-                startActivity(autor_later)
             }
         }
 
