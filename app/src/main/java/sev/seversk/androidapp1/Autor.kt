@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_autor.*
 
 
@@ -42,24 +43,32 @@ class Autor : AppCompatActivity() {
         autor_later.setOnClickListener() {
 
             auth.signInAnonymously().addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Toast.makeText( applicationContext, "signInAnonymously:success", Toast.LENGTH_SHORT).show()
-                        val user = auth.currentUser
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Toast.makeText(applicationContext,
+                        "signInAnonymously:success",
+                        Toast.LENGTH_SHORT).show()
+                    val user = auth.currentUser
+                    updateUI(user)
 
 
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Toast.makeText( applicationContext, "signInAnonymously:failure", Toast.LENGTH_SHORT).show()
-                        Toast.makeText(baseContext, "Authentication failed.",
-                            Toast.LENGTH_SHORT).show()
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Toast.makeText(applicationContext,
+                        "signInAnonymously:failure",
+                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT).show()
+                    updateUI(null)
 
 
                 }
 
-                    val autor_later = Intent(Intent(this@Autor, seversk::class.java))
-                    startActivity(autor_later)
+                val autor_later = Intent(Intent(this@Autor, seversk::class.java))
+                startActivity(autor_later)
+            }
         }
+
 //Move to SMS
         but_autor.setOnClickListener() {
             if (phonenum.isEmpty() || phonenum.count().toInt() < 10) {
@@ -80,7 +89,15 @@ class Autor : AppCompatActivity() {
 
     }
 }
-}
+
+    private fun updateUI(user: FirebaseUser?) {
+        val isSignedIn = user != null
+
+    }
+
+
+
+
 
 
 
