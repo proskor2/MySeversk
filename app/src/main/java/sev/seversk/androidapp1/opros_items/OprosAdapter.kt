@@ -1,6 +1,7 @@
 package sev.seversk.androidapp1.opros_items
 
 import android.content.Context
+import android.content.Intent
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
@@ -9,12 +10,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.events_items.Afisha
 import sev.seversk.androidapp1.events_items.AfishaAdapter
+import sev.seversk.androidapp1.startActivity
 
 class OprosAdapter (val context: Context): RecyclerView.Adapter<OprosAdapter.MyViewHolder>() {
 
@@ -43,10 +47,8 @@ class OprosAdapter (val context: Context): RecyclerView.Adapter<OprosAdapter.MyV
         holder.opros_status.text = status1
         holder.card.setOnClickListener(){
             Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
-//            val intent1 = Intent(this@AfishaAdapter.context, eventid::class.java)
-//            intent1.putExtra("daten", date1)
-//            intent1.putExtra("photon", photo1)
-//            ContextCompat.startActivity(context, intent1, null)
+            val intent1 = Intent(this.context, opros_details::class.java)
+           startActivity(context, intent1, null)
         }
     }
 

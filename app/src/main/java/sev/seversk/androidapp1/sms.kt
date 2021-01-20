@@ -21,6 +21,7 @@ class sms : AppCompatActivity() {
     private var mAuth: FirebaseAuth? = null
     private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
 
+
     fun AppCompatActivity.hideKeyboard() {
         val view = this.currentFocus
         if (view != null) {
@@ -37,11 +38,17 @@ class sms : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sms)
 
+        val token = FirebaseAuth.getInstance().getAccessToken(true)
+
 
         val getphonenum = intent.extras?.get("phonenumber")
         mAuth = FirebaseAuth.getInstance()
 
         val smsField = findViewById<EditText>(R.id.edit_smspass)
+
+
+
+
 
 
         @Suppress("DEPRECATION")

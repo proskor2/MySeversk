@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -23,7 +22,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".comment.comments1"></activity>
+        <activity android:name=".opros_items.opros_details"></activity>
+        <activity android:name=".comment.comments1" />
         <activity android:name=".news_items.news_web" />
         <activity android:name=".activities_main.emergency_detail" />
         <activity android:name=".disctrict_items.district_description" />
@@ -40,7 +40,7 @@
         <activity android:name=".activities_main.appeal" />
         <activity android:name=".activities_main.problem" />
         <activity android:name=".activities_main.alerts" />
-        <activity android:name=".profile.newprofileset3"/>
+        <activity android:name=".profile.newprofileset3" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

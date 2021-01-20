@@ -1,9 +1,12 @@
 package sev.seversk.androidapp1.news_items
 
+import android.content.res.Resources
+import android.provider.Settings.Global.getString
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Headers
+import sev.seversk.androidapp1.R
 
 interface ApiInterface {
 
@@ -28,3 +31,10 @@ interface ApiInterface {
         }
     }
 }
+
+val token1 = Resources.getSystem().getString(R.string.token)
+
+
+
+
+

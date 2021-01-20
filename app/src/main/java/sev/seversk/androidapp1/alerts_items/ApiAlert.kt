@@ -1,5 +1,6 @@
 package sev.seversk.androidapp1.alerts_items
 
+import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -31,3 +32,5 @@ interface ApiAlert {
         }
     }
 }
+
+val token1 = FirebaseAuth.getInstance().currentUser?.uid

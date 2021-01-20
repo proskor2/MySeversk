@@ -3,6 +3,7 @@ package sev.seversk.androidapp1.activities_main
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.firebase.auth.FirebaseAuth
 import sev.seversk.androidapp1.R
 import kotlinx.android.synthetic.main.activity_appeal.*
 import okhttp3.*
@@ -17,11 +18,11 @@ class appeal : AppCompatActivity() {
         override fun onStart() {
             super.onStart()
 
-            val token = "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi"
+            val token = FirebaseAuth.getInstance().currentUser?.uid
             val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/news?page=1&per-page=10"
             var okHttpClient: OkHttpClient = OkHttpClient()
 
-            val request: Request = Request.Builder().url(URL).addHeader("Authorization", token).build()
+            val request: Request = Request.Builder().url(URL).addHeader("Authorization", "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi").build()
 
             okHttpClient.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {

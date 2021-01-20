@@ -1,10 +1,14 @@
 package sev.seversk.androidapp1
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import android.content.res.Resources
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -12,15 +16,22 @@ import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.bumptech.glide.load.engine.Resource
+import com.bumptech.glide.load.resource.bitmap.ResourceBitmapDecoder
+import com.google.android.gms.tasks.Task
+import com.google.android.gms.tasks.Tasks
 import sev.seversk.androidapp1.activities_appeal.activitiy_request
 import sev.seversk.androidapp1.activities_appeal.appeal_problem
 import sev.seversk.androidapp1.activities_appeal.appeal_iniciate
 
 
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.FirebaseApp
+import com.google.firebase.FirebaseOptions
+import com.google.firebase.auth.*
 import kotlinx.android.synthetic.main.activity_seversk.*
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
+import kotlinx.coroutines.tasks.await
 import sev.seversk.androidapp1.profile.fragment_nonauth
 
 class seversk() : AppCompatActivity() {
@@ -35,9 +46,7 @@ class seversk() : AppCompatActivity() {
 
         val auth = FirebaseAuth.getInstance().currentUser
         val auth2 = FirebaseAuth.getInstance().currentUser?.isAnonymous
-
-
-
+        val token = FirebaseAuth.getInstance().currentUser?.uid
 
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
@@ -55,6 +64,8 @@ class seversk() : AppCompatActivity() {
 
         test_button.setOnClickListener(){
 
+
+
             if (auth == null || auth2 == true) {
 
                 val view = layoutInflater.inflate(R.layout.fragment_profile_nonauth2, null)
@@ -63,6 +74,8 @@ class seversk() : AppCompatActivity() {
                 dialog.show()
 
             } else {
+
+
 
                 val view = layoutInflater.inflate(R.layout.fragment_dashboard, null)
                 val dialog = BottomSheetDialog(this)
@@ -84,6 +97,8 @@ class seversk() : AppCompatActivity() {
             }
         }
         test_button2.setOnClickListener(){
+
+
 
             if (auth == null || auth2 == true) {
                 val view = layoutInflater.inflate(R.layout.fragment_profile_nonauth2, null)

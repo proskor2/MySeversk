@@ -45,6 +45,12 @@ class newprofileset3: AppCompatActivity() {
 
         loadData()
 
+        val name1 = findViewById<EditText>(R.id.profile_name_settings).text
+        val name2 = findViewById<EditText>(R.id.profile_surname_settings).text
+
+        val sendName = "$name1 + $name2"
+
+
         findViewById<LinearLayout>(R.id.layout1123)?.setOnClickListener(){
             hideKeyboard()
         }
@@ -56,7 +62,10 @@ class newprofileset3: AppCompatActivity() {
 
         findViewById<ImageButton>(R.id.button_profile2_back)?.setOnClickListener(){
             val intent = Intent(this, seversk::class.java)
+            intent.putExtra("name", sendName)
             startActivity(intent)
+
+
         }
 
         findViewById<CardView>(R.id.add_profilephoto_card)?.setOnClickListener(){

@@ -20,6 +20,7 @@ import androidx.core.view.get
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.core.FileDataPart
 import com.github.kittinunf.fuel.core.Method
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_newproblem.*
 import kotlinx.android.synthetic.main.activity_yandex_maps.*
 import sev.seversk.androidapp1.R
@@ -37,7 +38,7 @@ import kotlin.collections.ArrayList
 @Suppress("DEPRECATION")
 class appeal_problem : AppCompatActivity() {
 
-
+val token1 = FirebaseAuth.getInstance().currentUser?.uid
     var file: File? = null
 
     fun AppCompatActivity.hideKeyboard() {
