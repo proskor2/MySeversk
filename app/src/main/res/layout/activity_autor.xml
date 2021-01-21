@@ -108,18 +108,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.012"
-            android:text="© 2020 Администрация ЗАТО Северск"
+            android:text="© 2021 Администрация ЗАТО Северск"
             android:textAlignment="center"
             android:textColor="#CC000000" />
-
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="match_parent"
-            android:layout_height="13dp"
-            android:layout_weight="0.05"
-            android:text="Условия использования приложения"
-            android:textAlignment="center"
-            android:textColor="#1664BB" />
 
     </LinearLayout>
 

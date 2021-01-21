@@ -10,6 +10,8 @@
     <string name="token">Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi</string>
     <string name="errorphone">Пожалуйста, введите корректный номер телефона</string>
     <string name="notauth">Для использования всех функций приложения, пожалуйста авторизуйтесь</string>
+    <string name="privacyTitle">Использование персональных данных</string>
+    <string name="privacyText">Данным действием вы подтверждаете что ознакомились с Политикой конфиденциальности приложения и Условиями пользования и согласны с их условиями</string>
 
     <string-array name="typeList">
         <item>Благоустройство</item>

@@ -1,25 +1,34 @@
 package sev.seversk.androidapp1.authorization
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
+import android.widget.*
+import androidx.appcompat.app.AlertDialog
+import com.google.firebase.auth.FirebaseAuth
 import sev.seversk.androidapp1.R
+import java.lang.StringBuilder
 
 class preset3 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preset3)
 
-        val intent = intent.extras
-        val getName = intent?.getString("names")
-        val getDate = intent?.getString("date")
 
 
-        findViewById<Button>(R.id.button_preset3_next).setOnClickListener(){
+
+        fun saveData(gender1 :String){
+            var insertgender = gender1
+            val sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
+            val editor = sharedPreferences?.edit()
+            editor?.putString("gender", insertgender)
+            editor?.apply()
+        }
+
+        fun getGender(){
 
             val gender = findViewById<RadioGroup>(R.id.gender)
             val genderid = gender.checkedRadioButtonId
@@ -27,23 +36,62 @@ class preset3 : AppCompatActivity() {
             if (genderid != -1) {
                 val radio: RadioButton = findViewById(genderid)
                 val string: String = radio.text.toString()
-                Toast.makeText(this, "$string", Toast.LENGTH_LONG).show()
-
+                saveData(string)
                 val intent = Intent(this, seversk::class.java)
-                intent.putExtra("gender", string)
-                intent.putExtra("name", getName)
-                intent.putExtra("date", getDate)
                 startActivity(intent)
 
             } else {
                 Toast.makeText(this, "Не выбран", Toast.LENGTH_LONG).show()
             }
 
+        }
+
+
+
+
+        findViewById<Button>(R.id.button_preset3_next).setOnClickListener(){
+
+            val builder = AlertDialog.Builder(this@preset3)
+            builder.setTitle(R.string.privacyTitle)
+            builder.setMessage(R.string.privacyText)
+            builder.setPositiveButton("Согласен") { dialog, which ->
+                getGender()
+            }
+            builder.setNegativeButton("Не согласен") {dialog, which ->
+            FirebaseAuth.getInstance().currentUser?.delete()
+                val intent = Intent(this, Autor::class.java)
+                startActivity(intent)
+
+
+            }
+            builder.setNeutralButton("Отмена") {dialog, which ->
+             closeContextMenu()
+
+            }
+
+            val dialog: AlertDialog = builder.create()
+
+            dialog.show()
 
         }
 
         findViewById<Button>(R.id.button_preset3_back).setOnClickListener(){
             val intent = Intent(this, preset2::class.java)
+            startActivity(intent)
+        }
+
+
+        findViewById<TextView>(R.id.privacy_policy).setOnClickListener(){
+            val string = "Политика конфиденциальности"
+            val intent = Intent(this, privacy::class.java)
+            intent.putExtra("string", string)
+            startActivity(intent)
+        }
+
+        findViewById<TextView>(R.id.privacy_rules).setOnClickListener(){
+            val string = "Условия использования"
+            val intent = Intent(this, privacy::class.java)
+            intent.putExtra("string", string)
             startActivity(intent)
         }
     }

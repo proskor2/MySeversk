@@ -29,10 +29,15 @@ class Autor : AppCompatActivity() {
     }
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_autor)
 
+        linearLayout3.setOnClickListener() {
+            hideKeyboard()
+        }
 
         val phonenum = findViewById<EditText>(R.id.editTextPhone3).text
 
@@ -90,9 +95,7 @@ class Autor : AppCompatActivity() {
 
             }
 
-            linearLayout3.setOnClickListener() {
-                hideKeyboard()
-            }
+
 
         }
 

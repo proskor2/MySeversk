@@ -93,11 +93,6 @@ class newprofileset3: AppCompatActivity() {
 
 
 
-        val fromphoto: ImageView = findViewById(R.id.add_profilephoto)
-        val bitmap = fromphoto.drawToBitmap()
-        val bbb = encodeImage(bitmap)
-
-
 
         val sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences?.edit()
@@ -109,8 +104,6 @@ class newprofileset3: AppCompatActivity() {
         editor?.putString("mail", insertmail.toString())
         editor?.putString("address", insertaddress.toString())
         editor?.putString("gender", insertgender.toString())
-        editor?.putString("photo", bbb)
-
         editor?.apply()
 
 

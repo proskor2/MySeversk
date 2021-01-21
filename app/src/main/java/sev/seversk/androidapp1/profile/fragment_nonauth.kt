@@ -25,6 +25,7 @@ class fragment_nonauth: Fragment(R.layout.fragment_profile_notauth) {
         super.onStart()
 
         activity?.findViewById<Button>(R.id.button_nonatuth_toauth)?.setOnClickListener(){
+            FirebaseAuth.getInstance().currentUser?.delete()
             val intent = Intent(context, Autor::class.java)
             startActivity(intent)
         }
