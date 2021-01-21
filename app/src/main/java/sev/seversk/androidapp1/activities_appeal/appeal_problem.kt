@@ -3,20 +3,16 @@ package sev.seversk.androidapp1.activities_appeal
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
-import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
-import androidx.core.view.get
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.core.FileDataPart
 import com.github.kittinunf.fuel.core.Method
@@ -24,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_newproblem.*
 import kotlinx.android.synthetic.main.activity_yandex_maps.*
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.seversk
+import sev.seversk.androidapp1.authorization.seversk
 import sev.seversk.androidapp1.yandex_maps
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -32,7 +28,6 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 @Suppress("DEPRECATION")

@@ -1,4 +1,4 @@
-package sev.seversk.androidapp1
+package sev.seversk.androidapp1.authorization
 
 import android.content.Context
 import android.content.Intent
@@ -13,6 +13,7 @@ import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
 import kotlinx.android.synthetic.main.activity_sms.*
+import sev.seversk.androidapp1.R
 import java.util.concurrent.TimeUnit
 
 class sms : AppCompatActivity() {
@@ -49,8 +50,6 @@ class sms : AppCompatActivity() {
 
 
 
-
-
         @Suppress("DEPRECATION")
         PhoneAuthProvider.getInstance().verifyPhoneNumber("+7$getphonenum", 60, TimeUnit.SECONDS, this, callback)
 
@@ -61,9 +60,9 @@ class sms : AppCompatActivity() {
                 Toast.makeText(this.applicationContext, "Пожалуйста введите корректный код", Toast.LENGTH_SHORT).show()
             } else {
             verifyVerificationCode(smsField.text.toString())
-            val autor_mysev = Intent (this@sms, seversk::class.java)
-            startActivity(autor_mysev)
-                finish()
+//            val autor_mysev = Intent (this@sms, preset1::class.java)
+//            startActivity(autor_mysev)
+//                finish()
             }
         }
 
@@ -132,12 +131,12 @@ class sms : AppCompatActivity() {
         mAuth!!.signInWithCredential(credential)
             .addOnCompleteListener(this, OnCompleteListener<AuthResult?> { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(applicationContext, "Success", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, seversk::class.java)
+                    Toast.makeText(applicationContext, "Вы успешно авторизовались", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, preset1::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(applicationContext, "Failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Ошибка авторизации", Toast.LENGTH_SHORT).show()
                 }
             })
     }

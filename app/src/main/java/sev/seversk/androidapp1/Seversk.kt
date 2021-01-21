@@ -1,38 +1,23 @@
-package sev.seversk.androidapp1
+package sev.seversk.androidapp1.authorization
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
-import android.content.res.Resources
 import android.os.Bundle
-import android.provider.MediaStore
 import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
-import com.bumptech.glide.load.engine.Resource
-import com.bumptech.glide.load.resource.bitmap.ResourceBitmapDecoder
-import com.google.android.gms.tasks.Task
-import com.google.android.gms.tasks.Tasks
 import sev.seversk.androidapp1.activities_appeal.activitiy_request
 import sev.seversk.androidapp1.activities_appeal.appeal_problem
 import sev.seversk.androidapp1.activities_appeal.appeal_iniciate
 
 
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.firebase.FirebaseApp
-import com.google.firebase.FirebaseOptions
 import com.google.firebase.auth.*
 import kotlinx.android.synthetic.main.activity_seversk.*
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
-import kotlinx.coroutines.tasks.await
-import sev.seversk.androidapp1.profile.fragment_nonauth
+import sev.seversk.androidapp1.R
 
 class seversk() : AppCompatActivity() {
 

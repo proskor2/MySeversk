@@ -4,11 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
-import android.widget.ImageView
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.seversk
+import sev.seversk.androidapp1.authorization.seversk
 
 class opros_details : AppCompatActivity() {
     @SuppressLint("WrongViewCast")

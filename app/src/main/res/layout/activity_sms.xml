@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgr"
-    tools:context=".sms">
+    tools:context=".authorization.sms">
 
     <LinearLayout
         android:id="@+id/linearlayout4"

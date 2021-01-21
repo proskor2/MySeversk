@@ -1,4 +1,4 @@
-package sev.seversk.androidapp1
+package sev.seversk.androidapp1.authorization
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,9 +7,8 @@ import android.view.Window
 import androidx.viewpager.widget.ViewPager
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_main.*
-import sev.seversk.androidapp1.ui.mainscreen.HomeFragment
+import sev.seversk.androidapp1.R
 
 class startActivity : AppCompatActivity() {
 
@@ -27,7 +26,8 @@ class startActivity : AppCompatActivity() {
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             setContentView(R.layout.activity_main)
             val viewPager: ViewPager = findViewById(R.id.viewPagerMS);
-            val adapter: ImageAdapter = ImageAdapter(this)
+            val adapter: ImageAdapter =
+                ImageAdapter(this)
             viewPager.adapter = adapter
 
             login1.setOnClickListener() {

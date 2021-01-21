@@ -9,7 +9,7 @@
     android:clickable="true"
     android:focusableInTouchMode="false"
     android:focusable="false"
-    tools:context=".Autor">
+    tools:context=".authorization.Autor">
 
     <LinearLayout
         android:id="@+id/linearLayout3"

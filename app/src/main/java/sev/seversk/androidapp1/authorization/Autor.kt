@@ -1,11 +1,9 @@
-package sev.seversk.androidapp1
+package sev.seversk.androidapp1.authorization
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.WindowManager
-import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
@@ -13,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_autor.*
+import sev.seversk.androidapp1.R
 
 
 class Autor : AppCompatActivity() {

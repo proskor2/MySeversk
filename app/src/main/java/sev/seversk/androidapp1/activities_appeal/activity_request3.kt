@@ -7,7 +7,7 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.seversk
+import sev.seversk.androidapp1.authorization.seversk
 import kotlinx.android.synthetic.main.activitiy_appeal_request3.*
 
 class activity_request3 : AppCompatActivity() {

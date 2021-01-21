@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.seversk
+import sev.seversk.androidapp1.authorization.seversk
 import kotlinx.android.synthetic.main.activity_profile_settings.*
 import kotlinx.android.synthetic.main.activity_seversk.*
 

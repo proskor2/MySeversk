@@ -1,4 +1,4 @@
-package sev.seversk.androidapp1;
+package sev.seversk.androidapp1.authorization;
 
 import android.content.Context;
 import android.view.View;

@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.seversk
+import sev.seversk.androidapp1.authorization.seversk
 import kotlinx.android.synthetic.main.activity_appeal_iniciate.*
 
 class appeal_iniciate : AppCompatActivity() {
@@ -27,7 +27,7 @@ class appeal_iniciate : AppCompatActivity() {
         setContentView(R.layout.activity_appeal_iniciate)
 
         button_iniciate_close.setOnClickListener(){
-            val close1 = Intent(this@appeal_iniciate, sev.seversk.androidapp1.seversk::class.java)
+            val close1 = Intent(this@appeal_iniciate, seversk::class.java)
             startActivity(close1)
         }
 

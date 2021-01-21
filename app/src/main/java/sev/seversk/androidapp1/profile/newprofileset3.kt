@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Base64
@@ -13,14 +12,10 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.drawToBitmap
-import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_prodile_settings2.*
-import org.jsoup.Connection
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.seversk
+import sev.seversk.androidapp1.authorization.seversk
 import java.io.ByteArrayOutputStream
 
 
@@ -45,10 +40,6 @@ class newprofileset3: AppCompatActivity() {
 
         loadData()
 
-        val name1 = findViewById<EditText>(R.id.profile_name_settings).text
-        val name2 = findViewById<EditText>(R.id.profile_surname_settings).text
-
-        val sendName = "$name1 + $name2"
 
 
         findViewById<LinearLayout>(R.id.layout1123)?.setOnClickListener(){
@@ -62,7 +53,6 @@ class newprofileset3: AppCompatActivity() {
 
         findViewById<ImageButton>(R.id.button_profile2_back)?.setOnClickListener(){
             val intent = Intent(this, seversk::class.java)
-            intent.putExtra("name", sendName)
             startActivity(intent)
 
 

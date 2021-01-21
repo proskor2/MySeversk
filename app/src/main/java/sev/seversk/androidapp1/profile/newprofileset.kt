@@ -1,21 +1,15 @@
 package sev.seversk.androidapp1.profile
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.sms
-import java.util.zip.Inflater
 
 class newprofileset: Fragment(){
 
@@ -41,7 +35,7 @@ class newprofileset: Fragment(){
 
         activity?.findViewById<Button>(R.id.butto_logout)?.setOnClickListener(){
             FirebaseAuth.getInstance().signOut()
-            val intent = Intent(context, sev.seversk.androidapp1.startActivity::class.java)
+            val intent = Intent(context, sev.seversk.androidapp1.authorization.startActivity::class.java)
             startActivity(intent)
         }
 
