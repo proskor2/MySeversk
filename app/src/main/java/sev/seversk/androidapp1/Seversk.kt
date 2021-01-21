@@ -1,10 +1,13 @@
 package sev.seversk.androidapp1.authorization
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
+import android.widget.ImageView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.drawToBitmap
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
@@ -21,13 +24,32 @@ import sev.seversk.androidapp1.R
 
 class seversk() : AppCompatActivity() {
 
-    private lateinit var editname: EditText
-    private lateinit var newtext: String
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk)
+
+
+
+        val intent = intent.extras
+        val n1 = intent?.getString("name")
+        val n2 = intent?.getString("date")
+        val n3 = intent?.getString("gender")
+
+
+        fun saveData(){
+            var insertname = n1
+            var insertdate = n2
+            var insertgender = n3
+
+            val sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
+            val editor = sharedPreferences?.edit()
+            editor?.putString("name", insertname.toString())
+            editor?.putString("date", insertdate.toString())
+            editor?.putString("gender", insertgender.toString())
+            editor?.apply()
+        }
+
 
         val auth = FirebaseAuth.getInstance().currentUser
         val auth2 = FirebaseAuth.getInstance().currentUser?.isAnonymous
@@ -36,20 +58,16 @@ class seversk() : AppCompatActivity() {
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
-
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notification)
-        )
-
         navView.setupWithNavController(navController)
 
+//        val appBarConfiguration = AppBarConfiguration(
+//            setOf(R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notification)
+//        )
 
 
 
 
-        test_button.setOnClickListener(){
-
-
+        test_button.setOnClickListener() {
 
             if (auth == null || auth2 == true) {
 
@@ -59,7 +77,6 @@ class seversk() : AppCompatActivity() {
                 dialog.show()
 
             } else {
-
 
 
                 val view = layoutInflater.inflate(R.layout.fragment_dashboard, null)
@@ -83,8 +100,6 @@ class seversk() : AppCompatActivity() {
         }
         test_button2.setOnClickListener(){
 
-
-
             if (auth == null || auth2 == true) {
                 val view = layoutInflater.inflate(R.layout.fragment_profile_nonauth2, null)
                 val dialog = BottomSheetDialog(this)
@@ -109,13 +124,11 @@ class seversk() : AppCompatActivity() {
                     val appeal3 = Intent(this@seversk, appeal_iniciate::class.java)
                     startActivity(appeal3)
                 }
-
             }
+}
+        saveData()
+}
 
 }
 
 
-
-
-
-}}

@@ -21,6 +21,9 @@ class preset2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preset2)
 
+        val intent = intent.extras
+        val getName2 = intent?.get("names")
+
         val datePicker = findViewById<DatePicker>(R.id.datePicker)
 
 
@@ -30,8 +33,8 @@ class preset2 : AppCompatActivity() {
             Toast.makeText(this, date.toString(), Toast.LENGTH_LONG).show()
 
             val intent = Intent(this, preset3::class.java)
-//            intent.putExtra("date", date)
-//            intent.putExtra("name", getIntent().extras?.getString("name"))
+            intent.putExtra("date", date.toString())
+            intent.putExtra("names", getName2.toString())
             startActivity(intent)
         }
 

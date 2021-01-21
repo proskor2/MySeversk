@@ -14,6 +14,10 @@ class preset3 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preset3)
 
+        val intent = intent.extras
+        val getName = intent?.getString("names")
+        val getDate = intent?.getString("date")
+
 
         findViewById<Button>(R.id.button_preset3_next).setOnClickListener(){
 
@@ -24,15 +28,21 @@ class preset3 : AppCompatActivity() {
                 val radio: RadioButton = findViewById(genderid)
                 val string: String = radio.text.toString()
                 Toast.makeText(this, "$string", Toast.LENGTH_LONG).show()
+
+                val intent = Intent(this, seversk::class.java)
+                intent.putExtra("gender", string)
+                intent.putExtra("name", getName)
+                intent.putExtra("date", getDate)
+                startActivity(intent)
+
             } else {
                 Toast.makeText(this, "Не выбран", Toast.LENGTH_LONG).show()
             }
-            val intent = Intent(this, seversk::class.java)
-            startActivity(intent)
+
+
         }
 
         findViewById<Button>(R.id.button_preset3_back).setOnClickListener(){
-
             val intent = Intent(this, preset2::class.java)
             startActivity(intent)
         }

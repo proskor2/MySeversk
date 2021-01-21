@@ -16,9 +16,8 @@ class preset1 : AppCompatActivity() {
         val getNameField = findViewById<EditText>(R.id.preset_name).text
 
         findViewById<Button>(R.id.button_preset1_next).setOnClickListener(){
-            Toast.makeText(this, "$getNameField", Toast.LENGTH_LONG).show()
             val intent = Intent(this, preset2::class.java)
-            intent.putExtra("name", getNameField)
+            intent.putExtra("names", getNameField)
             startActivity(intent)
         }
     }

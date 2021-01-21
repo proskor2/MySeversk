@@ -1,5 +1,6 @@
 package sev.seversk.androidapp1.profile
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ class newprofileset: Fragment(){
 
     private var auth: FirebaseAuth? = null
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,12 +30,18 @@ class newprofileset: Fragment(){
         super.onStart()
 
 
+
         activity?.findViewById<CardView>(R.id.card_profile_set)?.setOnClickListener(){
             val intent = Intent(context, newprofileset3::class.java)
             startActivity(intent)
         }
 
         activity?.findViewById<Button>(R.id.butto_logout)?.setOnClickListener(){
+            val sharedPreferences = activity?.getSharedPreferences("prefs", Context.MODE_PRIVATE)
+            val editor = sharedPreferences?.edit()
+            editor?.clear()?.commit()
+
+
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(context, sev.seversk.androidapp1.authorization.startActivity::class.java)
             startActivity(intent)

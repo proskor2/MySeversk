@@ -133,6 +133,7 @@ class sms : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Toast.makeText(applicationContext, "Вы успешно авторизовались", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, preset1::class.java)
+
                     startActivity(intent)
                     finish()
                 } else {
