@@ -1,10 +1,13 @@
 package sev.seversk.androidapp1.authorization
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.drawToBitmap
@@ -22,12 +25,15 @@ import kotlinx.android.synthetic.main.activity_seversk.*
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import sev.seversk.androidapp1.R
 
+
 class seversk() : AppCompatActivity() {
 
 
+    @SuppressLint("StringFormatInvalid")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk)
+
 
 
 

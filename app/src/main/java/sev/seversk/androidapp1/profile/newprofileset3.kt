@@ -7,21 +7,30 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Base64
+import android.util.Log
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import androidx.core.view.drawToBitmap
+import com.google.android.gms.tasks.OnCanceledListener
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_prodile_settings2.*
+import okhttp3.MultipartBody
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.authorization.seversk
 import java.io.ByteArrayOutputStream
+import java.io.IOException
 
 
 class newprofileset3: AppCompatActivity() {
 
 
+
+    val client = OkHttpClient()
 
     fun AppCompatActivity.hideKeyboard() {
         val view = this.currentFocus
@@ -38,6 +47,27 @@ class newprofileset3: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_prodile_settings2)
 
+//        val n1 = FirebaseAuth.getInstance()
+//        val n2 = FirebaseAuth.getInstance().currentUser
+//        val n3 = FirebaseAuth.getInstance().currentUser?.getIdToken(true)
+//        val n4 = FirebaseAuth.getInstance().getAccessToken(true)
+
+        FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+
+            }
+            // Get new Instance ID token
+            val token: String? = task.result?.getToken()
+
+            // Log and toast
+            Toast.makeText(this, token, Toast.LENGTH_SHORT).show()
+        }
+
+
+
+
+
         loadData()
 
 
@@ -46,10 +76,50 @@ class newprofileset3: AppCompatActivity() {
             hideKeyboard()
         }
 
-       findViewById<Button>(R.id.button_profile2_save)?.setOnClickListener(){
-            saveData()
-            Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show()
+        var usersurname = findViewById<EditText>(R.id.set_profile_secondname).text.toString()
+
+        findViewById<Button>(R.id.button_profile2_save)?.setOnClickListener() {
+
+
+
+
+
+
+
+//            Toast.makeText(this, "$token", Toast.LENGTH_LONG).show()
+
+
+            fun run(string: String) {
+                val requestBody = MultipartBody.Builder()
+                    .setType(MultipartBody.FORM)
+                    .addFormDataPart("patronymic", string)
+                    .build()
+
+                val request = Request.Builder()
+                    .addHeader("Authorization", "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
+                    .url("https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/profile/user")
+                    .post(requestBody)
+                    .build()
+
+                client.newCall(request).execute().use { response ->
+                    if (!response.isSuccessful) throw IOException("Unexpected code $response")
+//            Toast.makeText(this, response.body!!.toString(), Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, response.body().toString(), Toast.LENGTH_LONG).show()
+                }
+
+                runOnUiThread() {
+                    run(usersurname)
+                }
+            }
+
+//            Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show()
         }
+
+
+//       findViewById<Button>(R.id.button_profile2_save)?.setOnClickListener(){
+//
+//            Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show()
+//        }
 
         findViewById<ImageButton>(R.id.button_profile2_back)?.setOnClickListener(){
             val intent = Intent(this, seversk::class.java)
@@ -68,6 +138,7 @@ class newprofileset3: AppCompatActivity() {
 
 
     }
+
 
 
     fun saveData(){
@@ -107,8 +178,6 @@ class newprofileset3: AppCompatActivity() {
         editor?.apply()
 
 
-
-
     }
 
     fun loadData(){
@@ -123,7 +192,7 @@ class newprofileset3: AppCompatActivity() {
         val savedmail = sharedPreferences?.getString("mail", null)
         val savedaddress = sharedPreferences?.getString("address", null)
         val savedgender = sharedPreferences?.getString("gender", null)
-        val savedphoto = sharedPreferences?.getString("photo", null)
+
 
         var usersurname = findViewById<EditText>(R.id.set_profile_surname)
         var username = findViewById<EditText>(R.id.set_profile_name)
@@ -155,7 +224,7 @@ class newprofileset3: AppCompatActivity() {
 
     private fun encodeImage(bm: Bitmap): String? {
         val baos = ByteArrayOutputStream()
-        bm.compress(Bitmap.CompressFormat.JPEG,100, baos)
+        bm.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val b = baos.toByteArray()
         return Base64.encodeToString(b, Base64.DEFAULT)
     }
@@ -173,6 +242,28 @@ class newprofileset3: AppCompatActivity() {
             }
         }
     }
+
+    fun run(string: String) {
+
+        val requestBody = MultipartBody.Builder()
+            .setType(MultipartBody.FORM)
+            .addFormDataPart("lastname", string)
+            .build()
+
+          val request = Request.Builder()
+              .addHeader("Aithorization", "")
+            .url("https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/profile/user")
+            .post(requestBody)
+            .build()
+
+        client.newCall(request).execute().use { response ->
+            if (!response.isSuccessful) throw IOException("Unexpected code $response")
+//            Toast.makeText(this, response.body!!.toString(), Toast.LENGTH_LONG).show()
+            Toast.makeText(this, response.body().toString(), Toast.LENGTH_LONG).show()
+        }
+    }
+
+
 
 }
 

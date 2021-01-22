@@ -37,19 +37,13 @@ class preset2 : AppCompatActivity() {
         }
 
         val datePicker = findViewById<DatePicker>(R.id.datePicker)
-        val date = getDate(datePicker)
+        val date = getDate(datePicker).toString()
 
 
-        fun saveData(){
-            var insertdate = date
-            val sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
-            val editor = sharedPreferences?.edit()
-            editor?.putString("date", insertdate.toString())
-            editor?.apply()
-        }
+
 
         findViewById<Button>(R.id.button_preset2_next).setOnClickListener(){
-            saveData()
+
             val intent = Intent(this, preset3::class.java)
             startActivity(intent)
         }
@@ -74,4 +68,6 @@ class preset2 : AppCompatActivity() {
 
         return calend.time
     }
+
+
 }

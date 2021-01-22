@@ -49,7 +49,7 @@ class news_web : AppCompatActivity() {
 
         val myweb: WebView = findViewById(R.id.news_webview)
 
-        val map1: Map<String, String> = mapOf("Authorization" to "Authorization: Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
+//        val map1: Map<String, String> = mapOf("Authorization" to "Authorization: Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
 
         myweb.loadDataWithBaseURL("", newsdesc123, "text/html", "utf-8", "")
 

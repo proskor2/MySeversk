@@ -13,10 +13,6 @@ class emergency_detail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_emergency_detail)
 
-//        val te1 = intent.getStringExtra("mobile")
-//        val te2 = Html.fromHtml(te1)
-//        text_emerg_det.text = te2
 
-        text_emerg_det.text = intent.getStringExtra("mobile")
     }
 }

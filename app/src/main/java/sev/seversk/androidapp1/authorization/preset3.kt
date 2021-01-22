@@ -20,14 +20,6 @@ class preset3 : AppCompatActivity() {
 
 
 
-        fun saveData(gender1 :String){
-            var insertgender = gender1
-            val sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
-            val editor = sharedPreferences?.edit()
-            editor?.putString("gender", insertgender)
-            editor?.apply()
-        }
-
         fun getGender(){
 
             val gender = findViewById<RadioGroup>(R.id.gender)
@@ -36,7 +28,7 @@ class preset3 : AppCompatActivity() {
             if (genderid != -1) {
                 val radio: RadioButton = findViewById(genderid)
                 val string: String = radio.text.toString()
-                saveData(string)
+
                 val intent = Intent(this, seversk::class.java)
                 startActivity(intent)
 
@@ -95,4 +87,5 @@ class preset3 : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
 }

@@ -39,7 +39,6 @@ class sms : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sms)
 
-        val token = FirebaseAuth.getInstance().getAccessToken(true)
 
 
         val getphonenum = intent.extras?.get("phonenumber")

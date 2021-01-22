@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import sev.seversk.androidapp1.emergency.szo_details
 import sev.seversk.androidapp1.news_items.ApiInterface
 import sev.seversk.androidapp1.news_items.News
 import sev.seversk.androidapp1.news_items.RecyclerAdapter
@@ -94,7 +95,7 @@ class HomeFragment : Fragment() {
         }
 
         button_emergency.setOnClickListener() {
-            val remont1 = Intent(context, emergency::class.java)
+            val remont1 = Intent(context, szo::class.java)
             startActivity(remont1)
         }
         button_district.setOnClickListener() {
