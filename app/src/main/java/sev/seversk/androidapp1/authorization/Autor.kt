@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.liftric.kvault.KVault
 import kotlinx.android.synthetic.main.activity_autor.*
 import sev.seversk.androidapp1.R
 
@@ -39,7 +40,7 @@ class Autor : AppCompatActivity() {
             hideKeyboard()
         }
 
-        val phonenum = findViewById<EditText>(R.id.editTextPhone3).text
+
 
         val auth = FirebaseAuth.getInstance()
 
@@ -85,6 +86,12 @@ class Autor : AppCompatActivity() {
 
 //Move to SMS
         but_autor.setOnClickListener() {
+
+            val phonenum = findViewById<EditText>(R.id.editTextPhone3).text
+
+            val getstring = KVault(context = applicationContext)
+            getstring.set("PHONENUM", phonenum.toString())
+
             if (phonenum.isEmpty() || phonenum.count().toInt() < 10) {
                 Toast.makeText(this, R.string.errorphone, Toast.LENGTH_SHORT).show()
 

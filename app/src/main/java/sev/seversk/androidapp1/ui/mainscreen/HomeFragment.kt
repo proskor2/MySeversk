@@ -54,6 +54,10 @@ class HomeFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
+        val sharedPreferences = activity?.getSharedPreferences("ktok", Context.MODE_PRIVATE)
+        val token = sharedPreferences?.getString("token", null)
+
+
         button_news.setOnClickListener() {
             val news = Intent(context, news::class.java)
             startActivity(news)

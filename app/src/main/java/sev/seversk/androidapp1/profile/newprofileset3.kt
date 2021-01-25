@@ -16,6 +16,7 @@ import androidx.cardview.widget.CardView
 import com.google.android.gms.tasks.OnCanceledListener
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.liftric.kvault.KVault
 import kotlinx.android.synthetic.main.activity_prodile_settings2.*
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
@@ -24,120 +25,92 @@ import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.authorization.seversk
 import java.io.ByteArrayOutputStream
 import java.io.IOException
+import java.lang.reflect.Array.set
 
 
 class newprofileset3: AppCompatActivity() {
 
-
-
     val client = OkHttpClient()
+    var newtoken: String? = null
 
-    fun AppCompatActivity.hideKeyboard() {
-        val view = this.currentFocus
-        if (view != null) {
-            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(view.windowToken, 0)
-        }
-        else {
-            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_prodile_settings2)
 
-//        val n1 = FirebaseAuth.getInstance()
-//        val n2 = FirebaseAuth.getInstance().currentUser
-//        val n3 = FirebaseAuth.getInstance().currentUser?.getIdToken(true)
-//        val n4 = FirebaseAuth.getInstance().getAccessToken(true)
+ // Get token
+        val getstring = KVault(context = applicationContext)
+        newtoken = getstring.string("TOKEN")
+        Toast.makeText(this, newtoken, Toast.LENGTH_LONG).show()
 
-        FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
-            if (!task.isSuccessful) {
-                Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
-
-            }
-            // Get new Instance ID token
-            val token: String? = task.result?.getToken()
-
-            // Log and toast
-            Toast.makeText(this, token, Toast.LENGTH_SHORT).show()
-        }
-
-
-
-
-
-        loadData()
-
-
-
+// Hide keyboard
         findViewById<LinearLayout>(R.id.layout1123)?.setOnClickListener(){
             hideKeyboard()
         }
 
-        var usersurname = findViewById<EditText>(R.id.set_profile_secondname).text.toString()
-
+// Button save profile settings
         findViewById<Button>(R.id.button_profile2_save)?.setOnClickListener() {
-
-
-
-
-
-
-
-//            Toast.makeText(this, "$token", Toast.LENGTH_LONG).show()
-
-
-            fun run(string: String) {
-                val requestBody = MultipartBody.Builder()
-                    .setType(MultipartBody.FORM)
-                    .addFormDataPart("patronymic", string)
-                    .build()
-
-                val request = Request.Builder()
-                    .addHeader("Authorization", "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
-                    .url("https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/profile/user")
-                    .post(requestBody)
-                    .build()
-
-                client.newCall(request).execute().use { response ->
-                    if (!response.isSuccessful) throw IOException("Unexpected code $response")
-//            Toast.makeText(this, response.body!!.toString(), Toast.LENGTH_LONG).show()
-                    Toast.makeText(this, response.body().toString(), Toast.LENGTH_LONG).show()
-                }
-
-                runOnUiThread() {
-                    run(usersurname)
-                }
-            }
-
-//            Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show()
+//           runOnUiThread(){
+//               val requestBody = MultipartBody.Builder()
+//                   .setType(MultipartBody.FORM)
+//                   .addFormDataPart("email", "Hello@hello")
+//                   .build()
+//
+//               val request = Request.Builder()
+//                   .header("Authorization","Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
+//                   .url("https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/profile/user")
+//                   .post(requestBody)
+//                   .build()
+//
+//               client.newCall(request).execute().use { response ->
+//                   if (!response.isSuccessful) throw IOException("Unexpected code $response")
+//
+//                   Toast.makeText(this, response.body().toString(), Toast.LENGTH_LONG).show()
+//               }
+//           }
         }
 
-
-//       findViewById<Button>(R.id.button_profile2_save)?.setOnClickListener(){
-//
-//            Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show()
-//        }
-
+//  Button return to seversk activity
         findViewById<ImageButton>(R.id.button_profile2_back)?.setOnClickListener(){
             val intent = Intent(this, seversk::class.java)
             startActivity(intent)
-
-
         }
 
+// Click on profile card
         findViewById<CardView>(R.id.add_profilephoto_card)?.setOnClickListener(){
             val callCameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             if (callCameraIntent.resolveActivity(packageManager) != null) {
                 startActivityForResult(callCameraIntent, 1)
-
             }
         }
-
-
     }
+
+
+
+//    fun run() {
+//        val requestBody = MultipartBody.Builder()
+//            .setType(MultipartBody.FORM)
+//            .addFormDataPart("email", "Hello@hello")
+//            .build()
+//
+//        val request = Request.Builder()
+//            .header("Authorization","Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
+//            .url("https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/profile/user")
+//            .post(requestBody)
+//            .build()
+//
+//        client.newCall(request).execute().use { response ->
+//            if (!response.isSuccessful) throw IOException("Unexpected code $response")
+//
+//            Toast.makeText(this, response.body().toString(), Toast.LENGTH_LONG).show()
+//        }
+//    }
+//
+//    companion object {
+//
+//    }
+
+
 
 
 
@@ -165,17 +138,17 @@ class newprofileset3: AppCompatActivity() {
 
 
 
-        val sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
-        val editor = sharedPreferences?.edit()
-        editor?.putString("surname", insertsurname.toString())
-        editor?.putString("name", insertname.toString())
-        editor?.putString("patr", insertpatr.toString())
-        editor?.putString("phone", insertphone.toString())
-        editor?.putString("date", insertdate.toString())
-        editor?.putString("mail", insertmail.toString())
-        editor?.putString("address", insertaddress.toString())
-        editor?.putString("gender", insertgender.toString())
-        editor?.apply()
+//        val sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
+//        val editor = sharedPreferences?.edit()
+//        editor?.putString("surname", insertsurname.toString())
+//        editor?.putString("name", insertname.toString())
+//        editor?.putString("patr", insertpatr.toString())
+//        editor?.putString("phone", insertphone.toString())
+//        editor?.putString("date", insertdate.toString())
+//        editor?.putString("mail", insertmail.toString())
+//        editor?.putString("address", insertaddress.toString())
+//        editor?.putString("gender", insertgender.toString())
+//        editor?.apply()
 
 
     }
@@ -213,22 +186,10 @@ class newprofileset3: AppCompatActivity() {
         useraddress?.setText(savedaddress)
         usergender?.setText(savedgender)
 
-//        val imageBytes = Base64.decode(savedphoto, Base64.DEFAULT)
-//        val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-//        photo.setImageBitmap(decodedImage)
-
-
-
-
     }
 
-    private fun encodeImage(bm: Bitmap): String? {
-        val baos = ByteArrayOutputStream()
-        bm.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-        val b = baos.toByteArray()
-        return Base64.encodeToString(b, Base64.DEFAULT)
-    }
 
+// On result for set avatar
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when(requestCode) {
@@ -243,27 +204,18 @@ class newprofileset3: AppCompatActivity() {
         }
     }
 
-    fun run(string: String) {
 
-        val requestBody = MultipartBody.Builder()
-            .setType(MultipartBody.FORM)
-            .addFormDataPart("lastname", string)
-            .build()
-
-          val request = Request.Builder()
-              .addHeader("Aithorization", "")
-            .url("https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/profile/user")
-            .post(requestBody)
-            .build()
-
-        client.newCall(request).execute().use { response ->
-            if (!response.isSuccessful) throw IOException("Unexpected code $response")
-//            Toast.makeText(this, response.body!!.toString(), Toast.LENGTH_LONG).show()
-            Toast.makeText(this, response.body().toString(), Toast.LENGTH_LONG).show()
+// Function for hide keyboard
+    fun AppCompatActivity.hideKeyboard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+        else {
+            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         }
     }
-
-
 
 }
 

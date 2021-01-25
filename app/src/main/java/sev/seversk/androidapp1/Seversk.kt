@@ -21,6 +21,7 @@ import sev.seversk.androidapp1.activities_appeal.appeal_iniciate
 
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.*
+import com.liftric.kvault.KVault
 import kotlinx.android.synthetic.main.activity_seversk.*
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import sev.seversk.androidapp1.R
@@ -34,6 +35,20 @@ class seversk() : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk)
 
+
+
+
+//        FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
+////            if (!task.isSuccessful) {
+////                Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+////
+////            }
+//            // Get new Instance ID token
+//            val token: String? = task.result?.getToken()
+//            kVault.set("TOKEN", token.toString())
+//            // Log and toast
+//
+//        }
 
 
 

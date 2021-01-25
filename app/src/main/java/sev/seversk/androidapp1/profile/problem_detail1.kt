@@ -75,6 +75,7 @@ class problem_detail1 : Fragment() {
         var okHttpClient: OkHttpClient = OkHttpClient()
 
         val request: Request = Request.Builder().url(URL).addHeader("Authorization",token).build()
+        val response = Response.Builder().addHeader("Authorization",token).build()
 
         okHttpClient.newCall(request).enqueue(object: Callback {
             override fun onFailure(call: Call, e: IOException) {
@@ -92,6 +93,7 @@ class problem_detail1 : Fragment() {
                 val tex6: String = JSONArray(json1).getJSONObject(0).getString("status")
                 val tex7: String = JSONArray(json1).getJSONObject(0).getString("adress")
                 val tex8: String = JSONArray(json1).getJSONObject(0).getString("autor")
+
 
 
                 activity?.runOnUiThread(){

@@ -1,2 +1,5 @@
 rootProject.name='AndroidApp1'
 include ':app'
+
+include ':kissme'
+enableFeaturePreview('GRADLE_METADATA')
