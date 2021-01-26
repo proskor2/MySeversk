@@ -30,18 +30,19 @@ import java.lang.reflect.Array.set
 
 class newprofileset3: AppCompatActivity() {
 
-    val client = OkHttpClient()
     var newtoken: String? = null
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_prodile_settings2)
 
+        loadData()
+
  // Get token
         val getstring = KVault(context = applicationContext)
         newtoken = getstring.string("TOKEN")
-        Toast.makeText(this, newtoken, Toast.LENGTH_LONG).show()
 
 // Hide keyboard
         findViewById<LinearLayout>(R.id.layout1123)?.setOnClickListener(){
@@ -50,29 +51,13 @@ class newprofileset3: AppCompatActivity() {
 
 // Button save profile settings
         findViewById<Button>(R.id.button_profile2_save)?.setOnClickListener() {
-//           runOnUiThread(){
-//               val requestBody = MultipartBody.Builder()
-//                   .setType(MultipartBody.FORM)
-//                   .addFormDataPart("email", "Hello@hello")
-//                   .build()
-//
-//               val request = Request.Builder()
-//                   .header("Authorization","Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
-//                   .url("https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/profile/user")
-//                   .post(requestBody)
-//                   .build()
-//
-//               client.newCall(request).execute().use { response ->
-//                   if (!response.isSuccessful) throw IOException("Unexpected code $response")
-//
-//                   Toast.makeText(this, response.body().toString(), Toast.LENGTH_LONG).show()
-//               }
-//           }
+            saveData()
+            Toast.makeText(this, "Изменения сохранены", Toast.LENGTH_SHORT).show()
         }
 
 //  Button return to seversk activity
         findViewById<ImageButton>(R.id.button_profile2_back)?.setOnClickListener(){
-            val intent = Intent(this, seversk::class.java)
+            val intent = Intent(this, profile_settings::class.java)
             startActivity(intent)
         }
 
@@ -85,36 +70,8 @@ class newprofileset3: AppCompatActivity() {
         }
     }
 
-
-
-//    fun run() {
-//        val requestBody = MultipartBody.Builder()
-//            .setType(MultipartBody.FORM)
-//            .addFormDataPart("email", "Hello@hello")
-//            .build()
-//
-//        val request = Request.Builder()
-//            .header("Authorization","Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
-//            .url("https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/profile/user")
-//            .post(requestBody)
-//            .build()
-//
-//        client.newCall(request).execute().use { response ->
-//            if (!response.isSuccessful) throw IOException("Unexpected code $response")
-//
-//            Toast.makeText(this, response.body().toString(), Toast.LENGTH_LONG).show()
-//        }
-//    }
-//
-//    companion object {
-//
-//    }
-
-
-
-
-
     fun saveData(){
+        val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
 
         var usersurname = findViewById<EditText>(R.id.set_profile_surname)
         var username = findViewById<EditText>(R.id.set_profile_name)
@@ -136,27 +93,23 @@ class newprofileset3: AppCompatActivity() {
         var insertgender = usergender?.text
 
 
-
-
-//        val sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
-//        val editor = sharedPreferences?.edit()
-//        editor?.putString("surname", insertsurname.toString())
-//        editor?.putString("name", insertname.toString())
-//        editor?.putString("patr", insertpatr.toString())
-//        editor?.putString("phone", insertphone.toString())
-//        editor?.putString("date", insertdate.toString())
-//        editor?.putString("mail", insertmail.toString())
-//        editor?.putString("address", insertaddress.toString())
-//        editor?.putString("gender", insertgender.toString())
-//        editor?.apply()
-
+        val editor = sharedPreferences?.edit()
+        editor?.putString("surname", insertsurname.toString())
+        editor?.putString("name", insertname.toString())
+        editor?.putString("patr", insertpatr.toString())
+        editor?.putString("phone", insertphone.toString())
+        editor?.putString("date", insertdate.toString())
+        editor?.putString("mail", insertmail.toString())
+        editor?.putString("address", insertaddress.toString())
+        editor?.putString("gender", insertgender.toString())
+        editor?.apply()
 
     }
 
     fun loadData(){
 
+        val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
 
-        val sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
         val savedsurname = sharedPreferences?.getString("surname", null)
         val savedname = sharedPreferences?.getString("name", null)
         val savedpatr = sharedPreferences?.getString("patr", null)

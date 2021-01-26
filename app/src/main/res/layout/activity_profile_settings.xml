@@ -29,7 +29,7 @@
                 android:text="Назад"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="#1664BB"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textView65"
@@ -39,7 +39,7 @@
                 android:text="Настройки"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/button_profile1_change"
@@ -50,7 +50,7 @@
                 android:text="Изменить"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="#1664BB"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -108,12 +108,13 @@
             android:layout_height="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="#EEF0F4" />
+            android:background="#E7EFFF" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_settings_notification"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="2dp" >
+            android:layout_margin="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -138,7 +139,7 @@
                     android:text="Уведомления и звук"
                     android:textAlignment="textStart"
                     android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <View
@@ -150,9 +151,10 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_settings_conf"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="2dp" >
+            android:layout_margin="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -177,7 +179,7 @@
                     android:text="Конфиденциальность"
                     android:textAlignment="textStart"
                     android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <View
@@ -189,9 +191,10 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_settings_memory"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="2dp" >
+            android:layout_margin="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -216,7 +219,7 @@
                     android:text="Данные и память"
                     android:textAlignment="textStart"
                     android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <View
@@ -228,9 +231,10 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_settings_logout"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="2dp" >
+            android:layout_margin="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -255,7 +259,7 @@
                     android:text="Выйти из аккаунта"
                     android:textAlignment="textStart"
                     android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <View

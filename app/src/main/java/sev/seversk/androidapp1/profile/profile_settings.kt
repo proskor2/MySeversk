@@ -1,8 +1,13 @@
 package sev.seversk.androidapp1.profile
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
+import android.widget.Toast
+import androidx.cardview.widget.CardView
+import com.google.firebase.auth.FirebaseAuth
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.authorization.seversk
 import kotlinx.android.synthetic.main.activity_profile_settings.*
@@ -12,6 +17,32 @@ class profile_settings : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_settings)
+
+
+
+
+        findViewById<CardView>(R.id.card_settings_notification).setOnClickListener(){
+            Toast.makeText(this, "Notification", Toast.LENGTH_SHORT).show()
+        }
+
+        findViewById<CardView>(R.id.card_settings_conf).setOnClickListener(){
+            Toast.makeText(this, "Confidential", Toast.LENGTH_SHORT).show()
+        }
+
+        findViewById<CardView>(R.id.card_settings_memory).setOnClickListener(){
+            Toast.makeText(this, "Memory", Toast.LENGTH_SHORT).show()
+        }
+
+        findViewById<CardView>(R.id.card_settings_logout).setOnClickListener(){
+            val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
+            val editor = sharedPreferences?.edit()
+            editor?.clear()?.apply()
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, sev.seversk.androidapp1.authorization.startActivity::class.java)
+            startActivity(intent)
+        }
+
+
 // button change screen settings to main screen
         button_profilesettings_back.setOnClickListener(){
             val back = Intent(this@profile_settings, seversk::class.java)
@@ -20,20 +51,26 @@ class profile_settings : AppCompatActivity() {
         }
 // button change screen settings to detals settings screen
         button_profile1_change.setOnClickListener(){
-        val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.routes, newprofileset())
+            val intent = Intent(this, newprofileset3::class.java)
+            startActivity(intent)
         }
+
+
+        val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
+        val editor = sharedPreferences?.edit()
+        val cardname = sharedPreferences?.getString("name", "Имя")
+        val cardsurname = sharedPreferences?.getString("surname", "Фамилия")
+        val cardphone = sharedPreferences?.getString("phone", "Телефон")
+
+
+
 // get data from settings2 activity
 
-        profile_name_settings.text = ("Имя: "+intent.getStringExtra("name"))
-        profile_surname_settings.text = ("Фамилия: "+intent.getStringExtra("surname"))
-        profile_phone_settings.text = ("Телефон: "+intent.getStringExtra("phonenum"))
+        profile_name_settings.text = ("Имя: "+cardname)
+        profile_surname_settings.text = ("Фамилия: "+cardsurname)
+        profile_phone_settings.text = ("Телефон: "+cardphone)
 
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
 
-
-        super.onSaveInstanceState(outState)
-    }
 }

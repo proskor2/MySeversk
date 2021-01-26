@@ -41,7 +41,7 @@
                 android:text="Новый пользователь"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="24sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -50,9 +50,10 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:gravity="center"
-                android:text="2 из 3"
+                android:text="1 из 3"
                 android:textAlignment="center"
-                android:textColor="#7C7C7C" />
+                android:textColor="#7C7C7C"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <View
@@ -69,7 +70,7 @@
             android:text="Пожалуйста введите Вашу дату рождения"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
 
         <DatePicker
@@ -78,33 +79,21 @@
             android:layout_height="wrap_content"
             android:calendarTextColor="#FFFFFF"
             android:calendarViewShown="false"
-            android:datePickerMode="spinner" />
+            android:datePickerMode="spinner"
+            android:maxDate="15/15/2009"
+            android:minDate="12/12/1920" />
 
         <Button
             android:id="@+id/button_preset2_next"
-            android:layout_width="176dp"
-            android:layout_height="50dp"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:layout_weight="0"
             android:background="#FFFFFF"
             android:text="Далее"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="#1664BB"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/butt_preset2_back"
-            android:layout_width="176dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:layout_weight="0"
-            android:background="#FFFFFF"
-            android:text="Назад"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="#1664BB"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 

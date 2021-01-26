@@ -76,16 +76,6 @@ class ProfileFragment : Fragment() {
             navController?.navigate(R.id.fragment_iniciativa)
         }
 
-        activity?.findViewById<CardView>(R.id.card_profile_set)?.setOnClickListener(){
-           replaceFragment(newprofileset2())
-        }
-
-    }
-
-    private fun replaceFragment(fragment: Fragment){
-        val trans = fragmentManager?.beginTransaction()
-        trans?.replace(R.id.fragment_cont1, fragment)
-        trans?.commit()
     }
 
 }

@@ -59,19 +59,13 @@ class Autor : AppCompatActivity() {
                 auth.signInAnonymously().addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
-                        Toast.makeText(applicationContext,
-                            "signInAnonymously:success",
-                            Toast.LENGTH_SHORT).show()
                         val user = auth.currentUser
                         updateUI(user)
 
 
                     } else {
                         // If sign in fails, display a message to the user.
-                        Toast.makeText(applicationContext,
-                            "signInAnonymously:failure",
-                            Toast.LENGTH_SHORT).show()
-                        Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.makeText(baseContext, "Ошибка",
                             Toast.LENGTH_SHORT).show()
                         updateUI(null)
 
@@ -88,6 +82,7 @@ class Autor : AppCompatActivity() {
         but_autor.setOnClickListener() {
 
             val phonenum = findViewById<EditText>(R.id.editTextPhone3).text
+            val codefield = findViewById<EditText>(R.id.editTextPhone2).text
 
             val getstring = KVault(context = applicationContext)
             getstring.set("PHONENUM", phonenum.toString())
@@ -98,6 +93,7 @@ class Autor : AppCompatActivity() {
             } else {
                 val autor_sms = Intent(this@Autor, sms::class.java)
                 autor_sms.putExtra("phonenumber", phonenum.toString())
+                autor_sms.putExtra("codenumber", codefield.toString())
                 startActivity(autor_sms)
 
             }
