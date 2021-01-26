@@ -56,7 +56,7 @@ class newprofileset3: AppCompatActivity() {
         }
 
 //  Button return to seversk activity
-        findViewById<ImageButton>(R.id.button_profile2_back)?.setOnClickListener(){
+        findViewById<Button>(R.id.button_profile2_back)?.setOnClickListener(){
             val intent = Intent(this, profile_settings::class.java)
             startActivity(intent)
         }

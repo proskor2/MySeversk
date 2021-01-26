@@ -27,13 +27,17 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageButton
+
+                <Button
                     android:id="@+id/button_profile2_back"
-                    android:layout_width="157dp"
-                    android:layout_height="48dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="@null"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/left" />
+                    android:text="Назад"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="#1664BB"
+                    android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/button_profile2_save"
@@ -46,7 +50,7 @@
                     android:textAlignment="gravity"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textColor="#1664BB"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <androidx.cardview.widget.CardView
@@ -199,7 +203,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:inputType="number"
+                    android:inputType="phone"
                     android:maxLength="12"
                     android:phoneNumber="true"
                     android:textAlignment="center"
@@ -301,7 +305,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:inputType="textWebEmailAddress"
-                    android:maxLength="25"
+                    android:maxLength="40"
                     android:textAlignment="center"
                     android:textColor="#000000" />
             </LinearLayout>
@@ -334,7 +338,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:maxLength="30"
                     android:textAlignment="center"
                     android:textColor="#000000" />
             </LinearLayout>
