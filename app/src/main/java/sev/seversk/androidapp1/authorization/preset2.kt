@@ -37,7 +37,6 @@ class preset2 : AppCompatActivity() {
             val date = getDate(datePicker).toString()
             editor?.putString("date", date)
             editor?.apply()
-            Toast.makeText(this, "$date", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, preset3::class.java)
             intent.putExtra("date", date)
             startActivity(intent)

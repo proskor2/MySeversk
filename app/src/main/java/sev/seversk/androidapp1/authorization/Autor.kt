@@ -53,6 +53,7 @@ class Autor : AppCompatActivity() {
                 Toast.makeText(this, "Анонимный поьлзователь", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, seversk::class.java)
                 startActivity(intent)
+                finish()
 
             } else {
 
@@ -74,6 +75,7 @@ class Autor : AppCompatActivity() {
 
                     val autor_later = Intent(Intent(this@Autor, seversk::class.java))
                     startActivity(autor_later)
+                    finish()
                 }
             }
         }

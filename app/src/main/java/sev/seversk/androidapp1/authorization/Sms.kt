@@ -19,84 +19,71 @@ import sev.seversk.androidapp1.R
 import java.util.concurrent.TimeUnit
 
 class sms : AppCompatActivity() {
-
+// global
     private var mVerificationId: String? = null
     private var mAuth: FirebaseAuth? = null
     private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
-
-
-
-
-
+// onCreate
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sms)
 
+    val smsField = findViewById<EditText>(R.id.edit_smspass)
+    mAuth = FirebaseAuth.getInstance()
 
-
+// get Phone number and Code number(+n)
         val getphonenum = intent.extras?.get("phonenumber")
         val codenum = intent.extras?.get("codenumber")
-        mAuth = FirebaseAuth.getInstance()
-
-        val smsField = findViewById<EditText>(R.id.edit_smspass)
-
         val phonenum = "$codenum$getphonenum"
 
+// FB verify phonenum
+    @Suppress("DEPRECATION")
+    PhoneAuthProvider.getInstance().verifyPhoneNumber(phonenum, 60, TimeUnit.SECONDS, this, callback)
+
+// Save phonenumber in prefs
         val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("phone", phonenum)
         editor.apply()
 
-
+// get TOKEN and save to keychain
         val kVault = KVault(context = applicationContext)
-
         FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
             val token: String? = task.result?.getToken()
             kVault.set("TOKEN", token.toString())
         }
-
         val newtoken = kVault.string("TOKEN").toString()
 
-
-
-        @Suppress("DEPRECATION")
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(phonenum, 60, TimeUnit.SECONDS, this, callback)
-
-
-        // move to My Seversk screen
+// move to My Seversk screen
         but_sms.setOnClickListener(){
             if (smsField.text.isEmpty() || smsField.text.length < 6){
                 Toast.makeText(this.applicationContext, "Пожалуйста введите корректный код", Toast.LENGTH_SHORT).show()
             } else {
-
             verifyVerificationCode(smsField.text.toString())
-
+                addTokenUser(newtoken, phonenum)
             }
         }
 
-
-
-        // SMS once again
+// SMS resend
         text_resms.setOnClickListener(){
             val resms = Toast.makeText(applicationContext, "Мы повторно выслали Вам код", Toast.LENGTH_SHORT)
             resms.show()
             resendVerificationCode(phonenum, resendToken )
-
-
         }
 
-
-        // Button back
+// Button back
         left_button.setOnClickListener(){
             val left1 = Intent(this@sms, Autor::class.java)
             startActivity(left1)
             finish()
         }
+
+// hide keyboard
         linearlayout4.setOnClickListener(){
             hideKeyboard()
         }
     }
-
+ /////////////////////////////////callback//////////////////////////////////////////////////
 
     private val callback: PhoneAuthProvider.OnVerificationStateChangedCallbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
@@ -127,7 +114,7 @@ class sms : AppCompatActivity() {
         resendToken = forceResendingToken
         }
 
-
+        /////////////////////////////////callback//////////////////////////////////////////////////
     }
 
     private fun verifyVerificationCode(code: String){
@@ -152,9 +139,6 @@ class sms : AppCompatActivity() {
         PhoneAuthProvider.verifyPhoneNumber(optionsBuilder.build())
     }
 
-
-
-
     private fun signInWithPhoneCredential(credential: PhoneAuthCredential) {
         mAuth!!.signInWithCredential(credential)
             .addOnCompleteListener(this, OnCompleteListener<AuthResult?> { task ->
@@ -176,6 +160,22 @@ class sms : AppCompatActivity() {
         }
         else {
             window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+        }
+    }
+
+    fun addTokenUser(token: String, phoneNumber: String) {
+        val apiService = RestApiService()
+        val tokenInfo = tokenInfo(  status = null,
+        token = token,
+        phonenumber = phoneNumber)
+
+        apiService.addUser(tokenInfo) {
+            if (it?.status != null) {
+                // it = newly added user parsed as response
+                // it?.id = newly added user ID
+            } else {
+                Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

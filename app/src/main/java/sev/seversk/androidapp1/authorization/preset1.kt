@@ -18,10 +18,16 @@ class preset1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preset1)
 
-
         val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
         val editor = sharedPreferences?.edit()
 
+
+
+        val kVault = KVault(context = applicationContext)
+        FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
+            val token: String? = task.result?.getToken()
+            kVault.set("TOKEN", token.toString())
+        }
 
 
 
@@ -30,21 +36,25 @@ class preset1 : AppCompatActivity() {
             startActivity(intent)
         }
 
-
         findViewById<Button>(R.id.button_preset1_next).setOnClickListener(){
             val builder = AlertDialog.Builder(this@preset1)
             builder.setMessage(R.string.privacyText)
             builder.setPositiveButton("Да") { dialog, which ->
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                val kVault = KVault(context = applicationContext)
-                FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
-                    val token: String? = task.result?.getToken()
-                    kVault.set("TOKEN", token.toString())
-                }
+                val getNameField = findViewById<EditText>(R.id.preset_name).text.toString()
+                editor?.putString("name", getNameField)
+                editor?.apply()
+
 
                 val newtoken = kVault.string("TOKEN").toString()
                 val phonenumber = kVault.string("PHONENUM").toString()
+                val phone = "+7$phonenumber"
+                val createname = getNameField
+                val creategender = 1
+                val createdate = sharedPreferences.getString("date", null).toString()
+
+               createNewUser(createname,creategender,createdate,newtoken,phone)
 
                 val intent = Intent(this, seversk::class.java)
                 startActivity(intent)
@@ -55,7 +65,7 @@ class preset1 : AppCompatActivity() {
 
             builder.setNegativeButton("Отмена") {dialog, which ->
                 FirebaseAuth.getInstance().currentUser?.delete()
-                val intent = Intent(this, Autor::class.java)
+                val intent = Intent(this, Autor::class.java) 
                 startActivity(intent)
 
             }
@@ -64,9 +74,7 @@ class preset1 : AppCompatActivity() {
 
             dialog.show()
 
-            val getNameField = findViewById<EditText>(R.id.preset_name).text.toString()
-            editor?.putString("name", getNameField)
-            editor?.apply()
+
 
         }
 
@@ -102,5 +110,22 @@ class preset1 : AppCompatActivity() {
         }
     }
 
+    fun createNewUser(name: String, gender: Int, birthday: String, token: String, phone: String) {
+        val apiService = RestCreateUser()
+        val createUserInfo = createUserInfo(id =null,
+        firstName = name,
+        gender = gender,
+        birhtday = birthday,
+        token = token,
+        phonenumber = phone)
 
+        apiService.addUser(createUserInfo) {
+            if (it?.id != null) {
+                // it = newly added user parsed as response
+                // it?.id = newly added user ID
+            } else {
+                Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 }

@@ -63,7 +63,6 @@ class preset3 : AppCompatActivity() {
             val editor = sharedPreferences?.edit()
             editor?.putString("gender", string)
             editor?.apply()
-            Toast.makeText(this, "$string", Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this, seversk::class.java)
             intent.putExtra("gender", string)

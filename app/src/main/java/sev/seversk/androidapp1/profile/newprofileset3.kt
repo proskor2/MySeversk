@@ -4,7 +4,9 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.util.Base64
 import android.util.Log
@@ -13,18 +15,19 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.OnCanceledListener
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.liftric.kvault.KVault
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_prodile_settings2.*
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.authorization.seversk
-import java.io.ByteArrayOutputStream
-import java.io.IOException
+import java.io.*
 import java.lang.reflect.Array.set
 
 
@@ -61,13 +64,19 @@ class newprofileset3: AppCompatActivity() {
             startActivity(intent)
         }
 
-// Click on profile card
-        findViewById<CardView>(R.id.add_profilephoto_card)?.setOnClickListener(){
+// Click to set image
+        val card_photo = findViewById<CardView>(R.id.add_profilephoto_card)
+        card_photo?.setOnClickListener(){
             val callCameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             if (callCameraIntent.resolveActivity(packageManager) != null) {
                 startActivityForResult(callCameraIntent, 1)
             }
         }
+
+
+
+
+
     }
 
     fun saveData(){
@@ -149,6 +158,7 @@ class newprofileset3: AppCompatActivity() {
             1 -> {
                 if (resultCode == Activity.RESULT_OK && data != null) {
                     add_profilephoto.setImageBitmap(data.extras?.get("data") as Bitmap)
+
                 }
             }
             else -> {
@@ -169,6 +179,7 @@ class newprofileset3: AppCompatActivity() {
             window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         }
     }
+
 
 }
 

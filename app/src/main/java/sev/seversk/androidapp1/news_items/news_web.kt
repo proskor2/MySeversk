@@ -23,7 +23,6 @@ class news_web : AppCompatActivity() {
         val newsdesc = intent2?.get("detail").toString()
 
 
-
     //////////////////////////////////////////////////////////////////////////////////////////////////
         val upl = "/uploads/ckfinder/userfiles/"
         val newsdesc123 = if (newsdesc.contains(upl)) {
@@ -48,9 +47,6 @@ class news_web : AppCompatActivity() {
         news_webview.settings.javaScriptEnabled
 
         val myweb: WebView = findViewById(R.id.news_webview)
-
-//        val map1: Map<String, String> = mapOf("Authorization" to "Authorization: Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
-
         myweb.loadDataWithBaseURL("", newsdesc123, "text/html", "utf-8", "")
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
