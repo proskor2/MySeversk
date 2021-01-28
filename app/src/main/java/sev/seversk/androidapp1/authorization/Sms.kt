@@ -51,6 +51,7 @@ class sms : AppCompatActivity() {
         FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
             val token: String? = task.result?.getToken()
             kVault.set("TOKEN", token.toString())
+
         }
         val newtoken = kVault.string("TOKEN").toString()
 
@@ -143,9 +144,7 @@ class sms : AppCompatActivity() {
         mAuth!!.signInWithCredential(credential)
             .addOnCompleteListener(this, OnCompleteListener<AuthResult?> { task ->
                 if (task.isSuccessful) {
-                    val intent = Intent(this, preset2::class.java)
-                    startActivity(intent)
-                    finish()
+
                 } else {
                     Toast.makeText(applicationContext, "Ошибка авторизации. Проверьте введенные данные", Toast.LENGTH_SHORT).show()
                 }
@@ -166,15 +165,23 @@ class sms : AppCompatActivity() {
     fun addTokenUser(token: String, phoneNumber: String) {
         val apiService = RestApiService()
         val tokenInfo = tokenInfo(  status = null,
+            code = null,
         token = token,
         phonenumber = phoneNumber)
 
-        apiService.addUser(tokenInfo) {
-            if (it?.status != null) {
+        apiService.addToken(tokenInfo) {
+            if (it?.status == "Токен подтвержден в firebase" || it?.status == "Токен подтвержден в firebase. Анонимная регистрация") {
                 // it = newly added user parsed as response
                 // it?.id = newly added user ID
+                val intent = Intent(this, preset2::class.java)
+                startActivity(intent)
+                finish()
             } else {
-                Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Ошибка авторизации", Toast.LENGTH_SHORT).show()
+                FirebaseAuth.getInstance().currentUser?.delete()
+                val intent = Intent(this, Autor::class.java)
+                startActivity(intent)
+                finish()
             }
         }
     }

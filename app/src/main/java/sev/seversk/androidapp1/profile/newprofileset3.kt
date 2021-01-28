@@ -26,7 +26,7 @@ import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.authorization.seversk
+import sev.seversk.androidapp1.authorization.*
 import java.io.*
 import java.lang.reflect.Array.set
 
@@ -73,10 +73,6 @@ class newprofileset3: AppCompatActivity() {
             }
         }
 
-
-
-
-
     }
 
     fun saveData(){
@@ -92,26 +88,29 @@ class newprofileset3: AppCompatActivity() {
         var userphone = findViewById<EditText>(R.id.set_profile_phone)
         var imview = findViewById<ImageView>(R.id.add_profilephoto)
 
-        var insertsurname = usersurname?.text
-        var insertname = username?.text
-        var insertpatr = userpatr?.text
-        var insertphone = userphone?.text
-        var insertdate = userdate?.text
-        var insertmail = usermail?.text
-        var insertaddress = useraddress?.text
-        var insertgender = usergender?.text
+        var insertsurname = usersurname?.text.toString()
+        var insertname = username?.text.toString()
+        var insertpatr = userpatr?.text.toString()
+        var insertphone = userphone?.text.toString()
+        var insertdate = userdate?.text.toString()
+        var insertmail = usermail?.text.toString()
+        var insertaddress = useraddress?.text.toString()
+        var insertgender = usergender?.text.toString()
+        val intgender = if (insertgender == "Мужской"|| insertgender == "мужской"|| insertgender =="муж" || insertgender == "Муж") 1 else 0
 
 
         val editor = sharedPreferences?.edit()
-        editor?.putString("surname", insertsurname.toString())
-        editor?.putString("name", insertname.toString())
-        editor?.putString("patr", insertpatr.toString())
-        editor?.putString("phone", insertphone.toString())
-        editor?.putString("date", insertdate.toString())
-        editor?.putString("mail", insertmail.toString())
-        editor?.putString("address", insertaddress.toString())
-        editor?.putString("gender", insertgender.toString())
+        editor?.putString("surname", insertsurname)
+        editor?.putString("name", insertname)
+        editor?.putString("patr", insertpatr)
+        editor?.putString("phone", insertphone)
+        editor?.putString("date", insertdate)
+        editor?.putString("mail", insertmail)
+        editor?.putString("address", insertaddress)
+        editor?.putString("gender", insertgender)
         editor?.apply()
+
+        createNewUser(insertname, insertsurname, insertpatr, insertmail, insertphone, intgender, insertdate, insertaddress)
 
     }
 
@@ -177,6 +176,29 @@ class newprofileset3: AppCompatActivity() {
         }
         else {
             window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+        }
+    }
+
+    fun createNewUser(firstName: String, lastName: String, patronymic: String, email: String, phonenumber: String, gender: Int, birthday: String, address: String) {
+        val apiService = RestSaveProfile()
+        val saveUserInfo = saveProfile(  lastName = null,
+            firstName = firstName,
+            patronymic = patronymic,
+            email = email,
+            phonenumber = phonenumber,
+            address = address,
+            birthday = birthday,
+            gender = gender
+
+        )
+
+        apiService.addUser(saveUserInfo) {
+            if (it?.lastName != null) {
+                // it = newly added user parsed as response
+                // it?.id = newly added user ID
+            } else {
+                Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

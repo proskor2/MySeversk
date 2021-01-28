@@ -11,6 +11,7 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.liftric.kvault.KVault
+import kotlinx.android.synthetic.main.activity_preset3.*
 import sev.seversk.androidapp1.R
 
 class preset1 : AppCompatActivity() {
@@ -20,15 +21,6 @@ class preset1 : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
         val editor = sharedPreferences?.edit()
-
-
-
-        val kVault = KVault(context = applicationContext)
-        FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
-            val token: String? = task.result?.getToken()
-            kVault.set("TOKEN", token.toString())
-        }
-
 
 
         findViewById<Button>(R.id.button_preset1_back3).setOnClickListener(){
@@ -46,15 +38,16 @@ class preset1 : AppCompatActivity() {
                 editor?.putString("name", getNameField)
                 editor?.apply()
 
-
+                val kVault = KVault(context = applicationContext)
                 val newtoken = kVault.string("TOKEN").toString()
                 val phonenumber = kVault.string("PHONENUM").toString()
                 val phone = "+7$phonenumber"
                 val createname = getNameField
-                val creategender = 1
+                val creategender = sharedPreferences.getString("gender", null).toString()
+                val gender = if (creategender == "Мужской") 1 else 0
                 val createdate = sharedPreferences.getString("date", null).toString()
 
-               createNewUser(createname,creategender,createdate,newtoken,phone)
+               createNewUser(createname,gender,createdate, newtoken,phone)
 
                 val intent = Intent(this, seversk::class.java)
                 startActivity(intent)
@@ -110,14 +103,16 @@ class preset1 : AppCompatActivity() {
         }
     }
 
-    fun createNewUser(name: String, gender: Int, birthday: String, token: String, phone: String) {
+    fun createNewUser(firstName: String, gender: Int, birthday: String, token: String, phone: String) {
         val apiService = RestCreateUser()
-        val createUserInfo = createUserInfo(id =null,
-        firstName = name,
+        val createUserInfo = createUserInfo( id = null,
+            token = token,
+            phone = phone,
+        name = firstName,
         gender = gender,
-        birhtday = birthday,
-        token = token,
-        phonenumber = phone)
+        birthday = birthday
+
+       )
 
         apiService.addUser(createUserInfo) {
             if (it?.id != null) {

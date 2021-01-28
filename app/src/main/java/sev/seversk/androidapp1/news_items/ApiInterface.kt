@@ -14,7 +14,6 @@ import sev.seversk.androidapp1.R
 interface ApiInterface {
 
     @GET("news")
-
     @Headers("Accept: application/json", "Authorization: Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
 
 

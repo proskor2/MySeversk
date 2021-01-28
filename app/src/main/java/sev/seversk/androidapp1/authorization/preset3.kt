@@ -49,7 +49,6 @@ class preset3 : AppCompatActivity() {
         }
 
 
-
     }
     fun getGender(){
 

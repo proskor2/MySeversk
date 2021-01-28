@@ -18,20 +18,6 @@ import sev.seversk.androidapp1.R
 class Autor : AppCompatActivity() {
 
 
-    fun AppCompatActivity.hideKeyboard() {
-        val view = this.currentFocus
-        if (view != null) {
-            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(view.windowToken, 0)
-        }
-         else {
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
-         }
-    }
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_autor)
@@ -40,17 +26,14 @@ class Autor : AppCompatActivity() {
             hideKeyboard()
         }
 
-
-
         val auth = FirebaseAuth.getInstance()
-
 
 // Later autorization
         autor_later.setOnClickListener() {
 
             if (auth.currentUser?.isAnonymous == true){
 
-                Toast.makeText(this, "Анонимный поьлзователь", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Анонимный пользователь", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, seversk::class.java)
                 startActivity(intent)
                 finish()
@@ -105,12 +88,23 @@ class Autor : AppCompatActivity() {
         }
 
     }
+    fun AppCompatActivity.hideKeyboard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+        else {
+            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+        }
+    }
 }
 
     private fun updateUI(user: FirebaseUser?) {
         val isSignedIn = user != null
 
     }
+
 
 
 

@@ -6,7 +6,7 @@ import retrofit2.Response
 
 
 class RestApiService {
-    fun addUser(tokenData: tokenInfo, onResult: (tokenInfo?) -> Unit){
+    fun addToken(tokenData: tokenInfo, onResult: (tokenInfo?) -> Unit){
         val retrofit = ServiceBuilder.buildService(ApiPostToken::class.java)
         retrofit.addToken(tokenData).enqueue(
             object : Callback<tokenInfo> {
