@@ -1,10 +1,13 @@
 package sev.seversk.androidapp1.authorization
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,19 +20,21 @@ import sev.seversk.androidapp1.R
 
 class Autor : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_autor)
+
+        FirebaseAuth.getInstance().currentUser?.delete()
 
         linearLayout3.setOnClickListener() {
             hideKeyboard()
         }
 
         val auth = FirebaseAuth.getInstance()
+//        auth.signOut()
 
 // Later autorization
-        autor_later.setOnClickListener() {
+        findViewById<Button>(R.id.autor_later).setOnClickListener() {
 
             if (auth.currentUser?.isAnonymous == true){
 
@@ -80,14 +85,10 @@ class Autor : AppCompatActivity() {
                 autor_sms.putExtra("phonenumber", phonenum.toString())
                 autor_sms.putExtra("codenumber", codefield.toString())
                 startActivity(autor_sms)
-
             }
-
-
-
         }
-
     }
+
     fun AppCompatActivity.hideKeyboard() {
         val view = this.currentFocus
         if (view != null) {

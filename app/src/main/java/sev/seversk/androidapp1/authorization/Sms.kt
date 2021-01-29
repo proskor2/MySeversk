@@ -36,9 +36,7 @@ class sms : AppCompatActivity() {
         val codenum = intent.extras?.get("codenumber")
         val phonenum = "$codenum$getphonenum"
 
-// FB verify phonenum
-    @Suppress("DEPRECATION")
-    PhoneAuthProvider.getInstance().verifyPhoneNumber(phonenum, 60, TimeUnit.SECONDS, this, callback)
+
 
 // Save phonenumber in prefs
         val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
@@ -47,13 +45,17 @@ class sms : AppCompatActivity() {
         editor.apply()
 
 // get TOKEN and save to keychain
-        val kVault = KVault(context = applicationContext)
-        FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
-            val token: String? = task.result?.getToken()
-            kVault.set("TOKEN", token.toString())
+    val kVault = KVault(context = applicationContext)
+    FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
+        val token: String? = task.result?.getToken()
+        kVault.set("TOKEN", token.toString())
+    }
+    val newtoken = kVault.string("TOKEN").toString()
 
-        }
-        val newtoken = kVault.string("TOKEN").toString()
+
+    // FB verify phonenum
+    @Suppress("DEPRECATION")
+    PhoneAuthProvider.getInstance().verifyPhoneNumber(phonenum, 60, TimeUnit.SECONDS, this, callback)
 
 // move to My Seversk screen
         but_sms.setOnClickListener(){
@@ -144,7 +146,6 @@ class sms : AppCompatActivity() {
         mAuth!!.signInWithCredential(credential)
             .addOnCompleteListener(this, OnCompleteListener<AuthResult?> { task ->
                 if (task.isSuccessful) {
-
                 } else {
                     Toast.makeText(applicationContext, "Ошибка авторизации. Проверьте введенные данные", Toast.LENGTH_SHORT).show()
                 }
@@ -170,7 +171,7 @@ class sms : AppCompatActivity() {
         phonenumber = phoneNumber)
 
         apiService.addToken(tokenInfo) {
-            if (it?.status == "Токен подтвержден в firebase" || it?.status == "Токен подтвержден в firebase. Анонимная регистрация") {
+            if (it?.status != null) {
                 // it = newly added user parsed as response
                 // it?.id = newly added user ID
                 val intent = Intent(this, preset2::class.java)
@@ -178,7 +179,6 @@ class sms : AppCompatActivity() {
                 finish()
             } else {
                 Toast.makeText(this, "Ошибка авторизации", Toast.LENGTH_SHORT).show()
-                FirebaseAuth.getInstance().currentUser?.delete()
                 val intent = Intent(this, Autor::class.java)
                 startActivity(intent)
                 finish()

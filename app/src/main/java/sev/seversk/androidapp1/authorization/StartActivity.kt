@@ -12,9 +12,8 @@ import sev.seversk.androidapp1.R
 
 class startActivity : AppCompatActivity() {
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
 
         FirebaseApp.initializeApp(applicationContext)

@@ -54,12 +54,7 @@ class newprofileset: Fragment(){
 //            startActivity(intent)
 //        }
 
-        activity?.findViewById<ImageButton>(R.id.button_tosettings3)?.setOnClickListener(){
-            val intent = Intent(context, profile_settings::class.java)
-            startActivity(intent)
 
-
-        }
 
 
     }

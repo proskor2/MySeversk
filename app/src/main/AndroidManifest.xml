@@ -22,81 +22,107 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities_main.szo"
+        <activity android:name=".authorization.SplashScreen"></activity>
+        <activity
+            android:name=".activities_main.szo"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".emergency.szo_details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".emergency.szo_details"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".authorization.privacy"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".authorization.privacy"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".authorization.preset3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".authorization.preset3"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".authorization.preset2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".authorization.preset2"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".authorization.preset1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".authorization.preset1"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".opros_items.opros_details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".opros_items.opros_details"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".comment.comments1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".comment.comments1"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".news_items.news_web"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".news_items.news_web"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities_main.emergency_detail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities_main.emergency_detail"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".disctrict_items.district_description"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".disctrict_items.district_description"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".yandex_maps"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".yandex_maps"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.mainscreen.Activid"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.mainscreen.Activid"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities_main.eventid"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities_main.eventid"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".profile.prodile_settings2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".profile.prodile_settings2"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".profile.profile_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".profile.profile_settings"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities_appeal.appeal_problem2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities_appeal.appeal_problem2"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/> <!-- <activity android:name=".news2"></activity> -->
-        <activity android:name=".transport_items.bus_detail"
+            android:screenOrientation="portrait" /> <!-- <activity android:name=".news2"></activity> -->
+        <activity
+            android:name=".transport_items.bus_detail"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities_main.district"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities_main.district"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities_main.emergency"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities_main.emergency"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities_main.remont"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities_main.remont"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities_main.appeal"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities_main.appeal"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities_main.problem"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities_main.problem"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities_main.alerts"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities_main.alerts"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".profile.newprofileset3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".profile.newprofileset3"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -175,8 +201,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".authorization.startActivity"
-            android:label="@string/app_name"
             android:configChanges="orientation"
+            android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

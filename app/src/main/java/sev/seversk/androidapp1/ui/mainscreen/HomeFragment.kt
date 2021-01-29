@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +22,7 @@ import sev.seversk.androidapp1.emergency.szo_details
 import sev.seversk.androidapp1.news_items.ApiInterface
 import sev.seversk.androidapp1.news_items.News
 import sev.seversk.androidapp1.news_items.RecyclerAdapter
+import sev.seversk.androidapp1.profile.profile_settings
 import sev.seversk.androidapp1.yandex_maps
 
 @Suppress("UNREACHABLE_CODE")
@@ -109,6 +111,13 @@ class HomeFragment : Fragment() {
         button_service.setOnClickListener() {
             val serv1 = Intent(context, remont::class.java)
             startActivity(serv1)
+        }
+
+        activity?.findViewById<ImageButton>(R.id.button_tosettings)?.setOnClickListener(){
+            val intent = Intent(context, profile_settings::class.java)
+            startActivity(intent)
+
+
         }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 

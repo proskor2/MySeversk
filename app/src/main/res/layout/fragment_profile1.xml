@@ -85,28 +85,6 @@
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
-                        <Button
-                            android:id="@+id/button_tosettings2"
-                            android:layout_width="100dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="right|bottom"
-                            android:layout_margin="5dp"
-                            android:background="#FFFFFF"
-                            android:text="Настройки"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/mainColor"
-                            android:textSize="12sp"
-                            android:visibility="invisible" />
-
-                        <ImageButton
-                            android:id="@+id/button_tosettings3"
-                            android:layout_width="35dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="bottom|right"
-                            android:background="@null"
-                            android:scaleType="fitXY"
-                            app:srcCompat="@drawable/sett" />
-
                     </LinearLayout>
 
                 </LinearLayout>
