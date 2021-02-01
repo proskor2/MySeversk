@@ -12,6 +12,8 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.annotation.RequiresApi
+import com.google.firebase.auth.FirebaseAuth
+import com.liftric.kvault.KVault
 import sev.seversk.androidapp1.R
 import java.text.DateFormat
 import java.util.*
@@ -22,6 +24,17 @@ class preset2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preset2)
+
+
+        // get TOKEN and save to keychain
+    val kVault = KVault(context = applicationContext)
+
+//    FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener {task ->
+//        val token = task.result?.token.toString()
+//        kVault.set("TOKEN", token)
+//    }
+//    val newtoken = kVault.string("TOKEN").toString()
+
 
         val datePicker = findViewById<DatePicker>(R.id.datePicker)
 

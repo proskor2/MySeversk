@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import com.google.firebase.auth.FirebaseAuth
+import com.liftric.kvault.KVault
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.authorization.seversk
 import kotlinx.android.synthetic.main.activity_profile_settings.*
@@ -18,7 +19,7 @@ class profile_settings : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_settings)
 
-
+        val kVault = KVault(context = applicationContext)
 
 
         findViewById<CardView>(R.id.card_settings_notification).setOnClickListener(){
@@ -37,7 +38,10 @@ class profile_settings : AppCompatActivity() {
             val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
             val editor = sharedPreferences?.edit()
             editor?.clear()?.apply()
+
             FirebaseAuth.getInstance().signOut()
+
+            kVault.clear()
             val intent = Intent(this, sev.seversk.androidapp1.authorization.startActivity::class.java)
             startActivity(intent)
         }

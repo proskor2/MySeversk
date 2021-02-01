@@ -22,6 +22,7 @@ import sev.seversk.androidapp1.activities_appeal.appeal_iniciate
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.*
 import com.liftric.kvault.KVault
+import com.rbddevs.splashy.Splashy
 import kotlinx.android.synthetic.main.activity_seversk.*
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import sev.seversk.androidapp1.R
@@ -35,7 +36,10 @@ class seversk() : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk)
 
-
+        Splashy(this)
+            .setLogo(R.drawable.seversk)
+            .setTitle("Мой Северск")
+            .show()
 
 
 //        FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
@@ -98,7 +102,6 @@ class seversk() : AppCompatActivity() {
                 dialog.show()
 
             } else {
-
 
                 val view = layoutInflater.inflate(R.layout.fragment_dashboard, null)
                 val dialog = BottomSheetDialog(this)

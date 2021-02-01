@@ -67,8 +67,6 @@ class preset1 : AppCompatActivity() {
 
             dialog.show()
 
-
-
         }
 
         findViewById<LinearLayout>(R.id.linear_name).setOnClickListener(){

@@ -14,31 +14,32 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.liftric.kvault.KVault
+import com.rbddevs.splashy.Splashy
 import kotlinx.android.synthetic.main.activity_autor.*
 import sev.seversk.androidapp1.R
 
 
 class Autor : AppCompatActivity() {
 
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_autor)
-
-        FirebaseAuth.getInstance().currentUser?.delete()
 
         linearLayout3.setOnClickListener() {
             hideKeyboard()
         }
 
         val auth = FirebaseAuth.getInstance()
-//        auth.signOut()
 
 // Later autorization
-        findViewById<Button>(R.id.autor_later).setOnClickListener() {
+        val button_later = findViewById<Button>(R.id.autor_later)
+        button_later.setOnClickListener() {
+
+            button_later.setTextColor(R.color.otherColor)
 
             if (auth.currentUser?.isAnonymous == true){
 
-                Toast.makeText(this, "Анонимный пользователь", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, seversk::class.java)
                 startActivity(intent)
                 finish()
@@ -50,7 +51,6 @@ class Autor : AppCompatActivity() {
                         // Sign in success, update UI with the signed-in user's information
                         val user = auth.currentUser
                         updateUI(user)
-
 
                     } else {
                         // If sign in fails, display a message to the user.
