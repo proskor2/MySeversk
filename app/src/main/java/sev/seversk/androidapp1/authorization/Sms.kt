@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
@@ -42,24 +41,18 @@ class sms : AppCompatActivity() {
     editor.putString("phone", phonenum)
     editor.apply()
 
+    val kVault = KVault(context = applicationContext)
+    kVault.set("PHONE", phonenum)
+
 
     // FB verify phonenum
     @Suppress("DEPRECATION")
     PhoneAuthProvider.getInstance().verifyPhoneNumber(phonenum, 60, TimeUnit.SECONDS, this, callback)
 
 
-
-// get TOKEN and save to keychain
-
-
-
-
-
-
-
 // SMS resend
         text_resms.setOnClickListener(){
-            val resms = Toast.makeText(applicationContext, "Мы повторно выслали Вам код", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Мы повторно выслали Вам код", Toast.LENGTH_SHORT).show()
             resendVerificationCode(phonenum, resendToken )
         }
 
@@ -76,6 +69,7 @@ class sms : AppCompatActivity() {
         }
 
 
+
     // move to My Seversk screen
     but_sms.setOnClickListener(){
 
@@ -83,13 +77,6 @@ class sms : AppCompatActivity() {
             Toast.makeText(this.applicationContext, "Пожалуйста введите корректный код", Toast.LENGTH_SHORT).show()
         } else {
 
-            FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener {task ->
-                val token = task.result?.token
-
-                val editor = sharedPreferences.edit()
-                editor.putString("token", token)
-                editor.apply()
-            }
             verifyVerificationCode(smsField.text.toString())
 //            val tokenget = sharedPreferences.getString("token", null)
 //            addTokenUser(tokenget.toString(), phonenum)
@@ -116,10 +103,6 @@ class sms : AppCompatActivity() {
             }
         }
 
-//        override fun onCodeSent(verificationId: String, token: PhoneAuthProvider.ForceResendingToken) {
-//            mVerificationId = verificationId
-//            resendToken = token
-//        }
 
         override fun onCodeSent(s: String, forceResendingToken: PhoneAuthProvider.ForceResendingToken) {
             super.onCodeSent(s, forceResendingToken)
@@ -131,7 +114,6 @@ class sms : AppCompatActivity() {
     }
 
     private fun verifyVerificationCode(code: String){
-
         val credential = PhoneAuthProvider.getCredential(mVerificationId!!, code)
         signInWithPhoneCredential(credential)
 
@@ -156,9 +138,20 @@ class sms : AppCompatActivity() {
         mAuth!!.signInWithCredential(credential)
             .addOnCompleteListener(this, OnCompleteListener<AuthResult?> { task ->
                 if (task.isSuccessful) {
-                    val intent = Intent(this, preset2::class.java)
-                startActivity(intent)
-                finish()
+// get TOKEN and save to keychain
+                    val kVault = KVault(context = applicationContext)
+                    val phone2 = kVault.string("PHONE")
+                    FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val token = task.result?.token.toString()
+                            kVault.set("TOKEN", token)
+                            addTokenUser(token, phone2.toString())
+                            return@addOnCompleteListener
+                        } else {
+                            Toast.makeText(this, "Error token", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
                 } else {
                     Toast.makeText(applicationContext, "Ошибка авторизации. Проверьте введенные данные", Toast.LENGTH_SHORT).show()
                 }
@@ -186,12 +179,19 @@ class sms : AppCompatActivity() {
         phonenumber = phoneNumber)
 
         apiService.addToken(tokenInfo) {
-            if (it?.status != null) {
-                Toast.makeText(this, "ОК", Toast.LENGTH_SHORT).show()
-//                val intent = Intent(this, preset2::class.java)
-//                startActivity(intent)
-//                finish()
-            } else {
+            if (it?.status == "Токен подтвержден. Обновлены данные пользователя") {
+                val intent = Intent(this, seversk::class.java)
+                startActivity(intent)
+                finish()
+            } else if (it?.status == "Токен подтвержден") {
+                val intent = Intent(this, preset1::class.java)
+                startActivity(intent)
+                finish()
+        } else if(it?.status == "Токен подтвержден. Анонимный пользователь") {
+                val intent = Intent(this, seversk::class.java)
+                startActivity(intent)
+                finish()
+        } else {
                 Toast.makeText(this, "Ошибка авторизации", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, Autor::class.java)
                 startActivity(intent)

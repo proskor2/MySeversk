@@ -22,7 +22,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".authorization.SplashScreen"></activity>
+
         <activity
             android:name=".activities_main.szo"
             android:configChanges="orientation"
@@ -36,15 +36,15 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".authorization.preset3"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".authorization.preset2"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
             android:name=".authorization.preset1"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".authorization.preset3"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity

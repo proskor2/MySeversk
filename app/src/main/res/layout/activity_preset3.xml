@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgr"
-    tools:context=".authorization.preset3">
+    tools:context=".authorization.preset2">
 
     <LinearLayout
         android:id="@+id/linear_gender"
