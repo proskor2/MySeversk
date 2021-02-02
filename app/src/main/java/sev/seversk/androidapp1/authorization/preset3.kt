@@ -41,13 +41,12 @@ class preset3 : AppCompatActivity() {
 
                 val newtoken = kVault.string("TOKEN").toString()
                 val phonenumber = kVault.string("PHONE").toString()
-                val phone = "+7$phonenumber"
                 val createname = getNameField
                 val creategender = sharedPreferences.getString("gender", null).toString()
                 val gender = if (creategender == "Мужской") 1 else 0
                 val createdate = sharedPreferences.getString("date", null).toString()
 
-//               createNewUser(createname,gender,createdate, newtoken,phonenumber)
+               createNewUser(createname,gender,createdate, newtoken,phonenumber)
 
                 val intent = Intent(this, seversk::class.java)
                 startActivity(intent)
@@ -101,24 +100,24 @@ class preset3 : AppCompatActivity() {
         }
     }
 
-//    fun createNewUser(firstName: String, gender: Int, birthday: String, token: String, phone: String) {
-//        val apiService = RestCreateUser()
-//        val createUserInfo = createUserInfo( id = null,
-//            token = token,
-//            phone = phone,
-//        name = firstName,
-//        gender = gender,
-//        birthday = birthday
-//
-//       )
-//
-//        apiService.addUser(createUserInfo) {
-//            if (it?.id != null) {
-//                // it = newly added user parsed as response
-//                // it?.id = newly added user ID
-//            } else {
-//                Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-//    }
+    fun createNewUser(firstName: String, gender: Int, birthday: String, token: String, phone: String) {
+        val apiService = RestCreateUser()
+        val createUserInfo = createUserInfo( id = null,
+            token = token,
+            phone = phone,
+        name = firstName,
+        gender = gender,
+        birthday = birthday
+
+       )
+
+        apiService.addUser(createUserInfo) {
+            if (it?.id != null) {
+                // it = newly added user parsed as response
+                // it?.id = newly added user ID
+            } else {
+                Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 }

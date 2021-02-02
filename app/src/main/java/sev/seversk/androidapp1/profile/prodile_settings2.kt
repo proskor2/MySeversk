@@ -61,8 +61,7 @@ val image = findViewById<ImageView>(R.id.add_profilephoto)
 
 // Save data
         button_profile2_save.setOnClickListener(){
-            val toast1= Toast.makeText(applicationContext, "Изменения сохранены", Toast.LENGTH_SHORT)
-            toast1.show()
+            val toast1= Toast.makeText(applicationContext, "Изменения сохранены", Toast.LENGTH_SHORT).show()
         }
 
         button_addprofilephoto.setOnClickListener(){

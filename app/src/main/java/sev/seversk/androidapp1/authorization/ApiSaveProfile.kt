@@ -17,7 +17,7 @@ interface ApiSaveProfile {
 
     @POST("profile")
     @Headers("Content-Type: application/json")
-    fun saveProfile (@Body userData: saveProfile, @Header("Authorization") token: String = "Bearer" + takeToken().gettok ): Call<saveProfile>
+    fun saveProfile (@Body userData: saveProfile, @Header("Authorization") token: String): Call<saveProfile>
 
 }
 

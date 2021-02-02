@@ -3,7 +3,7 @@ package sev.seversk.androidapp1.authorization
 import com.google.gson.annotations.SerializedName
 
 data class saveProfile (
-//    @SerializedName("code") val code: Int?,
+    @SerializedName("code") val code: Int?,
     @SerializedName("lastName") val lastName: String?,
     @SerializedName("firstName") val firstName: String?,
     @SerializedName("patronymic") val patronymic: String?,

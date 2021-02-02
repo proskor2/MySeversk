@@ -35,11 +35,11 @@ class newprofileset3: AppCompatActivity() {
 
     var newtoken: String? = null
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_prodile_settings2)
+
+        RestSaveProfile.Companion.setContext(this)
 
         loadData()
 
@@ -55,7 +55,9 @@ class newprofileset3: AppCompatActivity() {
 // Button save profile settings
         findViewById<Button>(R.id.button_profile2_save)?.setOnClickListener() {
             saveData()
+
             Toast.makeText(this, "Изменения сохранены", Toast.LENGTH_SHORT).show()
+
         }
 
 //  Button return to seversk activity
@@ -110,7 +112,7 @@ class newprofileset3: AppCompatActivity() {
         editor?.putString("gender", insertgender)
         editor?.apply()
 
-        createNewUser(insertname, insertsurname, insertpatr, insertmail, insertphone, intgender, insertdate, insertaddress)
+        saveUser(insertname, insertsurname, insertpatr, insertmail, insertphone, intgender, insertdate, insertaddress)
 
     }
 
@@ -179,9 +181,10 @@ class newprofileset3: AppCompatActivity() {
         }
     }
 
-    fun createNewUser(firstName: String, lastName: String, patronymic: String, email: String, phonenumber: String, gender: Int, birthday: String, address: String) {
+    fun saveUser(firstName: String, lastName: String, patronymic: String, email: String, phonenumber: String, gender: Int, birthday: String, address: String) {
         val apiService = RestSaveProfile()
-        val saveUserInfo = saveProfile(  lastName = null,
+        val saveUserInfo = saveProfile(  code = null,
+            lastName = lastName,
             firstName = firstName,
             patronymic = patronymic,
             email = email,
@@ -192,8 +195,8 @@ class newprofileset3: AppCompatActivity() {
 
         )
 
-        apiService.addUser(saveUserInfo) {
-            if (it?.lastName != null) {
+        apiService.saveUser(saveUserInfo) {
+            if (it?.firstName != null) {
                 // it = newly added user parsed as response
                 // it?.id = newly added user ID
             } else {
