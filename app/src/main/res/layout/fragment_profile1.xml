@@ -67,7 +67,8 @@
                         <ImageView
                             android:id="@+id/image_profile2"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop" />
                     </androidx.cardview.widget.CardView>
 
                     <LinearLayout

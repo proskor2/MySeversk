@@ -1,37 +1,36 @@
 package sev.seversk.androidapp1.profile
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
-import android.util.Base64
-import android.util.Log
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.core.graphics.drawable.toBitmap
 import com.bumptech.glide.Glide
-import com.google.android.gms.tasks.OnCanceledListener
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.FirebaseAuth
+import com.bumptech.glide.request.target.BitmapImageViewTarget
+import com.github.kittinunf.fuel.Fuel
+import com.github.kittinunf.fuel.core.FileDataPart
+import com.github.kittinunf.fuel.core.Method
 import com.liftric.kvault.KVault
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_prodile_settings2.*
-import okhttp3.MultipartBody
-import okhttp3.OkHttpClient
-import okhttp3.Request
+import kotlinx.android.synthetic.main.fragment_detail_problem0.*
+import okhttp3.*
+import org.json.JSONObject
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.authorization.*
 import java.io.*
-import java.lang.reflect.Array.set
 
 
 class newprofileset3: AppCompatActivity() {
+
+
 
     var newtoken: String? = null
 
@@ -41,11 +40,80 @@ class newprofileset3: AppCompatActivity() {
 
         RestSaveProfile.Companion.setContext(this)
 
-        loadData()
+
+
+//        loadData()
 
  // Get token
         val getstring = KVault(context = applicationContext)
         newtoken = getstring.string("TOKEN")
+
+
+
+
+        val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/profile/get"
+
+        var okHttpClient: OkHttpClient = OkHttpClient()
+
+        val request: Request = Request.Builder().url(URL).addHeader("Authorization",
+            "Bearer " + newtoken).build()
+
+        okHttpClient.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+            }
+
+            @SuppressLint("WrongConstant")
+            override fun onResponse(call: Call, response: Response) {
+
+                val json = response?.body()?.string()
+
+                val parentObject = JSONObject(json)
+
+                val jsurname = parentObject.getString("lastName")
+                val jname = parentObject.getString("firstName")
+                val jpatron = parentObject.getString("patronymic")
+                val jmail = parentObject.getString("email")
+                val jphone = parentObject.getString("phonenumber")
+                val jaddress = parentObject.getString("address")
+                val jbirthday = parentObject.getString("birthday")
+                val jgender = parentObject.getInt("gender")
+                val javatar = parentObject.getString("avatar")
+
+
+                var usersurname = findViewById<EditText>(R.id.set_profile_surname)
+                var username = findViewById<EditText>(R.id.set_profile_name)
+                var userpatr = findViewById<EditText>(R.id.set_profile_secondname)
+                var usergender = findViewById<EditText>(R.id.set_profile_swx)
+                var userdate = findViewById<EditText>(R.id.set_profile_dateBirth)
+                var usermail = findViewById<EditText>(R.id.set_profile_email)
+                var useraddress = findViewById<EditText>(R.id.set_profile_address)
+                var userphone = findViewById<EditText>(R.id.set_profile_phone)
+                var imview = findViewById<ImageView>(R.id.add_profilephoto)
+
+
+
+
+                runOnUiThread() {
+                    usersurname.setText(jsurname)
+                    username.setText(jname)
+                    userpatr.setText(jpatron)
+                    usermail.setText(jmail)
+                    userphone.setText(jphone)
+                    useraddress.setText(jaddress)
+                    userdate.setText(jbirthday)
+                    if (jgender == 1) usergender.setText("Мужской") else usergender.setText("Женский")
+
+                    Glide.with(applicationContext)
+                        .load(javatar)
+                        .into(imview)
+
+                }
+            }
+
+
+        })
+
+
 
 // Hide keyboard
         findViewById<LinearLayout>(R.id.layout1123)?.setOnClickListener(){
@@ -55,7 +123,7 @@ class newprofileset3: AppCompatActivity() {
 // Button save profile settings
         findViewById<Button>(R.id.button_profile2_save)?.setOnClickListener() {
             saveData()
-
+            savePhotoProfile()
             Toast.makeText(this, "Изменения сохранены", Toast.LENGTH_SHORT).show()
 
         }
@@ -112,44 +180,51 @@ class newprofileset3: AppCompatActivity() {
         editor?.putString("gender", insertgender)
         editor?.apply()
 
-        saveUser(insertname, insertsurname, insertpatr, insertmail, insertphone, intgender, insertdate, insertaddress)
+        saveUser(insertname,
+            insertsurname,
+            insertpatr,
+            insertmail,
+            insertphone,
+            intgender,
+            insertdate,
+            insertaddress)
 
     }
 
-    fun loadData(){
-
-        val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
-
-        val savedsurname = sharedPreferences?.getString("surname", null)
-        val savedname = sharedPreferences?.getString("name", null)
-        val savedpatr = sharedPreferences?.getString("patr", null)
-        val savedphone = sharedPreferences?.getString("phone", null)
-        val saveddate = sharedPreferences?.getString("date", null)
-        val savedmail = sharedPreferences?.getString("mail", null)
-        val savedaddress = sharedPreferences?.getString("address", null)
-        val savedgender = sharedPreferences?.getString("gender", null)
-
-
-        var usersurname = findViewById<EditText>(R.id.set_profile_surname)
-        var username = findViewById<EditText>(R.id.set_profile_name)
-        var userpatr = findViewById<EditText>(R.id.set_profile_secondname)
-        var usergender = findViewById<EditText>(R.id.set_profile_swx)
-        var userdate = findViewById<EditText>(R.id.set_profile_dateBirth)
-        var usermail = findViewById<EditText>(R.id.set_profile_email)
-        var useraddress = findViewById<EditText>(R.id.set_profile_address)
-        var userphone = findViewById<EditText>(R.id.set_profile_phone)
-        var photo = findViewById<ImageView>(R.id.add_profilephoto)
-
-        usersurname?.setText(savedsurname)
-        username?.setText(savedname)
-        userpatr?.setText(savedpatr)
-        userphone?.setText(savedphone)
-        userdate?.setText(saveddate)
-        usermail?.setText(savedmail)
-        useraddress?.setText(savedaddress)
-        usergender?.setText(savedgender)
-
-    }
+//    fun loadData(){
+//
+//        val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
+//
+//        val savedsurname = sharedPreferences?.getString("surname", null)
+//        val savedname = sharedPreferences?.getString("name", null)
+//        val savedpatr = sharedPreferences?.getString("patr", null)
+//        val savedphone = sharedPreferences?.getString("phone", null)
+//        val saveddate = sharedPreferences?.getString("date", null)
+//        val savedmail = sharedPreferences?.getString("mail", null)
+//        val savedaddress = sharedPreferences?.getString("address", null)
+//        val savedgender = sharedPreferences?.getString("gender", null)
+//
+//
+//        var usersurname = findViewById<EditText>(R.id.set_profile_surname)
+//        var username = findViewById<EditText>(R.id.set_profile_name)
+//        var userpatr = findViewById<EditText>(R.id.set_profile_secondname)
+//        var usergender = findViewById<EditText>(R.id.set_profile_swx)
+//        var userdate = findViewById<EditText>(R.id.set_profile_dateBirth)
+//        var usermail = findViewById<EditText>(R.id.set_profile_email)
+//        var useraddress = findViewById<EditText>(R.id.set_profile_address)
+//        var userphone = findViewById<EditText>(R.id.set_profile_phone)
+//        var photo = findViewById<ImageView>(R.id.add_profilephoto)
+//
+//        usersurname?.setText(savedsurname)
+//        username?.setText(savedname)
+//        userpatr?.setText(savedpatr)
+//        userphone?.setText(savedphone)
+//        userdate?.setText(saveddate)
+//        usermail?.setText(savedmail)
+//        useraddress?.setText(savedaddress)
+//        usergender?.setText(savedgender)
+//
+//    }
 
 
 // On result for set avatar
@@ -181,9 +256,42 @@ class newprofileset3: AppCompatActivity() {
         }
     }
 
-    fun saveUser(firstName: String, lastName: String, patronymic: String, email: String, phonenumber: String, gender: Int, birthday: String, address: String) {
+    fun savePhotoProfile(){
+        val fromphoto: ImageView = findViewById(R.id.add_profilephoto)
+        var getphoto = fromphoto.drawable
+        val getphoto1 = getphoto?.toBitmap()
+
+
+        val bytes: ByteArrayOutputStream = ByteArrayOutputStream()
+        getphoto1?.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
+        val file = createTempFile("avatar", ".jpg")
+        val fo: FileOutputStream = FileOutputStream(file)
+        fo.write(bytes.toByteArray())
+        fo.close()
+
+        val getstring = KVault(context = applicationContext)
+        newtoken = getstring.string("TOKEN")
+        val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/profile/avatar"
+
+        Fuel.upload(
+           URL, Method.POST
+        ).add(FileDataPart(file, name = "avatar", filename = "avatar.jpg"))
+            .header("Authorization" to "Bearer $newtoken")
+            .response { result -> }
+    }
+
+    fun saveUser(
+        firstName: String,
+        lastName: String,
+        patronymic: String,
+        email: String,
+        phonenumber: String,
+        gender: Int,
+        birthday: String,
+        address: String
+    ) {
         val apiService = RestSaveProfile()
-        val saveUserInfo = saveProfile(  code = null,
+        val saveUserInfo = saveProfile(
             lastName = lastName,
             firstName = firstName,
             patronymic = patronymic,
@@ -192,7 +300,6 @@ class newprofileset3: AppCompatActivity() {
             address = address,
             birthday = birthday,
             gender = gender
-
         )
 
         apiService.saveUser(saveUserInfo) {
@@ -204,6 +311,10 @@ class newprofileset3: AppCompatActivity() {
             }
         }
     }
+
+
+
+
 
 
 }

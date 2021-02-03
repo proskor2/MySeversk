@@ -5,6 +5,7 @@
     android:id="@+id/layout112233"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="false"
     android:translationZ="5dp"
     tools:context=".profile.prodile_settings2">
 
@@ -203,6 +204,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
+                    android:focusable="false"
                     android:inputType="phone"
                     android:maxLength="12"
                     android:phoneNumber="true"

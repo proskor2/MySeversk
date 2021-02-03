@@ -141,10 +141,17 @@ class sms : AppCompatActivity() {
 // get TOKEN and save to keychain
                     val kVault = KVault(context = applicationContext)
                     val phone2 = kVault.string("PHONE")
+
+                    val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+
                     FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             val token = task.result?.token.toString()
                             kVault.set("TOKEN", token)
+                            editor.putString("token", token)
+                            editor.apply()
+
                             addTokenUser(token, phone2.toString())
                             return@addOnCompleteListener
                         } else {
