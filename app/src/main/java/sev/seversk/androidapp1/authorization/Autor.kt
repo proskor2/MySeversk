@@ -36,9 +36,14 @@ class Autor : AppCompatActivity() {
         val button_later = findViewById<Button>(R.id.autor_later)
         button_later.setOnClickListener() {
 
+
+
             button_later.setTextColor(R.color.otherColor)
 
+
+
             if (auth.currentUser?.isAnonymous == true){
+
 
                 val intent = Intent(this, seversk::class.java)
                 startActivity(intent)
@@ -61,8 +66,11 @@ class Autor : AppCompatActivity() {
 
                     }
 
+
+
                     val autor_later = Intent(Intent(this@Autor, seversk::class.java))
                     startActivity(autor_later)
+
                     finish()
                 }
             }

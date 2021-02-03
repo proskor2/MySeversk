@@ -44,7 +44,6 @@ class news_web : AppCompatActivity() {
             startActivity(intent)
         }
 
-        news_webview.settings.javaScriptEnabled
 
         val myweb: WebView = findViewById(R.id.news_webview)
         myweb.loadDataWithBaseURL("", newsdesc123, "text/html", "utf-8", "")

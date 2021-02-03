@@ -9,9 +9,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.activities_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -31,15 +33,11 @@ class HomeFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
     lateinit var recyclerAdapter: RecyclerAdapter
 
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }
 
     private lateinit var homeViewModel: HomeViewModel
-
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,6 +53,12 @@ class HomeFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+
+        var auth = FirebaseAuth.getInstance().currentUser
+        var auth2 = FirebaseAuth.getInstance().currentUser?.isAnonymous
+
+
+
 
         val sharedPreferences = activity?.getSharedPreferences("ktok", Context.MODE_PRIVATE)
         val token = sharedPreferences?.getString("token", null)
@@ -92,7 +96,6 @@ class HomeFragment : Fragment() {
         button_map.setOnClickListener() {
             val map1 = Intent(context, yandex_maps::class.java)
             startActivity(map1)
-
         }
 
         button_alerts.setOnClickListener() {
@@ -114,8 +117,15 @@ class HomeFragment : Fragment() {
         }
 
         activity?.findViewById<ImageButton>(R.id.button_tosettings)?.setOnClickListener(){
-            val intent = Intent(context, profile_settings::class.java)
-            startActivity(intent)
+
+                    if (auth == null || auth2 == true) {
+                        Toast.makeText(context, "Пожалуйста авторизуйтесь", Toast.LENGTH_SHORT).show()
+                    } else {
+                        val intent = Intent(context, profile_settings::class.java)
+                        startActivity(intent)
+                    }
+
+
 
 
         }

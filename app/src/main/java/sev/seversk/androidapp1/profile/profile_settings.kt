@@ -46,7 +46,6 @@ class profile_settings : AppCompatActivity() {
             startActivity(intent)
         }
 
-
 // button change screen settings to main screen
         button_profilesettings_back.setOnClickListener(){
             val back = Intent(this@profile_settings, seversk::class.java)
@@ -59,14 +58,11 @@ class profile_settings : AppCompatActivity() {
             startActivity(intent)
         }
 
-
         val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
         val editor = sharedPreferences?.edit()
-        val cardname = sharedPreferences?.getString("name", "Имя")
-        val cardsurname = sharedPreferences?.getString("surname", "Фамилия")
-        val cardphone = sharedPreferences?.getString("phone", "Телефон")
-
-
+        val cardname = sharedPreferences?.getString("name", " ")
+        val cardsurname = sharedPreferences?.getString("surname", " ")
+        val cardphone = sharedPreferences?.getString("phone", " ")
 
 // get data from settings2 activity
 

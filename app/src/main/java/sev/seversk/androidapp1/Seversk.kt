@@ -36,24 +36,12 @@ class seversk() : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk)
 
+
+
         Splashy(this)
             .setLogo(R.drawable.seversk)
             .setTitle("Мой Северск")
             .show()
-
-
-//        FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
-////            if (!task.isSuccessful) {
-////                Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
-////
-////            }
-//            // Get new Instance ID token
-//            val token: String? = task.result?.getToken()
-//            kVault.set("TOKEN", token.toString())
-//            // Log and toast
-//
-//        }
-
 
 
         val intent = intent.extras

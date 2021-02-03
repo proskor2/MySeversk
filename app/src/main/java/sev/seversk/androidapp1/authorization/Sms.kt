@@ -1,5 +1,6 @@
 package sev.seversk.androidapp1.authorization
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,7 @@ class sms : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
 // onCreate
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sms)
@@ -52,6 +54,7 @@ class sms : AppCompatActivity() {
 
 // SMS resend
         text_resms.setOnClickListener(){
+            text_resms.setTextColor(R.color.otherColor)
             Toast.makeText(applicationContext, "Мы повторно выслали Вам код", Toast.LENGTH_SHORT).show()
             resendVerificationCode(phonenum, resendToken )
         }
