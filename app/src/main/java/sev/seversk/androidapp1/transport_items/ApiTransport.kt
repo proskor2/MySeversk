@@ -3,6 +3,7 @@ package sev.seversk.androidapp1.transport_items
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Headers
 
 
@@ -11,10 +12,10 @@ interface ApiTransport {
 
     @GET("traffic")
 
-    @Headers("Accept: application/json", "Authorization: Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
+    @Headers("Accept: application/json")
 
 
-    fun getTransport() : retrofit2.Call<List<Transport>>
+    fun getTransport(@Header("Authorization") token: String) : retrofit2.Call<List<Transport>>
 
     companion object {
 

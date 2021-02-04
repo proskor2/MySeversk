@@ -46,7 +46,7 @@ class RecyclerAdapter(val context: Context): RecyclerView.Adapter<RecyclerAdapte
         var desc = Html.fromHtml(newsList.get(position).description)
         var desc2 = newsList.get(position).description
         var date1 = Html.fromHtml(newsList.get(position).date)
-        var id_news = Html.fromHtml(newsList.get(position).id)
+        var id_news = Html.fromHtml(newsList.get(position).id.toString())
 
         var comm = Html.fromHtml(newsList.get(position).comments_count.toString())
 

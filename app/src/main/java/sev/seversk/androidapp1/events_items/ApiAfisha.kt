@@ -3,6 +3,7 @@ package sev.seversk.androidapp1.events_items
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Headers
 
 
@@ -11,10 +12,10 @@ interface ApiAfisha {
 
     @GET("afisha")
 
-    @Headers("Accept: application/json", "Authorization: Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
+    @Headers("Accept: application/json")
 
 
-    fun getAfisha() : retrofit2.Call<List<Afisha>>
+    fun getAfisha(@Header("Authorization") token: String) : retrofit2.Call<List<Afisha>>
 
     companion object {
 

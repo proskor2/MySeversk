@@ -93,7 +93,7 @@
                     android:id="@+id/textView80"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_gravity="start|center_vertical"
                     android:layout_weight="0.5"
                     android:text="Фамилия"
                     android:textAlignment="textStart" />

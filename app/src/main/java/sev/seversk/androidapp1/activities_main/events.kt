@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.liftric.kvault.KVault
 import sev.seversk.androidapp1.R
 import kotlinx.android.synthetic.main.activity_seversk_events.*
 import retrofit2.Call
@@ -23,12 +24,17 @@ class events : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk_events)
 
+
+        val kVault = KVault(context = applicationContext)
+        val token = kVault.string("TOKEN")
+        val token2: String = "Bearer $token"
+
         recyclerView = findViewById(R.id.recycler_afisha)
         recyclerAdapter = AfishaAdapter(this)
         recycler_afisha.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = recyclerAdapter
 
-        val apiinterface = ApiAfisha.create().getAfisha()
+        val apiinterface = ApiAfisha.create().getAfisha(token2)
 
         apiinterface.enqueue(object : Callback<List<Afisha>> {
             override fun onResponse(call: Call<List<Afisha>>, response: Response<List<Afisha>>?) {

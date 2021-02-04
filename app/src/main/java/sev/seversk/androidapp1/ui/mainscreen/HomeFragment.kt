@@ -60,8 +60,9 @@ class HomeFragment : Fragment() {
 
 
 
-        val sharedPreferences = activity?.getSharedPreferences("ktok", Context.MODE_PRIVATE)
+        val sharedPreferences = activity?.getSharedPreferences("profiles", Context.MODE_PRIVATE)
         val token = sharedPreferences?.getString("token", null)
+        val token2 = "Bearer $token"
 
 
         button_news.setOnClickListener() {
@@ -160,7 +161,7 @@ class HomeFragment : Fragment() {
             recyclerAdapter = RecyclerAdapter(context)
             adapter = recyclerAdapter
        }
-        val apiinterface = ApiInterface.create().getNews()
+        val apiinterface = ApiInterface.create().getNews(token2)
 
         apiinterface.enqueue(object : Callback<List<News>> {
             override fun onResponse(call: Call<List<News>>, response: Response<List<News>>?) {

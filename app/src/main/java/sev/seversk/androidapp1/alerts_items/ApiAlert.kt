@@ -4,6 +4,7 @@ import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Headers
 import sev.seversk.androidapp1.news_items.ApiInterface
 import sev.seversk.androidapp1.news_items.News
@@ -13,10 +14,10 @@ interface ApiAlert {
 
     @GET("alerts")
 
-    @Headers("Accept: application/json", "Authorization: Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
+    @Headers("Accept: application/json")
 
 
-    fun getAlert() : retrofit2.Call<List<Alert>>
+    fun getAlert(@Header("Authorization") token: String) : retrofit2.Call<List<Alert>>
 
     companion object {
 

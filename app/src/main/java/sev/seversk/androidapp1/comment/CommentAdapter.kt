@@ -10,6 +10,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import org.json.JSONArray
+import org.json.JSONObject
 import sev.seversk.androidapp1.R
 
 
@@ -28,32 +31,25 @@ class CommentAdapter(val context: Context): RecyclerView.Adapter<CommentAdapter.
     override fun getItemCount(): Int {
         return commentList.size
     }
-
-
-
     override fun onBindViewHolder(holder: CommentAdapter.MyViewHolder, position: Int) {
 
-//        var title1 = Html.fromHtml(commentList.get(position).title)
-        var commenttext = Html.fromHtml(commentList.get(position).comment_text)
-        var commentautor = Html.fromHtml(commentList.get(position).user)
-        var commentdate = Html.fromHtml(commentList.get(position).create_time)
+//        var commenttext = Html.fromHtml(commentList.get(position).c)
+        var commentautor = Html.fromHtml(commentList.get(position).title)
+//        var commentdate = Html.fromHtml(commentList.get(position).create_time)
 
+//        holder.commenttext1.text = commenttext
+        holder.commentautor1.text = commentautor
+//        holder.commentdate1.text = commentdate
 
 //        Glide.with(context).load(photocommentautor)
 //            .apply(RequestOptions().centerCrop())
 //            .into(holder.newsImage)
 
-
-
-        holder.card.setOnClickListener(){
+        holder.card1.setOnClickListener(){
             Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
-//            val intent1 = Intent(this@AfishaAdapter.context, eventid::class.java)
-//            intent1.putExtra("daten", date1)
-//            intent1.putExtra("photon", photo1)
-//            ContextCompat.startActivity(context, intent1, null)
+
         }
     }
-
 
     fun setCommentListItems(commentList: List<comment>){
         this.commentList = commentList
@@ -61,12 +57,9 @@ class CommentAdapter(val context: Context): RecyclerView.Adapter<CommentAdapter.
     }
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val commenttext = itemView.findViewById<TextView>(R.id.text_commenttext)
-        val commentautor = itemView.findViewById<TextView>(R.id.text_autorcomment)
-        val commentdate = itemView.findViewById<ImageView>(R.id.text_datecomment)
-        val card = itemView.findViewById<CardView>(R.id.card_comment)
+        val commenttext1 = itemView.findViewById<TextView>(R.id.text_commenttext)
+        val commentautor1 = itemView.findViewById<TextView>(R.id.text_autorcomment)
+        val commentdate1 = itemView.findViewById<TextView>(R.id.text_datecomment)
+        val card1 = itemView.findViewById<CardView>(R.id.card_comment)
     }
-
-
-
 }

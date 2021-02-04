@@ -34,46 +34,26 @@ class Autor : AppCompatActivity() {
 
 // Later autorization
         val button_later = findViewById<Button>(R.id.autor_later)
+
         button_later.setOnClickListener() {
-
-
-
             button_later.setTextColor(R.color.otherColor)
 
-
-
             if (auth.currentUser?.isAnonymous == true){
-
-
-                val intent = Intent(this, seversk::class.java)
-                startActivity(intent)
-                finish()
-
-            } else {
-
                 auth.signInAnonymously().addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
                         val user = auth.currentUser
                         updateUI(user)
-
                     } else {
                         // If sign in fails, display a message to the user.
-                        Toast.makeText(baseContext, "Ошибка",
-                            Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, "Ошибка", Toast.LENGTH_SHORT).show()
                         updateUI(null)
-
-
                     }
-
-
-
-                    val autor_later = Intent(Intent(this@Autor, seversk::class.java))
-                    startActivity(autor_later)
-
-                    finish()
                 }
             }
+
+            val autor_later = Intent(Intent(this@Autor, seversk::class.java))
+            startActivity(autor_later)
         }
 
 //Move to SMS
@@ -107,12 +87,28 @@ class Autor : AppCompatActivity() {
             window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         }
     }
-}
-
     private fun updateUI(user: FirebaseUser?) {
         val isSignedIn = user != null
 
+        if (isSignedIn) {
+            FirebaseAuth.getInstance().currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val token = task.result?.token
+                    val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.putString("TOKEN", token)
+                    editor.apply()
+                    return@addOnCompleteListener
+                } else {
+                    Toast.makeText(this, "Error token", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
     }
+}
+
+
 
 
 

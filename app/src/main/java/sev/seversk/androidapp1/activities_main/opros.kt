@@ -7,6 +7,7 @@ import android.os.StrictMode
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.liftric.kvault.KVault
 import kotlinx.android.synthetic.main.activity_seversk_events.*
 import sev.seversk.androidapp1.R
 import kotlinx.android.synthetic.main.activity_seversk_opros.*
@@ -30,12 +31,16 @@ class opros : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk_opros)
 
+        val kVault = KVault(context = applicationContext)
+        val token = kVault.string("TOKEN")
+        val token2: String = "Bearer $token"
+
         recyclerView = findViewById(R.id.recycler_opros)
         recyclerAdapter = OprosAdapter(this)
         recycler_opros.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = recyclerAdapter
 
-        val apiinterface = ApiOpros.create().getOpros()
+        val apiinterface = ApiOpros.create().getOpros(token2)
 
         apiinterface.enqueue(object : Callback<List<Opros>> {
             override fun onResponse(call: Call<List<Opros>>, response: Response<List<Opros>>?) {

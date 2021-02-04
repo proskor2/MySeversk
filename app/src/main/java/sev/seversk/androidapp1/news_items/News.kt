@@ -6,6 +6,6 @@ data class News(
     val photo: String,
     val description: String,
     val date: String,
-    val id: String,
+    val id: Int,
     val comments_count: Int
 )

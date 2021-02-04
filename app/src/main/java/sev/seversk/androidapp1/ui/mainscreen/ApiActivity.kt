@@ -7,6 +7,7 @@ import org.json.JSONArray
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Headers
 import java.io.IOException
 
@@ -16,10 +17,10 @@ interface ApiActivity {
 
     @GET("activity")
 
-    @Headers("Accept: application/json", "Authorization: Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
+    @Headers("Accept: application/json")
 
 
-    fun getActiv() : retrofit2.Call<List<Activ>>
+    fun getActiv(@Header("Authorization") token: String) : retrofit2.Call<List<Activ>>
 
     companion object {
 

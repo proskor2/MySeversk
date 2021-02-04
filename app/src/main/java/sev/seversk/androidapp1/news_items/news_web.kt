@@ -1,5 +1,6 @@
 package sev.seversk.androidapp1.news_items
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,19 +20,16 @@ class news_web : AppCompatActivity() {
         setContentView(R.layout.activity_news_web)
 
         val intent2 = intent.extras
-        val newsnews = intent2?.get("newsid").toString()
+        val newsnews = intent2?.get("newsid").toString().toInt()
         val newsdesc = intent2?.get("detail").toString()
-
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
         val upl = "/uploads/ckfinder/userfiles/"
         val newsdesc123 = if (newsdesc.contains(upl)) {
             newsdesc.replace("/uploads/ckfinder/userfiles/", "https://xn----7sbhlbh0a1awgee.xn--p1ai/uploads/ckfinder/userfiles/")
-
         } else {
             newsdesc
         }
-
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
         val comm = intent2?.get("comm").toString()

@@ -3,20 +3,21 @@ package sev.seversk.androidapp1.emergency
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Headers
 
 interface ApiSzo {
 
-    @GET("geocad/szo")
+    @GET("szo")
 
-    @Headers("Accept: application/json", "Authorization: Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
+    @Headers("Accept: application/json")
 
 
-    fun getSzo() : retrofit2.Call<List<Szo>>
+    fun getSzo(@Header("Authorization") token:String) : retrofit2.Call<List<Szo>>
 
     companion object {
 
-        var BASE_URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/"
+        var BASE_URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/goecad/"
 
         fun create() : ApiSzo {
 

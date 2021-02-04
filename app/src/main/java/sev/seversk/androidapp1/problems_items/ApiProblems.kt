@@ -12,14 +12,14 @@ import java.util.*
 interface ApiProblems {
 
     @GET("treatments")
-    @Headers("Accept: application/json", "Authorization: Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
+    @Headers("Accept: application/json")
 
-    fun getProblems() : retrofit2.Call<List<Problem>>
+    fun getProblems(@Header("Authorization") token: String) : retrofit2.Call<List<Problem>>
 
     @POST("treatments")
-    @Headers("Accept: multipart/form-data", "Authorization: Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi")
+    @Headers("Accept: multipart/form-data")
 
-    fun addProblem(@Body problem: Problem) : retrofit2.Call<Problem>
+    fun addProblem(@Body problem: Problem, @Header("Authorization") token: String) : retrofit2.Call<Problem>
 
     companion object {
 

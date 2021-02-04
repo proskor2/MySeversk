@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.liftric.kvault.KVault
 import kotlinx.android.synthetic.main.activity_seversk_opros.*
 import kotlinx.android.synthetic.main.activity_szo.*
 import retrofit2.Call
@@ -26,13 +27,16 @@ class szo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_szo)
 
+        val kVault = KVault(context = applicationContext)
+        val token = kVault.string("TOKEN")
+        val token2: String = "Bearer $token"
 
             recyclerView = findViewById(R.id.recycler_szo)
             recyclerAdapter = SzoAdapter(this)
             recycler_szo.layoutManager = LinearLayoutManager(this)
             recyclerView.adapter = recyclerAdapter
 
-            val apiinterface = ApiSzo.create().getSzo()
+            val apiinterface = ApiSzo.create().getSzo(token2)
 
             apiinterface.enqueue(object : Callback<List<Szo>> {
                 override fun onResponse(call: Call<List<Szo>>, response: Response<List<Szo>>?) {

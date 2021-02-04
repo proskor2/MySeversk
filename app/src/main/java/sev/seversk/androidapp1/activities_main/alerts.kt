@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Html
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.liftric.kvault.KVault
 import sev.seversk.androidapp1.R
 import kotlinx.android.synthetic.main.activity_alerts.*
 import kotlinx.android.synthetic.main.activity_seversk_opros.*
@@ -32,12 +33,16 @@ class alerts : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alerts)
 
+        val kVault = KVault(context = applicationContext)
+        val token = kVault.string("TOKEN")
+        val token2: String = "Bearer $token"
+
         recyclerView = findViewById(R.id.recycler_alerts)
         recyclerAdapter = AlertAdapter(this)
         recycler_alerts.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = recyclerAdapter
 
-        val apiinterface = ApiAlert.create().getAlert()
+        val apiinterface = ApiAlert.create().getAlert(token2)
 
         apiinterface.enqueue(object : Callback<List<Alert>> {
             override fun onResponse(call: Call<List<Alert>>, response: Response<List<Alert>>?) {

@@ -14,7 +14,7 @@ interface ApiComment {
     @GET("{id}")
     @Headers("Accept: application/json")
 
-    fun getComment(@Path("id") id: String, @Header("Authorization") token: String) : Call<List<comment>>
+    fun getComment(@Path("id") id: Int, @Header("Authorization") token: String) : Call<List<comment>>
 
     companion object {
 
