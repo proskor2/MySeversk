@@ -13,8 +13,8 @@
 
         <ImageButton
             android:id="@+id/button_szo_details_back"
-            android:layout_width="209dp"
-            android:layout_height="52dp"
+            android:layout_width="123dp"
+            android:layout_height="29dp"
             android:background="@null"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/left" />
@@ -36,8 +36,8 @@
 
             <ImageView
                 android:id="@+id/imageView36"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/szo_det_map_icon" />
 
@@ -52,12 +52,12 @@
             <Button
                 android:id="@+id/button_szodetail_tomap"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:background="#FFFFFF"
                 android:text="На карте"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/mainColor"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <View
@@ -75,8 +75,8 @@
 
             <ImageView
                 android:id="@+id/imageView356"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/szo_det_phone_icon" />
 
@@ -106,8 +106,8 @@
 
             <ImageView
                 android:id="@+id/imageView35626"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/szo_det_mail_icon" />
 
@@ -137,8 +137,8 @@
 
             <ImageView
                 android:id="@+id/imageView326"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/szo_det_site_icon" />
 
@@ -169,7 +169,7 @@
             android:paddingBottom="5dp"
             android:text="Сотрудники"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <LinearLayout
             android:layout_width="match_parent"

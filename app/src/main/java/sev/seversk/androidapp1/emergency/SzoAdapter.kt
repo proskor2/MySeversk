@@ -18,6 +18,7 @@ class SzoAdapter (val context: Context): RecyclerView.Adapter<SzoAdapter.MyViewH
 
         var szoList: List<Szo> = listOf()
 
+
         override fun onCreateViewHolder(
             parent: ViewGroup,
             viewType: Int
@@ -35,8 +36,13 @@ class SzoAdapter (val context: Context): RecyclerView.Adapter<SzoAdapter.MyViewH
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
             var title1 = Html.fromHtml(szoList.get(position).title)
+            var type1 = Html.fromHtml(szoList.get(position).type)
+            var address1 = Html.fromHtml(szoList.get(position).address)
+            var email1 = Html.fromHtml(szoList.get(position).email)
+            var site1 = Html.fromHtml(szoList.get(position).site)
 
             holder.szo_title.text = title1
+            holder.szo_address.text = address1
 
             holder.card.setOnClickListener(){
                 Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
@@ -51,8 +57,12 @@ class SzoAdapter (val context: Context): RecyclerView.Adapter<SzoAdapter.MyViewH
             notifyDataSetChanged()
         }
 
+
+
         class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
             val szo_title = itemView.findViewById<TextView>(R.id.text_szo_title)
+            val szo_address = itemView.findViewById<TextView>(R.id.text_szo_address)
+
             val card = itemView.findViewById<CardView>(R.id.card_szo)
         }
 

@@ -2,6 +2,7 @@ package sev.seversk.androidapp1.activities_main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.liftric.kvault.KVault
@@ -14,6 +15,7 @@ import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.emergency.ApiSzo
 import sev.seversk.androidapp1.emergency.Szo
 import sev.seversk.androidapp1.emergency.SzoAdapter
+import sev.seversk.androidapp1.emergency.employees
 import sev.seversk.androidapp1.opros_items.ApiOpros
 import sev.seversk.androidapp1.opros_items.Opros
 import sev.seversk.androidapp1.opros_items.OprosAdapter
@@ -45,8 +47,10 @@ class szo : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<List<Szo>>, t: Throwable) {
-
+                    Toast.makeText(applicationContext, "${t.message}", Toast.LENGTH_LONG).show()
                 }
             })
+
+
         }
     }

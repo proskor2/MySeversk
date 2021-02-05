@@ -43,6 +43,8 @@ class AfishaAdapter(val context: Context): RecyclerView.Adapter<AfishaAdapter.My
         var photo1 ="https://"+"$pre_photo"
         var date1 = Html.fromHtml(afishaList.get(position).date)
 
+
+
         holder.afisha_title.text = title1
         Glide.with(context).load(photo1)
             .apply(RequestOptions().centerCrop())
