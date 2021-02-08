@@ -5,11 +5,11 @@ data class Szo (
     val title: String,
     val type: String,
     val address: String,
-    val phones: List<String>,
+    val phones: ArrayList<String>,
     val email: String,
     val site: String,
-    val employees: List<employees>,
-    val coords: List<coords>
+    val employees: ArrayList<employees>,
+    val coords: ArrayList<coords>
 )
 
 data class employees(

@@ -18,10 +18,10 @@ class MapsActivity : AppCompatActivity() {
 lateinit var mapview: MapView
 
 
-
+//
 //        MapKitFactory.setApiKey("3ad79f77-ac08-49b0-af8d-3a39283cd78a")
 //        MapKitFactory.initialize(this
-
+//
 //
 //        mapview = findViewById<View>(R.id.mapview) as MapView
 //        mapview.getMap().move(
