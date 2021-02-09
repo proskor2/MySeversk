@@ -20,7 +20,7 @@ class remont : AppCompatActivity() {
         setContentView(R.layout.activity_remont)
 
         mapView_remont = findViewById<MapView>(R.id.mapView_remont)
-        mapView_remont.getMap().move(
+        mapView_remont.map.move(
             CameraPosition(Point(56.602855, 84.880908), 15.0f, 0.0f, 0.0f),
             Animation(Animation.Type.SMOOTH, 0F),
             null

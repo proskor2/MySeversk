@@ -65,7 +65,7 @@ class newprofileset3: AppCompatActivity() {
             @SuppressLint("WrongConstant")
             override fun onResponse(call: Call, response: Response) {
 
-                val json = response?.body()?.string()
+                val json = response.body()?.string()
 
                 val parentObject = JSONObject(json)
 
@@ -93,7 +93,7 @@ class newprofileset3: AppCompatActivity() {
 
 
 
-                runOnUiThread() {
+                runOnUiThread {
                     usersurname.setText(jsurname)
                     username.setText(jname)
                     userpatr.setText(jpatron)
@@ -116,12 +116,12 @@ class newprofileset3: AppCompatActivity() {
 
 
 // Hide keyboard
-        findViewById<LinearLayout>(R.id.layout1123)?.setOnClickListener(){
+        findViewById<LinearLayout>(R.id.layout1123)?.setOnClickListener {
             hideKeyboard()
         }
 
 // Button save profile settings
-        findViewById<Button>(R.id.button_profile2_save)?.setOnClickListener() {
+        findViewById<Button>(R.id.button_profile2_save)?.setOnClickListener {
             saveData()
             savePhotoProfile()
             Toast.makeText(this, "Изменения сохранены", Toast.LENGTH_SHORT).show()
@@ -129,14 +129,14 @@ class newprofileset3: AppCompatActivity() {
         }
 
 //  Button return to seversk activity
-        findViewById<Button>(R.id.button_profile2_back)?.setOnClickListener(){
+        findViewById<Button>(R.id.button_profile2_back)?.setOnClickListener {
             val intent = Intent(this, profile_settings::class.java)
             startActivity(intent)
         }
 
 // Click to set image
         val card_photo = findViewById<CardView>(R.id.add_profilephoto_card)
-        card_photo?.setOnClickListener(){
+        card_photo?.setOnClickListener {
             val callCameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             if (callCameraIntent.resolveActivity(packageManager) != null) {
                 startActivityForResult(callCameraIntent, 1)

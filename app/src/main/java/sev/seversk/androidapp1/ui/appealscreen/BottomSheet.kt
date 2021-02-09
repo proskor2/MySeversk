@@ -31,11 +31,11 @@ open class BottomSheet: BottomSheetDialogFragment() {
         super.onStart()
 
 
-        button_problems123.setOnClickListener(){
+        button_problems123.setOnClickListener {
             val appeal_pr = Intent(this@BottomSheet.context, activitiy_request::class.java)
             startActivity(appeal_pr)
         }
-        button_request.setOnClickListener(){
+        button_request.setOnClickListener {
             val t_request = Toast.makeText(context, "Ожидайте ответа", 1)
             t_request.show()
         }

@@ -80,7 +80,7 @@ class fragment_opros : Fragment() {
                 val tex3: String = JSONArray(json1).getJSONObject(0).getString("ready")
                 val tex4: String = JSONArray(json1).getJSONObject(0).getString("questions")
 
-                activity?.runOnUiThread(){
+                activity?.runOnUiThread {
                     text_profile_opros_title?.text = tex1
                     text_profile_opros_status?.text = tex2
                     text_profile_opros_ready?.text = tex3

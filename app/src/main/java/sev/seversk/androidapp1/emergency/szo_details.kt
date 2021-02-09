@@ -66,14 +66,14 @@ class szo_details : AppCompatActivity() {
                 val longitude = coords.getJSONObject(0).getString("longitude")
 
 
-                findViewById<Button>(R.id.button_szodetail_tomap).setOnClickListener(){
+                findViewById<Button>(R.id.button_szodetail_tomap).setOnClickListener {
                     val intent = Intent(this@szo_details, yandex_maps::class.java)
                     intent.putExtra("lat", latitude)
                     intent.putExtra("long", longitude)
                     startActivity(intent)
                 }
 
-                runOnUiThread() {
+                runOnUiThread {
                     findViewById<TextView>(R.id.text_szodet_phones).text = phones
                     findViewById<TextView>(R.id.text_szodet_name_employer).text = name
                     findViewById<TextView>(R.id.text_szodet_state_employer).text = emplpos
@@ -91,7 +91,7 @@ class szo_details : AppCompatActivity() {
 
 
 
-        findViewById<ImageButton>(R.id.button_szo_details_back).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_szo_details_back).setOnClickListener {
             val intent = Intent (this, szo::class.java)
             startActivity(intent)
         }

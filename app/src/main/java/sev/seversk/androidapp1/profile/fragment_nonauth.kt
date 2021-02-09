@@ -15,18 +15,10 @@ import sev.seversk.androidapp1.authorization.Autor
 
 class fragment_nonauth: Fragment(R.layout.fragment_profile_notauth) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
     override fun onStart() {
         super.onStart()
 
-        activity?.findViewById<Button>(R.id.button_nonatuth_toauth)?.setOnClickListener(){
+        activity?.findViewById<Button>(R.id.button_nonatuth_toauth)?.setOnClickListener {
             FirebaseAuth.getInstance().currentUser?.delete()
             val sharedPreferences = activity?.getSharedPreferences("profiles", Context.MODE_PRIVATE)
             val editor = sharedPreferences?.edit()
@@ -35,7 +27,7 @@ class fragment_nonauth: Fragment(R.layout.fragment_profile_notauth) {
             startActivity(intent)
         }
 
-        activity?.findViewById<Button>(R.id.button_logot_anon)?.setOnClickListener(){
+        activity?.findViewById<Button>(R.id.button_logot_anon)?.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(context, sev.seversk.androidapp1.authorization.startActivity::class.java)
             startActivity(intent)

@@ -37,7 +37,7 @@ class AlertAdapter (val context: Context): RecyclerView.Adapter<AlertAdapter.MyV
 
         holder.alert_title.text = title1
         holder.alert_upd.text = ("Последнее изменение: "+status1)
-        holder.card.setOnClickListener() {
+        holder.card.setOnClickListener {
             Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
         }
     }

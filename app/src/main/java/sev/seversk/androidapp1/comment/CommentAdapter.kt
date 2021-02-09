@@ -19,7 +19,7 @@ import sev.seversk.androidapp1.R
 
 class CommentAdapter(val context: Context): RecyclerView.Adapter<CommentAdapter.MyViewHolder>() {
 
-    var commentList: List<comments> = listOf()
+    var commentList: List<comment> = listOf()
     var arraycomment: ArrayList<comments> = ArrayList()
 
     override fun onCreateViewHolder(
@@ -35,26 +35,27 @@ class CommentAdapter(val context: Context): RecyclerView.Adapter<CommentAdapter.
     }
     override fun onBindViewHolder(holder: CommentAdapter.MyViewHolder, position: Int) {
 
-        var commenttext = Html.fromHtml(commentList.get(position).comment_text)
-        var commentuser = Html.fromHtml(commentList.get(position).user)
-        var commentdate = Html.fromHtml(commentList.get(position).create_time)
+//        val commenttitle = Html.fromHtml(commentList.get(position).title)
+//        holder.commenttitle.text = commenttitle
 
-
-        holder.commentautor1.text = commentuser
-        holder.commentdate1.text = commentdate
-        holder.commenttext1.text = commenttext
+//        var commenttext = Html.fromHtml(commentList.get(position).comment_text)
+//        var commentuser = Html.fromHtml(commentList.get(position).user)
+//        var commentdate = Html.fromHtml(commentList.get(position).create_time)
+//        holder.commentautor1.text = commentuser
+//        holder.commentdate1.text = commentdate
+//        holder.commenttext1.text = commenttext
 
 //        Glide.with(context).load(photocommentautor)
 //            .apply(RequestOptions().centerCrop())
 //            .into(holder.newsImage)
 
-        holder.card1.setOnClickListener(){
+        holder.card1.setOnClickListener {
             Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
 
         }
     }
 
-    fun setCommentListItems(commentList: comments){
+    fun setCommentListItems(commentList: comment){
         this.commentList = listOf(commentList)
         notifyDataSetChanged()
     }
@@ -64,6 +65,7 @@ class CommentAdapter(val context: Context): RecyclerView.Adapter<CommentAdapter.
         val commentautor1 = itemView.findViewById<TextView>(R.id.text_autorcomment)
         val commenttext1 = itemView.findViewById<TextView>(R.id.text_commenttext)
         val commentdate1 = itemView.findViewById<TextView>(R.id.text_datecomment)
+//        val commenttitle = itemView.findViewById<TextView>(R.id.text_comments_namenews)
         val card1 = itemView.findViewById<LinearLayout>(R.id.card_comment)
     }
 }

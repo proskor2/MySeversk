@@ -50,7 +50,7 @@ class AfishaAdapter(val context: Context): RecyclerView.Adapter<AfishaAdapter.My
             .apply(RequestOptions().centerCrop())
             .into(holder.newsImage)
         holder.afisha_date.text = date1
-        holder.card.setOnClickListener(){
+        holder.card.setOnClickListener {
             Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
 //            val intent1 = Intent(this@AfishaAdapter.context, eventid::class.java)
 //            intent1.putExtra("daten", date1)

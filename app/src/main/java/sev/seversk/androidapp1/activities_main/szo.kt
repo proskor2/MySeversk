@@ -48,6 +48,12 @@ class szo : AppCompatActivity() {
 
             apiinterface.enqueue(object : Callback<List<Szo>> {
                 override fun onResponse(call: Call<List<Szo>>, response: Response<List<Szo>>?) {
+
+                    val res = response?.body()
+
+                    val jsonArray2 = res?.get(0)?.employees
+                    val obj = jsonArray2
+
                     if (response?.body() != null)
                         recyclerAdapter.setSzoListItems(response.body()!!)
 
@@ -57,7 +63,6 @@ class szo : AppCompatActivity() {
                     Toast.makeText(applicationContext, "${t.message}", Toast.LENGTH_LONG).show()
                 }
             })
-
 
         }
     }

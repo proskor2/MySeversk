@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.GeoObject
 import com.yandex.mapkit.MapKitFactory
+import com.yandex.mapkit.MapKitFactory.getInstance
 import com.yandex.mapkit.geometry.Geo
 import com.yandex.mapkit.geometry.Geometry
 import com.yandex.mapkit.geometry.Point
@@ -27,18 +28,14 @@ class yandex_maps : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MapKitFactory.setApiKey("3ad79f77-ac08-49b0-af8d-3a39283cd78a")
-        setContentView(R.layout.activity_yandex_maps)
         MapKitFactory.initialize(this)
-
-
-
+        setContentView(R.layout.activity_yandex_maps)
 
         mapView = findViewById<MapView>(R.id.mapView)
         
        val intent2 = intent.extras
         val lat = intent2?.get("lat").toString().toDouble()
         val long = intent2?.get("long").toString().toDouble()
-
 
         addMark(lat, long)
 
@@ -60,6 +57,6 @@ class yandex_maps : AppCompatActivity() {
 
     fun addMark (lat: Double, long: Double){
         mapView.map.mapObjects.addPlacemark(Point(lat, long))
-        mapView.getMap().move(CameraPosition(Point(lat, long), 15.0f, 0.0f, 0.0f), Animation(Animation.Type.SMOOTH, 0F), null)
+        mapView.map.move(CameraPosition(Point(lat, long), 15.0f, 0.0f, 0.0f), Animation(Animation.Type.SMOOTH, 0F), null)
     }
 }

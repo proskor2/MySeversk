@@ -96,7 +96,7 @@ class problem_detail1 : Fragment() {
 
 
 
-                activity?.runOnUiThread(){
+                activity?.runOnUiThread {
                     text_detailproblem_title?.text = tex1
                     text_detailproblem_date1?.text = tex2
                     text_detailproblem_descr?.text = tex3

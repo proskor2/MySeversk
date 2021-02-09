@@ -29,7 +29,7 @@ class bus_detail : AppCompatActivity() {
 
             @SuppressLint("WrongConstant")
             override fun onResponse(call: Call, response: Response) {
-                val json = response?.body()?.string()
+                val json = response.body()?.string()
 
                 val txt = (JSONArray(json).get(0)).toString()
                 val txt2 = JSONArray(json).getJSONObject(0).getString("title")
@@ -43,7 +43,7 @@ class bus_detail : AppCompatActivity() {
                 val txt10: String = JSONArray(json).getJSONObject(0).getString("payRules")
 
 
-                runOnUiThread(){
+                runOnUiThread {
                     busdetail_number.text = Html.fromHtml("Маршрут №"+txt3)
                     busdetail_length.text = Html.fromHtml(txt4)
                     busdetail_dateBegin.text = Html.fromHtml(txt8)

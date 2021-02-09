@@ -58,7 +58,7 @@ class appeal : AppCompatActivity() {
                     val tex2: String = JSONArray(json).getJSONObject(0).getString("status")
                     val tex3: String = JSONArray(json).getJSONObject(0).getString("text")
 
-                    runOnUiThread() {
+                    runOnUiThread {
                         text_appeal_title?.text = tex1
                         text_appeal_status?.text = tex2
                         text_appeal_descr?.text = tex3

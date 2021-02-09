@@ -10,12 +10,7 @@ import com.yandex.mapkit.mapview.MapView
 
 class MapsActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.map)
-    }
-
-lateinit var mapview: MapView
+    lateinit var mapview: MapView
 
 
 //

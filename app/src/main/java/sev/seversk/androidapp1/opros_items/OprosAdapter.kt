@@ -38,7 +38,7 @@ class OprosAdapter (val context: Context): RecyclerView.Adapter<OprosAdapter.MyV
 
         holder.opros_title.text = title1
         holder.opros_status.text = status1
-        holder.card.setOnClickListener(){
+        holder.card.setOnClickListener {
             Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
             val intent1 = Intent(this.context, opros_details::class.java)
            startActivity(context, intent1, null)

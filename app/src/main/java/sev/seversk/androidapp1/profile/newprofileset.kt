@@ -32,66 +32,6 @@ class newprofileset: Fragment(){
         return fragmentLayoutInflater
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-//        val sharedPreferences = activity?.getSharedPreferences("profiles", Context.MODE_PRIVATE)
-//        val newtoken = sharedPreferences?.getString("token", null)
-//
-//        var auth = FirebaseAuth.getInstance().currentUser
-//        var auth2 = FirebaseAuth.getInstance().currentUser?.isAnonymous
-//
-//
-//        if (auth == null || auth2 == true) {
-//            val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/profile/get"
-//
-//            var okHttpClient: OkHttpClient = OkHttpClient()
-//
-//            val request: Request = Request.Builder().url(URL).addHeader("Authorization",
-//                "Bearer " + newtoken).build()
-//
-//            okHttpClient.newCall(request).enqueue(object : Callback {
-//                override fun onFailure(call: Call, e: IOException) {
-//                }
-//
-//                @SuppressLint("WrongConstant")
-//                override fun onResponse(call: Call, response: Response) {
-//
-//                    val json = response?.body()?.string()
-//
-//                    val parentObject: JSONObject? = JSONObject(json)
-//
-//                    val jsurname: String? = parentObject?.getString("lastName")
-//                    val jname: String? = parentObject?.getString("firstName")
-//                    val fullName = "$jname $jsurname"
-//                    val javatar = parentObject?.getString("avatar")
-//
-//
-//                    var username = activity?.findViewById<TextView>(R.id.profile_setcard_name)
-//                    var imview = activity?.findViewById<ImageView>(R.id.image_profile2)
-//
-//
-//
-//
-//                    activity?.runOnUiThread() {
-//                        username?.setText(fullName)
-//
-//                        Glide.with(context!!.applicationContext)
-//                            .load(javatar)
-//                            .into(imview!!)
-//
-//                    }
-//                }
-//
-//
-//            })
-//
-//        } else {
-//
-//        }
-
-    }
-
     override fun onStart() {
         super.onStart()
 
@@ -101,10 +41,10 @@ class newprofileset: Fragment(){
         val cardsurname = sharedPreferences?.getString("surname", " ")
         val newname = "$cardname $cardsurname"
         val cardnamesurname = activity?.findViewById<TextView>(R.id.profile_setcard_name)
-        cardnamesurname?.setText(newname)
+        cardnamesurname?.text = newname
 
 
-        activity?.findViewById<CardView>(R.id.card_profile_set)?.setOnClickListener(){
+        activity?.findViewById<CardView>(R.id.card_profile_set)?.setOnClickListener {
             val intent = Intent(context, profile_settings::class.java)
             startActivity(intent)
         }

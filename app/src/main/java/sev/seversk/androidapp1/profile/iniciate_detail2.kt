@@ -92,7 +92,7 @@ class iniciate_detail2 : Fragment() {
                 val tex6: String = JSONArray(json1).getJSONObject(0).getString("status")
 
 
-                activity?.runOnUiThread(){
+                activity?.runOnUiThread {
                     text_detailiniciate_title?.text = tex1
                     text_detailiniciate_date1?.text = tex2
                     text_detailiniciate_descr?.text = tex3

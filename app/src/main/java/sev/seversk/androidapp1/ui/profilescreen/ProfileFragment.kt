@@ -60,19 +60,19 @@ class ProfileFragment : Fragment() {
         val navController = activity?.let { Navigation.findNavController(it, fragment_profile_main) }
 
 
-      activity?.findViewById<CardView>(R.id.cardButton_profile_appeals)?.setOnClickListener(){
+      activity?.findViewById<CardView>(R.id.cardButton_profile_appeals)?.setOnClickListener {
           navController?.navigate(R.id.fragment_appeals)
       }
 
-        activity?.findViewById<CardView>(R.id.cardButton_profile_problems)?.setOnClickListener(){
+        activity?.findViewById<CardView>(R.id.cardButton_profile_problems)?.setOnClickListener {
             navController?.navigate(R.id.fragment_problems)
         }
 
-        activity?.findViewById<CardView>(R.id.cardButton_profile_opross)?.setOnClickListener(){
+        activity?.findViewById<CardView>(R.id.cardButton_profile_opross)?.setOnClickListener {
             navController?.navigate(R.id.fragment_opros)
         }
 
-        activity?.findViewById<CardView>(R.id.cardButton_profile_iniciatives)?.setOnClickListener(){
+        activity?.findViewById<CardView>(R.id.cardButton_profile_iniciatives)?.setOnClickListener {
             navController?.navigate(R.id.fragment_iniciativa)
         }
 

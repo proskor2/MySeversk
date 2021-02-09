@@ -33,10 +33,6 @@ class HomeFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
     lateinit var recyclerAdapter: RecyclerAdapter
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-    }
-
     private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
@@ -65,27 +61,27 @@ class HomeFragment : Fragment() {
         val token2 = "Bearer $token"
 
 
-        button_news.setOnClickListener() {
+        button_news.setOnClickListener {
             val news = Intent(context, news::class.java)
             startActivity(news)
         }
-        button_events.setOnClickListener() {
+        button_events.setOnClickListener {
             val event = Intent(context, events::class.java)
             startActivity(event)
         }
-        button_opros.setOnClickListener() {
+        button_opros.setOnClickListener {
             val opros = Intent(context, opros::class.java)
             startActivity(opros)
         }
-        button_transport.setOnClickListener() {
+        button_transport.setOnClickListener {
             val transport = Intent(context, transport::class.java)
             startActivity(transport)
         }
-        button_problems123.setOnClickListener() {
+        button_problems123.setOnClickListener {
             val problems = Intent(context, problem::class.java)
             startActivity(problems)
         }
-        button_offers.setOnClickListener() {
+        button_offers.setOnClickListener {
             val offer = Intent(context, appeal::class.java)
             startActivity(offer)
         }
@@ -94,30 +90,30 @@ class HomeFragment : Fragment() {
 //            startActivity(newact)
 //        }
 
-        button_map.setOnClickListener() {
+        button_map.setOnClickListener {
             val map1 = Intent(context, yandex_maps::class.java)
             startActivity(map1)
         }
 
-        button_alerts.setOnClickListener() {
+        button_alerts.setOnClickListener {
             val alert1 = Intent(context, alerts::class.java)
             startActivity(alert1)
         }
 
-        button_emergency.setOnClickListener() {
+        button_emergency.setOnClickListener {
             val remont1 = Intent(context, szo::class.java)
             startActivity(remont1)
         }
-        button_district.setOnClickListener() {
+        button_district.setOnClickListener {
             val distr1 = Intent(context, district::class.java)
             startActivity(distr1)
         }
-        button_service.setOnClickListener() {
+        button_service.setOnClickListener {
             val serv1 = Intent(context, remont::class.java)
             startActivity(serv1)
         }
 
-        activity?.findViewById<ImageButton>(R.id.button_tosettings)?.setOnClickListener(){
+        activity?.findViewById<ImageButton>(R.id.button_tosettings)?.setOnClickListener {
 
                     if (auth == null || auth2 == true) {
                         Toast.makeText(context, "Пожалуйста авторизуйтесь", Toast.LENGTH_SHORT).show()

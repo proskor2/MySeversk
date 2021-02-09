@@ -18,13 +18,13 @@ class preset2 : AppCompatActivity() {
 
 
 //click on button next
-        findViewById<Button>(R.id.button_preset3_next).setOnClickListener(){
+        findViewById<Button>(R.id.button_preset3_next).setOnClickListener {
             getGender()
             val intent = Intent(this, preset3::class.java)
             startActivity(intent)
         }
 
-        findViewById<Button>(R.id.button_preset3_back).setOnClickListener(){
+        findViewById<Button>(R.id.button_preset3_back).setOnClickListener {
             val intent = Intent(this, preset1::class.java)
             startActivity(intent)
         }

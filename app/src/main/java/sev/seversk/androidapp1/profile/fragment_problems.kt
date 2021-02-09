@@ -84,7 +84,7 @@ class fragment_problems : Fragment() {
                 val tex4: String = JSONArray(json1).getJSONObject(0).getString("name")
                 val tex5: String = JSONArray(json1).getJSONObject(0).getString("descr")
 
-                activity?.runOnUiThread() {
+                activity?.runOnUiThread {
                     text_profile_problem_title?.text = tex1
                     text_profile_problem_autor?.text = ("Автор: " + tex3 + " " + tex4)
                     text_profile_problem_status?.text = tex2

@@ -37,11 +37,11 @@ class prodile_settings2 : AppCompatActivity() {
         setContentView(R.layout.activity_prodile_settings2)
 
 // Start function for hide keyboard
-layout112233.setOnClickListener(){
+layout112233.setOnClickListener {
     hideKeyboard()
 }
 
-        findViewById<ConstraintLayout>(R.id.layout112233)?.setOnClickListener(){
+        findViewById<ConstraintLayout>(R.id.layout112233)?.setOnClickListener {
             hideKeyboard()
         }
 
@@ -49,7 +49,7 @@ layout112233.setOnClickListener(){
 val image = findViewById<ImageView>(R.id.add_profilephoto)
 
 // Change Activity to back with data
-    button_profile2_back.setOnClickListener(){
+    button_profile2_back.setOnClickListener {
         val back1 = Intent (this@prodile_settings2, profile_settings::class.java )
         back1.putExtra("name", set_profile_name?.text.toString())
         back1.putExtra("surname", set_profile_surname?.text.toString())
@@ -60,11 +60,11 @@ val image = findViewById<ImageView>(R.id.add_profilephoto)
     }
 
 // Save data
-        button_profile2_save.setOnClickListener(){
+        button_profile2_save.setOnClickListener {
             val toast1= Toast.makeText(applicationContext, "Изменения сохранены", Toast.LENGTH_SHORT).show()
         }
 
-        button_addprofilephoto.setOnClickListener(){
+        button_addprofilephoto.setOnClickListener {
             val callCameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             if (callCameraIntent.resolveActivity(packageManager) != null) {
                 startActivityForResult(callCameraIntent, CAMERA_REQUEST_CODE)

@@ -66,7 +66,7 @@ class SzoAdapter (val context: Context): RecyclerView.Adapter<SzoAdapter.MyViewH
             holder.szo_title.text = title1
             holder.szo_address.text = address1
 
-            holder.card.setOnClickListener(){
+            holder.card.setOnClickListener {
                 val intent1 = Intent(this.context, szo_details::class.java)
                 intent1.putExtra("address", address1)
                 intent1.putExtra("email", email1)

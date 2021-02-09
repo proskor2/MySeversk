@@ -25,7 +25,7 @@ class appeal_problem2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activitiy_newproblem2)
-        button_newproblem_close.setOnClickListener(){
+        button_newproblem_close.setOnClickListener {
             val appeal4 = Intent(this@appeal_problem2, seversk::class.java )
             startActivity(appeal4)
             finish()

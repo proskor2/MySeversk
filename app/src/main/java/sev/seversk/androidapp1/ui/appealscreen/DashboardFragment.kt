@@ -28,11 +28,11 @@ class DashboardFragment : Fragment() {
         super.onStart()
 
 
-        button_iniciate.setOnClickListener(){
+        button_iniciate.setOnClickListener {
             val inic = Intent(this@DashboardFragment.context, appeal_iniciate::class.java)
             startActivity(inic)
         }
-        button_request.setOnClickListener(){
+        button_request.setOnClickListener {
             val t_request = Toast.makeText(context, "Ожидайте ответа", 1)
             t_request.show()
         }

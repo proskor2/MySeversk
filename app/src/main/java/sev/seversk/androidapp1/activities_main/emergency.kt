@@ -18,12 +18,12 @@ class emergency : AppCompatActivity() {
 
 
 
-        emergency_cityproblems.setOnClickListener() {
+        emergency_cityproblems.setOnClickListener {
                 val intent = Intent(this@emergency, emergency_detail::class.java)
                 startActivity(intent)
         }
 
-        emergency_extrservice.setOnClickListener() {
+        emergency_extrservice.setOnClickListener {
             val intent = Intent(this@emergency, emergency_detail::class.java)
             startActivity(intent)
         }

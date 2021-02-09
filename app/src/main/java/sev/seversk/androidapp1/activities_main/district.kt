@@ -14,7 +14,7 @@ class district : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_district)
 
-card_district1.setOnClickListener(){
+card_district1.setOnClickListener {
     val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №1"
     val name = "МАЕВСКИЙ АЛЕКСАНДР ИЗИДОРОВИЧ"
     val streets = """
@@ -39,7 +39,7 @@ card_district1.setOnClickListener(){
     startActivity(intent)
 }
 
-        card_district2.setOnClickListener(){
+        card_district2.setOnClickListener {
             val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №1"
             val name = "МАЕВСКИЙ АЛЕКСАНДР ИЗИДОРОВИЧ"
             val streets = """
@@ -64,7 +64,7 @@ card_district1.setOnClickListener(){
             startActivity(intent)
         }
 
-        card_district3.setOnClickListener(){
+        card_district3.setOnClickListener {
             val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №3"
             val name = "СЕЛЕЗНЕВ АНДРЕЙ ПАВЛОВИЧ"
             val streets = """ 
@@ -83,7 +83,7 @@ card_district1.setOnClickListener(){
             startActivity(intent)
         }
 
-        card_district4.setOnClickListener(){
+        card_district4.setOnClickListener {
             val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №4"
             val name = "КОРШУНОВА ОЛЬГА ПЕТРОВНА"
             val streets = """ 
@@ -101,7 +101,7 @@ card_district1.setOnClickListener(){
             startActivity(intent)
         }
 
-        card_district5.setOnClickListener(){
+        card_district5.setOnClickListener {
             val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №5"
             val name = "КОППАЛОВА ЛАРИСА НИКОЛАЕВНА"
             val streets = """ 
@@ -120,7 +120,7 @@ card_district1.setOnClickListener(){
             startActivity(intent)
         }
 
-        card_district6.setOnClickListener(){
+        card_district6.setOnClickListener {
             val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №6"
             val name = "МЕТЕЛЬКОВА ЕКАТЕРИНА АЛЕКСАНДРОВНА"
             val streets = """ 
@@ -140,7 +140,7 @@ card_district1.setOnClickListener(){
             startActivity(intent)
         }
 
-        card_district7.setOnClickListener(){
+        card_district7.setOnClickListener {
             val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №7"
             val name = "ДЕЕВА ЕЛЕНА ВЛАДИМИРОВНА"
             val streets = """ 
@@ -159,7 +159,7 @@ card_district1.setOnClickListener(){
             startActivity(intent)
         }
 
-        card_district8.setOnClickListener(){
+        card_district8.setOnClickListener {
             val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №8"
             val name = "ВЛАСОВ АЛЕКСАНДР ЮРЬЕВИЧ"
             val streets = """ 
@@ -180,7 +180,7 @@ card_district1.setOnClickListener(){
             startActivity(intent)
         }
 
-        card_district9.setOnClickListener(){
+        card_district9.setOnClickListener {
             val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №9"
             val name = "РУНДА АЛЕКСАНДР МИХАЙЛОВИЧ"
             val streets = """ 
@@ -207,7 +207,7 @@ card_district1.setOnClickListener(){
             startActivity(intent)
         }
 
-        card_district10.setOnClickListener(){
+        card_district10.setOnClickListener {
             val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №10"
             val name = "АТАМАНЧУК НАТАЛЬЯ СЕРГЕЕВНА"
             val streets = """ 
@@ -232,7 +232,7 @@ card_district1.setOnClickListener(){
             startActivity(intent)
         }
 
-        card_district11.setOnClickListener(){
+        card_district11.setOnClickListener {
             val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №11"
             val name = "СТЕПИН ДЕНИС АЛЕКСАНДРОВИЧ"
             val streets = """ 
@@ -255,7 +255,7 @@ card_district1.setOnClickListener(){
             startActivity(intent)
         }
 
-        card_district12.setOnClickListener(){
+        card_district12.setOnClickListener {
             val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №12"
             val name = "ЕРМОЛОВА ОЛЬГА ГЕННАДЬЕВНА"
             val streets = """ 
@@ -279,7 +279,7 @@ card_district1.setOnClickListener(){
             startActivity(intent)
         }
 
-        card_district13.setOnClickListener(){
+        card_district13.setOnClickListener {
             val num = "ИЗБИРАТЕЛЬНЫЙ ОКРУГ №13"
             val name = "ИВАНОВ ОЛЕГ НИКОЛАЕВИЧ"
             val streets = """ 

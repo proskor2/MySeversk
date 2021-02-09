@@ -94,7 +94,7 @@ class fragment_iniciativa : Fragment() {
                 val tex4: String = JSONArray(json1).getJSONObject(0).getString("name")
                 val tex5: String = JSONArray(json1).getJSONObject(0).getString("text")
 
-                activity?.runOnUiThread(){
+                activity?.runOnUiThread {
                     text_profile_iniciate_title?.text = (tex1)
                     text_profile_iniciate_status?.text = tex2
                     text_profile_iniciate_autor?.text = ("Автор: "+tex3+" "+tex4)

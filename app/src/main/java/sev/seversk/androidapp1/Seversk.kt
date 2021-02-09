@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import sev.seversk.androidapp1.R
 
 
-class seversk() : AppCompatActivity() {
+class seversk : AppCompatActivity() {
 
 
     @SuppressLint("StringFormatInvalid")
@@ -80,7 +80,7 @@ class seversk() : AppCompatActivity() {
 
 
 
-        test_button.setOnClickListener() {
+        test_button.setOnClickListener {
 
             if (auth == null || auth2 == true) {
 
@@ -95,22 +95,22 @@ class seversk() : AppCompatActivity() {
                 val dialog = BottomSheetDialog(this)
                 dialog.setContentView(view)
                 dialog.show()
-                view.button_request.setOnClickListener() {
+                view.button_request.setOnClickListener {
                     val appeal1 = Intent(this@seversk, activitiy_request::class.java)
                     startActivity(appeal1)
                 }
-                view.button_problems123.setOnClickListener() {
+                view.button_problems123.setOnClickListener {
                     val appeal2 = Intent(this@seversk, appeal_problem::class.java)
                     startActivity(appeal2)
                 }
-                view.button_iniciate.setOnClickListener() {
+                view.button_iniciate.setOnClickListener {
                     val appeal3 = Intent(this@seversk, appeal_iniciate::class.java)
                     startActivity(appeal3)
                 }
 
             }
         }
-        test_button2.setOnClickListener(){
+        test_button2.setOnClickListener {
 
             if (auth == null || auth2 == true) {
                 val view = layoutInflater.inflate(R.layout.fragment_profile_nonauth2, null)
@@ -124,15 +124,15 @@ class seversk() : AppCompatActivity() {
                 val dialog = BottomSheetDialog(this)
                 dialog.setContentView(view)
                 dialog.show()
-                view.button_request.setOnClickListener() {
+                view.button_request.setOnClickListener {
                     val appeal1 = Intent(this@seversk, activitiy_request::class.java)
                     startActivity(appeal1)
                 }
-                view.button_problems123.setOnClickListener() {
+                view.button_problems123.setOnClickListener {
                     val appeal2 = Intent(this@seversk, appeal_problem::class.java)
                     startActivity(appeal2)
                 }
-                view.button_iniciate.setOnClickListener() {
+                view.button_iniciate.setOnClickListener {
                     val appeal3 = Intent(this@seversk, appeal_iniciate::class.java)
                     startActivity(appeal3)
                 }

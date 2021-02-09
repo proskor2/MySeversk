@@ -80,7 +80,7 @@ class fragment_appeals : Fragment() {
                 val tex4: String = JSONArray(json1).getJSONObject(0).getString("dateEnd")
                 val tex5: String = JSONArray(json1).getJSONObject(0).getString("responsible")
 
-                activity?.runOnUiThread(){
+                activity?.runOnUiThread {
                     text_profile_appeal_appealnumber?.text = ("Обращение № "+tex1)
                     text_profile_appeal_status_incard?.text = tex2
                     text_profile_appeal_answer?.text = ("Ответ: "+tex3)

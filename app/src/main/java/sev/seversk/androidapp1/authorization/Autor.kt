@@ -26,7 +26,7 @@ class Autor : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_autor)
 
-        linearLayout3.setOnClickListener() {
+        linearLayout3.setOnClickListener {
             hideKeyboard()
         }
 
@@ -35,7 +35,7 @@ class Autor : AppCompatActivity() {
 // Later autorization
         val button_later = findViewById<Button>(R.id.autor_later)
 
-        button_later.setOnClickListener() {
+        button_later.setOnClickListener {
             button_later.setTextColor(R.color.otherColor)
 
             if (auth.currentUser?.isAnonymous == true){
@@ -57,7 +57,7 @@ class Autor : AppCompatActivity() {
         }
 
 //Move to SMS
-        but_autor.setOnClickListener() {
+        but_autor.setOnClickListener {
 
             val phonenum = findViewById<EditText>(R.id.editTextPhone3).text
             val codefield = findViewById<EditText>(R.id.editTextPhone2).text

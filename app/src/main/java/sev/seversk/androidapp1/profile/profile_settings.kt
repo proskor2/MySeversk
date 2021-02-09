@@ -22,19 +22,19 @@ class profile_settings : AppCompatActivity() {
         val kVault = KVault(context = applicationContext)
 
 
-        findViewById<CardView>(R.id.card_settings_notification).setOnClickListener(){
+        findViewById<CardView>(R.id.card_settings_notification).setOnClickListener {
             Toast.makeText(this, "Notification", Toast.LENGTH_SHORT).show()
         }
 
-        findViewById<CardView>(R.id.card_settings_conf).setOnClickListener(){
+        findViewById<CardView>(R.id.card_settings_conf).setOnClickListener {
             Toast.makeText(this, "Confidential", Toast.LENGTH_SHORT).show()
         }
 
-        findViewById<CardView>(R.id.card_settings_memory).setOnClickListener(){
+        findViewById<CardView>(R.id.card_settings_memory).setOnClickListener {
             Toast.makeText(this, "Memory", Toast.LENGTH_SHORT).show()
         }
 
-        findViewById<CardView>(R.id.card_settings_logout).setOnClickListener(){
+        findViewById<CardView>(R.id.card_settings_logout).setOnClickListener {
             val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
             val editor = sharedPreferences?.edit()
             editor?.clear()?.apply()
@@ -47,13 +47,13 @@ class profile_settings : AppCompatActivity() {
         }
 
 // button change screen settings to main screen
-        button_profilesettings_back.setOnClickListener(){
+        button_profilesettings_back.setOnClickListener {
             val back = Intent(this@profile_settings, seversk::class.java)
             startActivity(back)
             finish()
         }
 // button change screen settings to detals settings screen
-        button_profile1_change.setOnClickListener(){
+        button_profile1_change.setOnClickListener {
             val intent = Intent(this, newprofileset3::class.java)
             startActivity(intent)
         }

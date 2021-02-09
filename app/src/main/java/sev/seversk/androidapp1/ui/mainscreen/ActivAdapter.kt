@@ -48,7 +48,7 @@ class ActivAdapter(val context: Context): RecyclerView.Adapter<ActivAdapter.MyVi
             Glide.with(context).load(photo1)
                 .apply(RequestOptions().centerCrop())
                 .into(holder.activImage)
-            holder.card.setOnClickListener(){
+            holder.card.setOnClickListener {
 //            Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
                 val intent1 = Intent(this@ActivAdapter.context, Activid::class.java)
                 intent1.putExtra("date", date1)

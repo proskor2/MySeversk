@@ -26,23 +26,23 @@ class appeal_iniciate : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_appeal_iniciate)
 
-        button_iniciate_close.setOnClickListener(){
+        button_iniciate_close.setOnClickListener {
             val close1 = Intent(this@appeal_iniciate, seversk::class.java)
             startActivity(close1)
         }
 
-        button_iniciate_ready.setOnClickListener(){
+        button_iniciate_ready.setOnClickListener {
             val close2 = Intent(this@appeal_iniciate, seversk::class.java)
             startActivity(close2)
         }
-        button_iniciate_addfile.setOnClickListener(){
+        button_iniciate_addfile.setOnClickListener {
             val addpick = Intent(Intent.ACTION_PICK)
-            addpick.setType("image/*")
+            addpick.type = "image/*"
             startActivityForResult(addpick,1 )
 //            val one = addpick.data
 //            imageView_add.setImageURI(one)
         }
-        linear6.setOnClickListener(){
+        linear6.setOnClickListener {
             hideKeyboard()
         }
     }

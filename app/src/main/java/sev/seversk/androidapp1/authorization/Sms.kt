@@ -53,28 +53,28 @@ class sms : AppCompatActivity() {
 
 
 // SMS resend
-        text_resms.setOnClickListener(){
+        text_resms.setOnClickListener {
             text_resms.setTextColor(R.color.otherColor)
             Toast.makeText(applicationContext, "Мы повторно выслали Вам код", Toast.LENGTH_SHORT).show()
             resendVerificationCode(phonenum, resendToken )
         }
 
 // Button back
-        left_button.setOnClickListener(){
+        left_button.setOnClickListener {
             val left1 = Intent(this@sms, Autor::class.java)
             startActivity(left1)
             finish()
         }
 
 // hide keyboard
-        linearlayout4.setOnClickListener(){
+        linearlayout4.setOnClickListener {
             hideKeyboard()
         }
 
 
 
     // move to My Seversk screen
-    but_sms.setOnClickListener(){
+    but_sms.setOnClickListener {
 
         if (smsField.text.isEmpty() || smsField.text.length < 6){
             Toast.makeText(this.applicationContext, "Пожалуйста введите корректный код", Toast.LENGTH_SHORT).show()
@@ -126,7 +126,7 @@ class sms : AppCompatActivity() {
         phoneNumber: String,
         token: PhoneAuthProvider.ForceResendingToken?
     ) {
-        val optionsBuilder = PhoneAuthOptions.newBuilder(mAuth!!)
+        val optionsBuilder = PhoneAuthOptions.newBuilder(mAuth)
             .setPhoneNumber(phoneNumber)       // Phone number to verify
             .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
             .setActivity(this)                 // Activity (for callback binding)
@@ -138,7 +138,7 @@ class sms : AppCompatActivity() {
     }
 
     private fun signInWithPhoneCredential(credential: PhoneAuthCredential) {
-        mAuth!!.signInWithCredential(credential)
+        mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this, OnCompleteListener<AuthResult?> { task ->
                 if (task.isSuccessful) {
 // get TOKEN and save to keychain

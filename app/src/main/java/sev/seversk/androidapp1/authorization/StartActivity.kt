@@ -22,14 +22,14 @@ class startActivity : AppCompatActivity() {
         var firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
         if (firebaseAuth.currentUser == null) {
 
-            requestWindowFeature(Window.FEATURE_NO_TITLE);
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
             setContentView(R.layout.activity_main)
-            val viewPager: ViewPager = findViewById(R.id.viewPagerMS);
+            val viewPager: ViewPager = findViewById(R.id.viewPagerMS)
             val adapter: ImageAdapter =
                 ImageAdapter(this)
             viewPager.adapter = adapter
 
-            login1.setOnClickListener() {
+            login1.setOnClickListener {
                 var autor2 = Intent(this@startActivity, Autor::class.java)
                 startActivity(autor2)
                 finish()

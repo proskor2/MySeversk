@@ -15,9 +15,9 @@ class privacy : AppCompatActivity() {
         val intent = intent.extras
         val getString = intent?.get("string")
 
-        findViewById<TextView>(R.id.privacy_text).setText(getString.toString())
+        findViewById<TextView>(R.id.privacy_text).text = getString.toString()
 
-        findViewById<Button>(R.id.button_privacy_back).setOnClickListener(){
+        findViewById<Button>(R.id.button_privacy_back).setOnClickListener {
             val intent = Intent(this, preset2::class.java)
             startActivity(intent)
             finish()

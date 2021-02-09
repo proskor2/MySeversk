@@ -52,7 +52,7 @@ class ProblemAdapter(val context: Context): RecyclerView.Adapter<ProblemAdapter.
             .into(holder.problem_photo)
 
 
-        holder.card.setOnClickListener() {
+        holder.card.setOnClickListener {
             Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
 
         }

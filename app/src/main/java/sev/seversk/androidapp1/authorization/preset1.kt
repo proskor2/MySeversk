@@ -27,11 +27,11 @@ class preset1 : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("profiles", Context.MODE_PRIVATE)
         val editor = sharedPreferences?.edit()
 
-        findViewById<LinearLayout>(R.id.linear_date).setOnClickListener(){
+        findViewById<LinearLayout>(R.id.linear_date).setOnClickListener {
             hideKeyboard()
         }
 
-        findViewById<Button>(R.id.button_preset2_next).setOnClickListener(){
+        findViewById<Button>(R.id.button_preset2_next).setOnClickListener {
             val date = getDate(datePicker).toString()
             editor?.putString("date", date)
             editor?.apply()

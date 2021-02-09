@@ -60,7 +60,7 @@ val token1 = FirebaseAuth.getInstance().currentUser?.uid
             if (txt2.text.toString() == "Описание проблемы") txt2.text = ""
         }
 
-        button_appeal_cancel2.setOnClickListener() {
+        button_appeal_cancel2.setOnClickListener {
             val appeal3 = Intent(this@appeal_problem, seversk::class.java)
             startActivity(appeal3)
             finish()
@@ -71,13 +71,13 @@ val token1 = FirebaseAuth.getInstance().currentUser?.uid
         var mainurl = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/treatments"
 //        var gettitle = text_newproblem_title.text
 
-        button_tomap.setOnClickListener(){
+        button_tomap.setOnClickListener {
             var int1 = Intent(this@appeal_problem, yandex_maps::class.java)
             startActivity(int1)
         }
 
 // Click on button Ready
-        button_newproblem_ready.setOnClickListener() {
+        button_newproblem_ready.setOnClickListener {
 
 
             var gettitle = spinner.selectedItem.toString()
@@ -118,11 +118,11 @@ val token1 = FirebaseAuth.getInstance().currentUser?.uid
 
 
 // add photo
-        button_problem_addfile.setOnClickListener() {
+        button_problem_addfile.setOnClickListener {
             showPictureDialog()
         }
 
-        linear7.setOnClickListener() {
+        linear7.setOnClickListener {
             hideKeyboard()
         }
     }
@@ -194,7 +194,7 @@ val token1 = FirebaseAuth.getInstance().currentUser?.uid
             }
         } else if (requestCode == CAMERA) {
 
-            add_photo_new.setImageBitmap(data?.extras?.get("data") as Bitmap)
+            add_photo_new.setImageBitmap(data.extras?.get("data") as Bitmap)
 
             }
         }

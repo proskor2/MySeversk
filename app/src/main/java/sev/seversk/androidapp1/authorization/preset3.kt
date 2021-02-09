@@ -23,12 +23,12 @@ class preset3 : AppCompatActivity() {
         val editor = sharedPreferences?.edit()
         val kVault = KVault(context = applicationContext)
 
-        findViewById<Button>(R.id.button_preset1_back3).setOnClickListener(){
+        findViewById<Button>(R.id.button_preset1_back3).setOnClickListener {
             val intent = Intent(this, preset2::class.java)
             startActivity(intent)
         }
 
-        findViewById<Button>(R.id.button_preset1_next).setOnClickListener(){
+        findViewById<Button>(R.id.button_preset1_next).setOnClickListener {
             val builder = AlertDialog.Builder(this@preset3)
             builder.setMessage(R.string.privacyText)
             builder.setPositiveButton("Да") { dialog, which ->
@@ -68,19 +68,19 @@ class preset3 : AppCompatActivity() {
 
         }
 
-        findViewById<LinearLayout>(R.id.linear_name).setOnClickListener(){
+        findViewById<LinearLayout>(R.id.linear_name).setOnClickListener {
             hideKeyboard()
         }
 
 
-        findViewById<TextView>(R.id.privacy_policy).setOnClickListener(){
+        findViewById<TextView>(R.id.privacy_policy).setOnClickListener {
             val url = "https://xn----7sbhlbh0a1awgee.xn--p1ai/"
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(url)
             startActivity(intent)
         }
 
-        findViewById<TextView>(R.id.privacy_rules).setOnClickListener(){
+        findViewById<TextView>(R.id.privacy_rules).setOnClickListener {
             val url = "https://xn----7sbhlbh0a1awgee.xn--p1ai/"
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(url)

@@ -36,12 +36,11 @@ class news_web : AppCompatActivity() {
 
         news_comm?.text = ("Комментарии: "+comm)
 
-        news_comm.setOnClickListener(){
+        news_comm.setOnClickListener {
             val intent = Intent(this, comments1::class.java)
             intent.putExtra("idnews", newsnews)
             startActivity(intent)
         }
-
 
         val myweb: WebView = findViewById(R.id.news_webview)
         myweb.loadDataWithBaseURL("", newsdesc123, "text/html", "utf-8", "")

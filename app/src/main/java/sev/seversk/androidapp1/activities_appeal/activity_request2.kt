@@ -26,25 +26,25 @@ class activity_request2 : AppCompatActivity() {
         setContentView(R.layout.activitiy_appeal_request2)
 
         val Pick_image = 1
-        button_appeal_ready.setOnClickListener(){
+        button_appeal_ready.setOnClickListener {
             val appeal4 = Intent(this@activity_request2, activity_request3::class.java )
             startActivity(appeal4)
             finish()
         }
-        button_appeal_back.setOnClickListener(){
+        button_appeal_back.setOnClickListener {
             val appeal4 = Intent(this@activity_request2, activitiy_request::class.java )
             startActivity(appeal4)
             finish()
         }
         fun addPhoto(){
             val addpick = Intent(Intent.ACTION_PICK)
-            addpick.setType("image/*")
+            addpick.type = "image/*"
             startActivityForResult(addpick,Pick_image)
             val one = addpick.data
             imageView_add.setImageURI(one)
         }
 
-        button_appeal_addfile.setOnClickListener(){
+        button_appeal_addfile.setOnClickListener {
 //            val addpick = Intent(Intent.ACTION_PICK)
 //            addpick.setType("image/*")
 //            startActivityForResult(addpick,Pick_image)
@@ -54,7 +54,7 @@ class activity_request2 : AppCompatActivity() {
 
             addPhoto()
         }
-        linear4.setOnClickListener(){
+        linear4.setOnClickListener {
             hideKeyboard()
         }
 

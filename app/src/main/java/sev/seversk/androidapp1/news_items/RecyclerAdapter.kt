@@ -55,7 +55,7 @@ class RecyclerAdapter(val context: Context): RecyclerView.Adapter<RecyclerAdapte
         Glide.with(context).load(photo1)
             .apply(RequestOptions().centerCrop())
             .into(holder.newsImage)
-        holder.card.setOnClickListener(){
+        holder.card.setOnClickListener {
 //            Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
 
              val intent1 = Intent(this@RecyclerAdapter.context, news_web::class.java)

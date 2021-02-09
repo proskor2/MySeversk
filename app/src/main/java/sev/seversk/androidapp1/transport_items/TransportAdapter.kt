@@ -41,7 +41,7 @@ class TransportAdapter(val context: Context): RecyclerView.Adapter<TransportAdap
         holder.transport_pit.text = pit1
         holder.transport_length.text = length1
 
-        holder.card.setOnClickListener() {
+        holder.card.setOnClickListener {
             Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
 
         }

@@ -25,18 +25,18 @@ class activitiy_request : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activitiy_appeal_request)
 
-        button_appeal_next.setOnClickListener(){
+        button_appeal_next.setOnClickListener {
             val appeal2 = Intent(this@activitiy_request, activity_request2::class.java )
             startActivity(appeal2)
             finish()
         }
 
-        button_appeal_cancel.setOnClickListener(){
+        button_appeal_cancel.setOnClickListener {
             val appeal3 = Intent(this@activitiy_request, seversk::class.java )
             startActivity(appeal3)
             finish()
         }
-        layout3.setOnClickListener(){
+        layout3.setOnClickListener {
             hideKeyboard()
         }
 //        newPersonData(data1 = firstPerson)
