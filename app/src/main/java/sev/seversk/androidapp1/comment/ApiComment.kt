@@ -16,8 +16,6 @@ interface ApiComment {
 
     fun getComment(@Path("id") id: Int, @Header("Authorization") token: String) : Call<comment>
 
-
-
     companion object {
 
         var BASE_URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/comments/news/"

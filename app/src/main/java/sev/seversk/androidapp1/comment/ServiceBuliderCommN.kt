@@ -5,6 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ServiceBuliderCommN {
+
     private val client = OkHttpClient.Builder().build()
 
     private val retrofit = Retrofit.Builder()
@@ -12,7 +13,6 @@ object ServiceBuliderCommN {
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()
-
 
     fun <T> buildService(service: Class<T>): T {
         return retrofit.create(service)

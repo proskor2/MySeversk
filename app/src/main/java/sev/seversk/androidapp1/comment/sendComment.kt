@@ -7,7 +7,7 @@ data class sendComment (
     @SerializedName("user") val user: String?,
     @SerializedName("create_time") val create_time: String?,
     @SerializedName("status") val status: String?,
-    @SerializedName("comment_text") val comment_text: String,
-    @SerializedName("owner_id") val owner_id: String?,
-    @SerializedName("owner_name") val owner_name: String?
+    @SerializedName("comment_text") val comment_text: String
+//    @SerializedName("owner_id") val owner_id: String?,
+//    @SerializedName("owner_name") val owner_name: String?
 )

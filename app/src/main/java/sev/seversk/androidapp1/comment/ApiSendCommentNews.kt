@@ -6,8 +6,8 @@ import sev.seversk.androidapp1.authorization.saveProfile
 
 interface ApiSendCommentNews {
 
-    @FormUrlEncoded
+
     @POST("comments")
-    @Headers("Content-Type: multipart/form-data")
-    fun sendComment (@Field("comment_text") coomment_text: String, @Header("Authorization") token: String, @Query("owner_name") owner: String, @Query("owner_id") ownid: String): Call<sendComment>
+    @Headers("Content-Type: application/json")
+    fun sendComment (@Body sendComment: sendComment, @Header("Authorization") token: String, @Query("owner_name") owner: String, @Query("owner_id") ownid: String): Call<sendComment>
 }
