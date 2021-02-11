@@ -22,7 +22,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".events_items.event_web"></activity>
         <activity
             android:name=".activities_main.szo"
             android:configChanges="orientation"

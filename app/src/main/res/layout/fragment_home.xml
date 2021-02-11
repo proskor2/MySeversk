@@ -161,11 +161,11 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/imageView18"
+                        android:id="@+id/imageView186"
                         android:layout_width="110dp"
                         android:layout_height="100dp"
                         android:padding="10dp"
-                        android:src="@drawable/frame_offer" />
+                        android:src="@drawable/frame_inic" />
 
                 </androidx.cardview.widget.CardView>
 

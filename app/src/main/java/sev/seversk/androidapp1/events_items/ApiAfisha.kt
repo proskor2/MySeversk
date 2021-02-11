@@ -11,9 +11,7 @@ interface ApiAfisha {
 
 
     @GET("afisha")
-
     @Headers("Accept: application/json")
-
 
     fun getAfisha(@Header("Authorization") token: String) : retrofit2.Call<List<Afisha>>
 

@@ -39,7 +39,7 @@ class CommentAdapter(val context: Context): RecyclerView.Adapter<CommentAdapter.
 
 
         holder.card1.setOnClickListener {
-            Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
+
         }
     }
 

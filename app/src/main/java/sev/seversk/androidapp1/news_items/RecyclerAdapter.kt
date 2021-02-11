@@ -36,7 +36,6 @@ class RecyclerAdapter(val context: Context): RecyclerView.Adapter<RecyclerAdapte
     }
 
 
-
     override fun onBindViewHolder(holder: RecyclerAdapter.MyViewHolder, position: Int) {
 
         var title1 = Html.fromHtml(newsList.get(position).title)
@@ -70,7 +69,6 @@ class RecyclerAdapter(val context: Context): RecyclerView.Adapter<RecyclerAdapte
 
     }
 
-
     fun setNewsListItems(newsList: List<News>){
         this.newsList = newsList
         notifyDataSetChanged()
@@ -88,8 +86,6 @@ class RecyclerAdapter(val context: Context): RecyclerView.Adapter<RecyclerAdapte
         val card = itemView.findViewById<CardView>(R.id.card_news)
 
     }
-
-
 
 
 }

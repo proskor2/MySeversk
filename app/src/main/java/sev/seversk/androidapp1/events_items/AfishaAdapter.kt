@@ -34,8 +34,6 @@ class AfishaAdapter(val context: Context): RecyclerView.Adapter<AfishaAdapter.My
         return afishaList.size
     }
 
-
-
     override fun onBindViewHolder(holder: AfishaAdapter.MyViewHolder, position: Int) {
 
         var title1 = Html.fromHtml(afishaList.get(position).title)
@@ -43,22 +41,19 @@ class AfishaAdapter(val context: Context): RecyclerView.Adapter<AfishaAdapter.My
         var photo1 ="https://"+"$pre_photo"
         var date1 = Html.fromHtml(afishaList.get(position).date)
 
-
-
         holder.afisha_title.text = title1
         Glide.with(context).load(photo1)
             .apply(RequestOptions().centerCrop())
             .into(holder.newsImage)
         holder.afisha_date.text = date1
         holder.card.setOnClickListener {
-            Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
-//            val intent1 = Intent(this@AfishaAdapter.context, eventid::class.java)
-//            intent1.putExtra("daten", date1)
-//            intent1.putExtra("photon", photo1)
-//            ContextCompat.startActivity(context, intent1, null)
+
+            val intent1 = Intent(this.context, event_web::class.java)
+            intent1.putExtra("daten", date1)
+            intent1.putExtra("photon", photo1)
+            ContextCompat.startActivity(context, intent1, null)
         }
     }
-
 
     fun setAfishaListItems(afishaList: List<Afisha>){
         this.afishaList = afishaList

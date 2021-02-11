@@ -9,7 +9,12 @@
         android:id="@+id/card_comment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/linear_comment"
@@ -43,22 +48,27 @@
                 android:id="@+id/text_datecomment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp" />
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"
+                android:textSize="10sp" />
 
             <androidx.cardview.widget.CardView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 app:cardCornerRadius="20dp">
 
                 <ImageView
                     android:id="@+id/image_commentautor"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    android:scaleType="fitCenter"
+
+                    app:srcCompat="@drawable/avatarnull"
+                    tools:srcCompat="@drawable/avatarnull" />
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>

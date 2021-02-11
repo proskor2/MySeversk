@@ -30,8 +30,6 @@ import java.io.*
 
 class newprofileset3: AppCompatActivity() {
 
-
-
     var newtoken: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,16 +38,11 @@ class newprofileset3: AppCompatActivity() {
 
         RestSaveProfile.Companion.setContext(this)
 
-
-
 //        loadData()
 
  // Get token
         val getstring = KVault(context = applicationContext)
         newtoken = getstring.string("TOKEN")
-
-
-
 
         val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/profile/get"
 
@@ -130,8 +123,9 @@ class newprofileset3: AppCompatActivity() {
 
 //  Button return to seversk activity
         findViewById<Button>(R.id.button_profile2_back)?.setOnClickListener {
-            val intent = Intent(this, profile_settings::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, profile_settings::class.java)
+//            startActivity(intent)
+            finish()
         }
 
 // Click to set image
@@ -311,11 +305,5 @@ class newprofileset3: AppCompatActivity() {
             }
         }
     }
-
-
-
-
-
-
 }
 
