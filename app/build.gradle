@@ -5,6 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 
 
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -79,5 +80,6 @@ dependencies {
     implementation("com.liftric:kvault:1.2.1")
     implementation 'com.rbddevs.splashy:splashy:1.1.0'
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0"
+
 
 }

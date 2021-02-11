@@ -1,13 +1,12 @@
 package sev.seversk.androidapp1.comment
 
 
-
-data class comment (
+data class comments (
     val title: String?,
-    val comments: ArrayList<comments>
+    val comments: ArrayList<comment>
 )
 
-data class comments (
+data class comment (
     val comment_id: String?,
     val user: String?,
     val comment_text: String?,

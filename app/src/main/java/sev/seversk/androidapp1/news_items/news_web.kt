@@ -19,7 +19,9 @@ class news_web : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_news_web)
 
-        val intent2 = intent.extras
+        val myweb: WebView = findViewById(R.id.news_webview)
+
+        val intent2 = intent?.extras
         val newsnews = intent2?.get("newsid").toString().toInt()
         val newsdesc = intent2?.get("detail").toString()
 
@@ -30,10 +32,11 @@ class news_web : AppCompatActivity() {
         } else {
             newsdesc
         }
+
+        myweb.loadDataWithBaseURL("", newsdesc123, "text/html", "utf-8", "")
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
         val comm = intent2?.get("comm").toString()
-
         news_comm?.text = ("Комментарии: "+comm)
 
         news_comm.setOnClickListener {
@@ -41,13 +44,6 @@ class news_web : AppCompatActivity() {
             intent.putExtra("idnews", newsnews)
             startActivity(intent)
         }
-
-        val myweb: WebView = findViewById(R.id.news_webview)
-        myweb.loadDataWithBaseURL("", newsdesc123, "text/html", "utf-8", "")
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
     }
 }

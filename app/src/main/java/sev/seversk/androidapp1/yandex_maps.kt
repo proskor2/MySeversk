@@ -27,32 +27,33 @@ class yandex_maps : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         MapKitFactory.setApiKey("3ad79f77-ac08-49b0-af8d-3a39283cd78a")
         MapKitFactory.initialize(this)
         setContentView(R.layout.activity_yandex_maps)
 
         mapView = findViewById<MapView>(R.id.mapView)
         
-       val intent2 = intent.extras
-        val lat = intent2?.get("lat").toString().toDouble()
-        val long = intent2?.get("long").toString().toDouble()
-
-        addMark(lat, long)
-
+       val intent2 = intent?.extras
+        if (intent2 != null) {
+            val lat = intent2?.get("lat").toString().toDouble()
+            val long = intent2?.get("long").toString().toDouble()
+            addMark(lat, long)
+        }
     }
 
     override fun onStop() {
         super.onStop()
         mapView.onStop()
         MapKitFactory.getInstance().onStop()
-
+        finish()
     }
 
     override fun onStart() {
         super.onStart()
         mapView.onStart()
         MapKitFactory.getInstance().onStart()
-
+        finish()
     }
 
     fun addMark (lat: Double, long: Double){
