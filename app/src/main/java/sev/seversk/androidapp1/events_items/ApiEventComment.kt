@@ -10,7 +10,7 @@ import retrofit2.http.Path
 import sev.seversk.androidapp1.comment.ApiComment
 import sev.seversk.androidapp1.comment.comments
 
-interface ApiEventComments {
+interface ApiEventComment {
 
     @GET("{id}")
     @Headers("Accept: application/json")

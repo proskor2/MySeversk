@@ -40,6 +40,8 @@ class AfishaAdapter(val context: Context): RecyclerView.Adapter<AfishaAdapter.My
         var pre_photo = afishaList.get(position).photo
         var photo1 ="https://"+"$pre_photo"
         var date1 = Html.fromHtml(afishaList.get(position).date)
+        var idevent = Html.fromHtml(afishaList.get(position).id.toString())
+        var comm = Html.fromHtml(afishaList.get(position).comments_count.toString())
 
         holder.afisha_title.text = title1
         Glide.with(context).load(photo1)
@@ -49,8 +51,8 @@ class AfishaAdapter(val context: Context): RecyclerView.Adapter<AfishaAdapter.My
         holder.card.setOnClickListener {
 
             val intent1 = Intent(this.context, event_web::class.java)
-            intent1.putExtra("daten", date1)
-            intent1.putExtra("photon", photo1)
+            intent1.putExtra("idevent", idevent)
+            intent1.putExtra("comm", comm)
             ContextCompat.startActivity(context, intent1, null)
         }
     }

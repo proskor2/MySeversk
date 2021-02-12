@@ -15,21 +15,60 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/text_title_eventid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_margin="5dp"
+            android:textColor="#000000"
+            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/text_date_eventid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_margin="5dp"
+            android:textSize="12sp" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/image_eventid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_margin="5dp" />
+
+        <WebView
+            android:id="@+id/web_eventid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+        </WebView>
+
+        <View
+            android:id="@+id/divider42"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="5dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/text_place_eventid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="#000000" />
+
+        <View
+            android:id="@+id/divider43"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="5dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/text_eventidcomm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="#000000" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

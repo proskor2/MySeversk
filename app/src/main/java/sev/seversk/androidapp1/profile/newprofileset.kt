@@ -44,7 +44,6 @@ class newprofileset: Fragment() {
         val cardnamesurname = activity?.findViewById<TextView>(R.id.profile_setcard_name)
 //        cardnamesurname?.text = newname
 
-
         activity?.findViewById<CardView>(R.id.card_profile_set)?.setOnClickListener {
             val intent = Intent(context, profile_settings::class.java)
             startActivity(intent)
@@ -74,7 +73,6 @@ class newprofileset: Fragment() {
                 val javatar = parentObject.getString("avatar")
                 val jname = parentObject.getString("firstName")
                 val jsurname = parentObject.getString("lastName")
-
 
                 activity?.runOnUiThread {
 
