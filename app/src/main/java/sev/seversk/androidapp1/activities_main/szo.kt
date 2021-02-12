@@ -2,6 +2,7 @@ package sev.seversk.androidapp1.activities_main
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,6 +44,10 @@ class szo : AppCompatActivity() {
             recycler_szo.layoutManager = LinearLayoutManager(this)
             recyclerView.adapter = recyclerAdapter
 
+
+        findViewById<ImageButton>(R.id.button_closeactivity).setOnClickListener(){
+            finish()
+        }
 
             val apiinterface = ApiSzo.create().getSzo(token2)
 

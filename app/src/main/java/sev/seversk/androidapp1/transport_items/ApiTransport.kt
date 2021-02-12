@@ -9,20 +9,13 @@ import retrofit2.http.Headers
 
 interface ApiTransport {
 
-
-    @GET("traffic")
-
+    @GET("buses")
     @Headers("Accept: application/json")
-
-
     fun getTransport(@Header("Authorization") token: String) : retrofit2.Call<List<Transport>>
 
     companion object {
-
-        var BASE_URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/"
-
+        var BASE_URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/geocad/"
         fun create() : ApiTransport {
-
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL)

@@ -1,6 +1,7 @@
 package sev.seversk.androidapp1.transport_items
 
 import android.content.Context
+import android.content.Intent
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import sev.seversk.androidapp1.R
+import sev.seversk.androidapp1.authorization.startActivity
 
 class TransportAdapter(val context: Context): RecyclerView.Adapter<TransportAdapter.MyViewHolder>() {
 
@@ -34,16 +36,22 @@ class TransportAdapter(val context: Context): RecyclerView.Adapter<TransportAdap
         var title1 = Html.fromHtml(transportList.get(position).title)
         var number1 = Html.fromHtml(transportList.get(position).number)
         var length1 = Html.fromHtml(transportList.get(position).length)
-        var pit1 = Html.fromHtml(transportList.get(position).pitstop)
+        var datebegin1 = Html.fromHtml(transportList.get(position).dateBegin)
+        var payrules1 = Html.fromHtml(transportList.get(position).payRules)
+
 
         holder.transport_title.text = title1
         holder.transport_number.text = ("Маршрут №"+number1)
-        holder.transport_pit.text = pit1
-        holder.transport_length.text = length1
+        holder.transport_length.text = ("Протяженность"+length1)
 
         holder.card.setOnClickListener {
-            Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
-
+            val intent = Intent(this.context, bus_detail::class.java)
+            intent.putExtra("busnumber", number1)
+            intent.putExtra("busntitle", title1)
+            intent.putExtra("busdate", datebegin1)
+            intent.putExtra("buslength", length1)
+            intent.putExtra("buspayrules", payrules1)
+            context.startActivity(intent)
         }
     }
 
@@ -56,7 +64,6 @@ class TransportAdapter(val context: Context): RecyclerView.Adapter<TransportAdap
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val transport_title = itemView.findViewById<TextView>(R.id.bus_title)
         val transport_number = itemView.findViewById<TextView>(R.id.bus_numer)
-        val transport_pit = itemView.findViewById<TextView>(R.id.bus_pitstop)
         val transport_length = itemView.findViewById<TextView>(R.id.bus_lenght11)
         val card = itemView.findViewById<CardView>(R.id.card_bus)
     }

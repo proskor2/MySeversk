@@ -86,14 +86,5 @@ class szo_details : AppCompatActivity() {
 
         })
 
-
-
-
-
-
-        findViewById<ImageButton>(R.id.button_szo_details_back).setOnClickListener {
-            val intent = Intent (this, szo::class.java)
-            startActivity(intent)
-        }
     }
 }

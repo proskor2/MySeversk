@@ -27,7 +27,6 @@ class yandex_maps : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         MapKitFactory.setApiKey("3ad79f77-ac08-49b0-af8d-3a39283cd78a")
         MapKitFactory.initialize(this)
         setContentView(R.layout.activity_yandex_maps)

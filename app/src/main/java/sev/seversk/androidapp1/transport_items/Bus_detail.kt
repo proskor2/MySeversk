@@ -4,62 +4,64 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.TextView
+import com.liftric.kvault.KVault
 import kotlinx.android.synthetic.main.activity_bus_detail.*
 import okhttp3.*
 import org.json.JSONArray
+import org.json.JSONObject
 import sev.seversk.androidapp1.R
 import java.io.IOException
 
 class bus_detail : AppCompatActivity() {
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bus_detail)
+// get data from transort activity
+        val intent2 = intent?.extras
+        val busnumber = intent2?.get("busnumber").toString()
+        val bustitle = intent2?.get("busntitle").toString()
+        val busdatebegin = intent2?.get("busdate").toString()
+        val buslength = intent2?.get("buslength").toString()
+        val buspayrules = intent2?.get("buspayrules").toString()
 
-        val token = "Bearer eAshM2HGUf3tAgYormBzY6cpe4lADxwi"
+            findViewById<TextView>(R.id.busdetail_number).text = ("Маршрут №"+busnumber)
+            findViewById<TextView>(R.id.busdetail_title).text = bustitle
+            findViewById<TextView>(R.id.busdetail_dateBegin).text = busdatebegin
+            findViewById<TextView>(R.id.busdetail_length).text = buslength
+            findViewById<TextView>(R.id.busdetail_payrules).text = buspayrules
+            findViewById<TextView>(R.id.busdetail_stoprules).text = "Только в установленных остановочных пунктах"
 
-        val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/traffic/detail"
-        var okHttpClient: OkHttpClient = OkHttpClient()
+  // Button close activity
+        findViewById<ImageButton>(R.id.button_closeactivity).setOnClickListener(){
+            finish()
+        }
+// Button bus streets
+        val butstreet = findViewById<TextView>(R.id.busdetail_streets)
+            butstreet.setOnClickListener(){
+            butstreet.setTextColor(R.color.otherColor)
 
-        val request: Request = Request.Builder().url(URL).addHeader("Authorization",token).build()
+        }
+// Button bus stops
+        val butstops = findViewById<TextView>(R.id.busdetail_stops)
+        butstops.setOnClickListener(){
+            butstops.setTextColor(R.color.otherColor)
 
-        okHttpClient.newCall(request).enqueue(object: Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                TODO("Not yet implemented")
-            }
+        }
+// Button bus carriers
+        val butcarriers = findViewById<TextView>(R.id.busdetail_owners)
+        butcarriers.setOnClickListener(){
+            butcarriers.setTextColor(R.color.otherColor)
 
-            @SuppressLint("WrongConstant")
-            override fun onResponse(call: Call, response: Response) {
-                val json = response.body()?.string()
+        }
+// Button vehicles
+        val butvehicles = findViewById<TextView>(R.id.busdetail_vehicles)
+        butvehicles.setOnClickListener(){
+            butvehicles.setTextColor(R.color.otherColor)
 
-                val txt = (JSONArray(json).get(0)).toString()
-                val txt2 = JSONArray(json).getJSONObject(0).getString("title")
-                val txt3: String = JSONArray(json).getJSONObject(0).getString("number")
-                txt3.toInt()
-                val txt4: String = JSONArray(json).getJSONObject(0).getString("length")
-                val txt6: String = JSONArray(json).getJSONObject(0).getString("type")
-                val txt7: String = JSONArray(json).getJSONObject(0).getString("regNumber")
-                val txt8: String = JSONArray(json).getJSONObject(0).getString("dateBegin")
-                val txt9: String = JSONArray(json).getJSONObject(0).getString("stopRules")
-                val txt10: String = JSONArray(json).getJSONObject(0).getString("payRules")
-
-
-                runOnUiThread {
-                    busdetail_number.text = Html.fromHtml("Маршрут №"+txt3)
-                    busdetail_length.text = Html.fromHtml(txt4)
-                    busdetail_dateBegin.text = Html.fromHtml(txt8)
-                    busdetail_regNum.text = Html.fromHtml(txt7)
-                    busdetail_dateBegin.text = Html.fromHtml(txt8)
-                    busdetail_stoprules.text = Html.fromHtml(txt9)
-                    busdetail_title.text = Html.fromHtml(txt2)
-                    busdetail_payrules.text = Html.fromHtml(txt10)
-
-
-
-                }
-            }
-
-        })
-
-
+        }
     }
 }
