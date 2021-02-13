@@ -39,6 +39,16 @@ class TransportAdapter(val context: Context): RecyclerView.Adapter<TransportAdap
         var datebegin1 = Html.fromHtml(transportList.get(position).dateBegin)
         var payrules1 = Html.fromHtml(transportList.get(position).payRules)
 
+        val streetF = Html.fromHtml(transportList.get(position).streetForward.toString())
+        val streetB = Html.fromHtml(transportList.get(position).streetBack.toString())
+        val stopF = Html.fromHtml(transportList.get(position).stopForward.toString())
+        val stopB = Html.fromHtml(transportList.get(position).stopBack.toString())
+
+        val carriers = Html.fromHtml(transportList.get(position).carrier.toString())
+        val typebus = Html.fromHtml(transportList.get(position).typeBus.toString())
+
+
+
 
         holder.transport_title.text = title1
         holder.transport_number.text = ("Маршрут №"+number1)
@@ -51,6 +61,7 @@ class TransportAdapter(val context: Context): RecyclerView.Adapter<TransportAdap
             intent.putExtra("busdate", datebegin1)
             intent.putExtra("buslength", length1)
             intent.putExtra("buspayrules", payrules1)
+
             context.startActivity(intent)
         }
     }

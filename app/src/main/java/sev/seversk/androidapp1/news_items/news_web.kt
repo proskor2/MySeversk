@@ -10,7 +10,7 @@ import androidx.core.text.htmlEncode
 import kotlinx.android.synthetic.main.activity_news_web.*
 import org.jsoup.Jsoup
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.comment.comments1
+//import sev.seversk.androidapp1.comment.comments1
 import java.net.URL
 
 class news_web : AppCompatActivity() {
@@ -39,11 +39,11 @@ class news_web : AppCompatActivity() {
         val comm = intent2?.get("comm").toString()
         news_comm?.text = ("Комментарии: "+comm)
 
-        news_comm.setOnClickListener {
-            val intent = Intent(this, comments1::class.java)
-            intent.putExtra("idnews", newsnews)
-            startActivity(intent)
-        }
+    //        news_comm.setOnClickListener {
+    //            val intent = Intent(this, comments1::class.java)
+    //            intent.putExtra("idnews", newsnews)
+    //            startActivity(intent)
+    //        }
 
     }
 }

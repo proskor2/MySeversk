@@ -45,9 +45,9 @@ class szo : AppCompatActivity() {
             recyclerView.adapter = recyclerAdapter
 
 
-        findViewById<ImageButton>(R.id.button_closeactivity).setOnClickListener(){
-            finish()
-        }
+//        findViewById<ImageButton>(R.id.button_closeactivity).setOnClickListener(){
+//            finish()
+//        }
 
             val apiinterface = ApiSzo.create().getSzo(token2)
 

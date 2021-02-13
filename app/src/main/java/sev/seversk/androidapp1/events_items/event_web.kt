@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_news_web.*
 import okhttp3.*
 import org.json.JSONObject
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.comment.comments1
+//import sev.seversk.androidapp1.comment.comments1
 import java.io.IOException
 
 class event_web : AppCompatActivity() {

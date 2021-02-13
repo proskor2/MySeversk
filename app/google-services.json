@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "682835966873",
+    "firebase_url": "https://myseversk.firebaseio.com",
+    "project_id": "myseversk",
+    "storage_bucket": "myseversk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682835966873:android:dc2760ceb20ad28405b108",
+        "android_client_info": {
+          "package_name": "sev.seversk.androidapp1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682835966873-pged0d2gfhnq1gv8139rsgoregkulhri.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sev.seversk.androidapp1",
+            "certificate_hash": "bbfab538c98987949cf930f968b6f8b03f2f956f"
+          }
+        },
+        {
+          "client_id": "682835966873-ejr3850ou9f1crhpa1t9a4p7ts2d8el6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6fGDlg5F5M-Wxt1rm3HPj3sI1T5bC29w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682835966873-ejr3850ou9f1crhpa1t9a4p7ts2d8el6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
