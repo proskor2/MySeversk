@@ -19,9 +19,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.emergency.ApiSzo
-import sev.seversk.androidapp1.emergency.Szo
-import sev.seversk.androidapp1.emergency.SzoAdapter
+import sev.seversk.androidapp1.emergency.*
 import java.io.IOException
 
 
@@ -69,5 +67,41 @@ class szo : AppCompatActivity() {
                 }
             })
 
-        }
+
+        lateinit var recyclerView2: RecyclerView
+        lateinit var recyclerAdapter2: EmergAdapter
+
+
+        recyclerView2 = findViewById(R.id.recycler_emerg)
+        recyclerAdapter2 = EmergAdapter(this)
+        recycler_emerg.layoutManager = LinearLayoutManager(this)
+        recyclerView2.adapter = recyclerAdapter2
+
+
+//        findViewById<ImageButton>(R.id.button_closeactivity).setOnClickListener(){
+//            finish()
+//        }
+
+        val apiinterface2 = ApiEmerg.create().getEmerg(token2)
+
+        apiinterface2.enqueue(object : Callback<List<Emergency>> {
+            override fun onResponse(call: Call<List<Emergency>>, response: Response<List<Emergency>>?) {
+
+                val res = response?.body()
+
+                if (response?.body() != null)
+                    recyclerAdapter2.setEmergListItems(response.body()!!)
+
+            }
+
+            override fun onFailure(call: Call<List<Emergency>>, t: Throwable) {
+                Toast.makeText(applicationContext, "${t.message}", Toast.LENGTH_LONG).show()
+            }
+        })
+
     }
+
+
+
+}
+

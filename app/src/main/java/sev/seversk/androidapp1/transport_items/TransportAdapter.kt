@@ -62,6 +62,12 @@ class TransportAdapter(val context: Context): RecyclerView.Adapter<TransportAdap
             intent.putExtra("buslength", length1)
             intent.putExtra("buspayrules", payrules1)
 
+            intent.putExtra("streetF", streetF)
+            intent.putExtra("streetB", streetB)
+            intent.putExtra("stopF", stopF)
+            intent.putExtra("stopB", stopB)
+            intent.putExtra("carriers", carriers)
+            intent.putExtra("typebus", typebus)
             context.startActivity(intent)
         }
     }

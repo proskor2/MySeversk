@@ -14,6 +14,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/textView182"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Экстренные службы"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_emerg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp" />
 
         <TextView
             android:id="@+id/textView18"
@@ -23,7 +38,7 @@
             android:text="Социально-значимые объекты"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_szo"

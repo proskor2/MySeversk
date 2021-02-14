@@ -21,7 +21,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/text_szo_title"
+                android:id="@+id/text_emerg_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
@@ -29,12 +29,11 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="2dp"
-                android:text="Szo"
                 android:textColor="#000000"
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/text_szo_address"
+                android:id="@+id/text_emerg_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"

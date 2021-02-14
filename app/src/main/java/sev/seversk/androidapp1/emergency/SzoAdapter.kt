@@ -1,6 +1,5 @@
 package sev.seversk.androidapp1.emergency
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.text.Html
@@ -8,28 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.github.kittinunf.fuel.Fuel
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import com.google.gson.JsonArray
-import com.google.gson.JsonParser
-import com.google.gson.stream.JsonReader
-import com.liftric.kvault.KVault
-import kotlinx.android.synthetic.main.fragment_appeals.*
 import kotlinx.serialization.ImplicitReflectionSerializer
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.jsonArray
-import kotlinx.serialization.parse
-import kotlinx.serialization.stringify
-import okhttp3.*
-import org.json.JSONArray
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.activities_main.szo
-import java.io.IOException
 
 
 @ImplicitReflectionSerializer
@@ -61,8 +43,6 @@ class SzoAdapter (val context: Context): RecyclerView.Adapter<SzoAdapter.MyViewH
             var phonestring = Html.fromHtml(szoList.get(position).phones.toString())
             var coordsstring = Html.fromHtml(szoList.get(position).coords.toString())
 
-
-
             holder.szo_title.text = title1
             holder.szo_address.text = address1
 
@@ -84,7 +64,7 @@ class SzoAdapter (val context: Context): RecyclerView.Adapter<SzoAdapter.MyViewH
         class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
             val szo_title = itemView.findViewById<TextView>(R.id.text_szo_title)
             val szo_address = itemView.findViewById<TextView>(R.id.text_szo_address)
-            val card = itemView.findViewById<CardView>(R.id.card_szo)
+            val card = itemView.findViewById<CardView>(R.id.card_emerg)
         }
 
 

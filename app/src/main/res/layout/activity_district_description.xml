@@ -6,46 +6,81 @@
     android:layout_height="match_parent"
     tools:context=".disctrict_items.district_description">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/text_disrtictdescrpition_number"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="TextView"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="18sp" />
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/image_disrtictdescrpition"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
+            <TextView
+                android:id="@+id/text_disrtictdescrpition_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/text_disrtictdescrpition_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="TextView"
-            android:textAlignment="center"
-            android:textColor="#000000" />
+            <TextView
+                android:id="@+id/text_disrtictdescrpition_areas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/text_disrtictdescrpition_streets"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="TextView"
-            android:textColor="#000000" />
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/image_disrtictdescrpition"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/text_disrtictdescrpition_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/text_disrtictdescrpition_position"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/text_disrtictdescrpition_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textAlignment="textStart"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/text_disrtictdescrpition_timetable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textAlignment="textStart"
+                android:textColor="#000000" />
+
+
+            <TextView
+                android:id="@+id/text_disrtictdescrpition_streets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textAlignment="textStart"
+                android:textColor="#000000" />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
