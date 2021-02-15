@@ -3,6 +3,7 @@ package sev.seversk.androidapp1.transport_items
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
+import android.webkit.WebView
 import android.widget.ImageButton
 import android.widget.TextView
 import sev.seversk.androidapp1.R
@@ -20,12 +21,8 @@ class buscarriersauto : AppCompatActivity() {
         val title = intent2?.get("title")
         val info = intent2?.get("info").toString()
 
-        val info2 = info.lines()
-        val info3 = info.prependIndent()
-
-
         findViewById<TextView>(R.id.buscarriersa_title).text = title.toString()
-        findViewById<TextView>(R.id.text_buscarriresa).text = info3
+        findViewById<TextView>(R.id.text_buscarriresa).text = info
 
     }
 }

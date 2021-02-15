@@ -22,8 +22,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".transport_items.buscarriersauto"></activity>
-        <activity android:name=".transport_items.busstreetsstops" />
+        <activity android:name=".remont.utilities_details"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".transport_items.buscarriersauto"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".transport_items.busstreetsstops"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".emergency.emerg_detail"
             android:configChanges="orientation"
@@ -67,10 +74,11 @@
         <activity
             android:name=".opros_items.opros_details"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" /> <!-- <activity -->
-        <!-- android:name=".comment.comments1" -->
-        <!-- android:configChanges="orientation" -->
-        <!-- android:screenOrientation="portrait" /> -->
+            android:screenOrientation="portrait" />
+         <activity
+         android:name=".comment.comments1"
+         android:configChanges="orientation"
+         android:screenOrientation="portrait" />
         <activity
             android:name=".news_items.news_web"
             android:configChanges="orientation"
