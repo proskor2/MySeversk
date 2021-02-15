@@ -31,7 +31,8 @@ class events : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recycler_afisha)
         recyclerAdapter = AfishaAdapter(this)
-        recycler_afisha.layoutManager = LinearLayoutManager(this)
+        val llm = LinearLayoutManager (this)
+        recycler_afisha.layoutManager = llm
         recyclerView.adapter = recyclerAdapter
 
         val apiinterface = ApiAfisha.create().getAfisha(token2)

@@ -47,12 +47,9 @@ class TransportAdapter(val context: Context): RecyclerView.Adapter<TransportAdap
         val carriers = Html.fromHtml(transportList.get(position).carrier.toString())
         val typebus = Html.fromHtml(transportList.get(position).typeBus.toString())
 
-
-
-
         holder.transport_title.text = title1
         holder.transport_number.text = ("Маршрут №"+number1)
-        holder.transport_length.text = ("Протяженность"+length1)
+        holder.transport_length.text = ("Протяженность: "+length1)
 
         holder.card.setOnClickListener {
             val intent = Intent(this.context, bus_detail::class.java)
@@ -71,7 +68,6 @@ class TransportAdapter(val context: Context): RecyclerView.Adapter<TransportAdap
             context.startActivity(intent)
         }
     }
-
 
     fun setTransportListItems(transportList: List<Transport>) {
         this.transportList = transportList

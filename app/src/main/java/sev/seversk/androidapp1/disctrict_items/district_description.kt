@@ -32,8 +32,9 @@ class district_description : AppCompatActivity() {
 
         val intent2 = intent.extras
         val position = intent2?.get("position").toString().toInt()
-        val area = intent2?.get("area").toString()
-        val address = intent2?.get("addresses").toString()
+        val area = intent2?.get("area").toString().replace("[", "").replace( "]", "")
+        val address = intent2?.get("addresses").toString().replace("[", "").replace( "]", "")
+
         val number = intent2?.get("number").toString()
 
         val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/geocad/areas"
@@ -61,6 +62,7 @@ class district_description : AppCompatActivity() {
                     val info = deputies.getJSONObject(0)?.getString("info")
 
 
+
 //                findViewById<Button>(R.id.button_emergdetail_tomap).setOnClickListener {
 //                    val intent = Intent(this@district_description, yandex_maps::class.java)
 //                    intent.putExtra("lat", latitude)
@@ -70,15 +72,13 @@ class district_description : AppCompatActivity() {
 
                     runOnUiThread {
                         val imagev = findViewById<ImageView>(R.id.image_disrtictdescrpition)
-                        findViewById<TextView>(R.id.text_disrtictdescrpition_number).text = number
-                        findViewById<TextView>(R.id.text_disrtictdescrpition_streets).text = address
-                        findViewById<TextView>(R.id.text_disrtictdescrpition_areas).text = area
+                        findViewById<TextView>(R.id.text_disrtictdescrpition_number).text = ("Избирательный округ №"+number)
+                        findViewById<TextView>(R.id.text_disrtictdescrpition_streets).text = ("Улицы: \n"+address)
+                        findViewById<TextView>(R.id.text_disrtictdescrpition_areas).text = ("Участки: "+area)
                         findViewById<TextView>(R.id.text_disrtictdescrpition_name).text = name
-                        findViewById<TextView>(R.id.text_disrtictdescrpition_position).text =
-                            position
-                        findViewById<TextView>(R.id.text_disrtictdescrpition_timetable).text =
-                            timetable
-                        findViewById<TextView>(R.id.text_disrtictdescrpition_about).text = info
+                        findViewById<TextView>(R.id.text_disrtictdescrpition_position).text = position
+                        findViewById<TextView>(R.id.text_disrtictdescrpition_timetable).text = ("График приёма: \n"+timetable)
+                        findViewById<TextView>(R.id.text_disrtictdescrpition_about).text = ("О депутате: \n"+info)
 
 
                         Glide.with(applicationContext).load(photo).centerCrop().into(imagev)

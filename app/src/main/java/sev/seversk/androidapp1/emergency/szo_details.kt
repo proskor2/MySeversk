@@ -28,10 +28,15 @@ class szo_details : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_szo_details)
 
+        findViewById<ImageButton>(R.id.button_closeactivity).setOnClickListener(){
+            finish()
+        }
+
         val intent2 = intent.extras
         findViewById<TextView>(R.id.text_szodet_address).text = intent2?.get("address").toString()
         findViewById<TextView>(R.id.text_szodet_site).text = intent2?.get("site").toString()
         findViewById<TextView>(R.id.text_szodet_mail).text = intent2?.get("email").toString()
+        findViewById<TextView>(R.id.text_szodetails_title).text = intent2?.get("title").toString()
         val imagev = findViewById<ImageView>(R.id.image_szodetail_employer)
 
 

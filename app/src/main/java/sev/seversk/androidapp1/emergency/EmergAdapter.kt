@@ -48,6 +48,7 @@ class EmergAdapter (val context: Context): RecyclerView.Adapter<EmergAdapter.MyV
 
         holder.card.setOnClickListener {
             val intent1 = Intent(this.context, emerg_detail::class.java)
+            intent1.putExtra("title", title1)
             intent1.putExtra("position", position)
             intent1.putExtra("address", address1)
             intent1.putExtra("email", email1)

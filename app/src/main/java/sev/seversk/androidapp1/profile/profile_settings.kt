@@ -96,7 +96,7 @@ class profile_settings : AppCompatActivity() {
 
                     Glide.with(applicationContext)
                         .load(javatar)
-                        .into(imview!!)
+                        .into(imview)
 
                 }
             }

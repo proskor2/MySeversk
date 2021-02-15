@@ -3,34 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@null">
+    android:layout_height="match_parent"
+    tools:context=".transport_items.buscarriersauto">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/button_left2"
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/left" />
 
         <TextView
-            android:id="@+id/textView29"
+            android:id="@+id/buscarriersa_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@null"
-            android:text="Новости"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="14sp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_news"
+        <TextView
+            android:id="@+id/text_buscarriresa"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textAlignment="textStart"
+            android:textColor="#000000" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

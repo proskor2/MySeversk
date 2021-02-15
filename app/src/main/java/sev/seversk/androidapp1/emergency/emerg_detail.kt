@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -21,10 +22,15 @@ class emerg_detail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_emerg_detail)
 
+        findViewById<ImageButton>(R.id.button_closeactivity2).setOnClickListener(){
+            finish()
+        }
+
         val intent2 = intent.extras
         findViewById<TextView>(R.id.text_emergdet_address).text = intent2?.get("address").toString()
         findViewById<TextView>(R.id.text_emergdet_site).text = intent2?.get("site").toString()
         findViewById<TextView>(R.id.text_emergdet_mail).text = intent2?.get("email").toString()
+        findViewById<TextView>(R.id.text_emergdetails_title).text = intent2?.get("title").toString()
         val imagev = findViewById<ImageView>(R.id.image_emergdetail_employer)
 
 

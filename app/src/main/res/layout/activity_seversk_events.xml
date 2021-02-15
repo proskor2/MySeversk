@@ -19,10 +19,11 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginRight="8dp"
+            android:layout_marginBottom="10dp"
             android:text="Мероприятия"
-            android:textAlignment="textStart"
+            android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="24sp" />
+            android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_afisha"
