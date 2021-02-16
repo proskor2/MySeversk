@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebSettings
 import android.webkit.WebView
+import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.core.text.htmlEncode
 import kotlinx.android.synthetic.main.activity_news_web.*
 import org.jsoup.Jsoup
@@ -19,6 +21,10 @@ class news_web : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_news_web)
+
+        findViewById<ImageButton>(R.id.button_closenewsdet).setOnClickListener(){
+            finish()
+        }
 
         val myweb: WebView = findViewById(R.id.news_webview)
 

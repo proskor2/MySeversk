@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -13,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_news_web.*
 import okhttp3.*
 import org.json.JSONObject
 import sev.seversk.androidapp1.R
+import sev.seversk.androidapp1.comment.comments1
 //import sev.seversk.androidapp1.comment.comments1
 import java.io.IOException
 
@@ -20,6 +22,10 @@ class event_web : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_eventid)
+
+        findViewById<ImageButton>(R.id.button_closeeventdet).setOnClickListener(){
+            finish()
+        }
 
         val myweb: WebView = findViewById(R.id.web_eventid)
 

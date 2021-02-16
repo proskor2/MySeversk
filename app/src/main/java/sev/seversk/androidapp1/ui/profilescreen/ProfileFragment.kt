@@ -16,6 +16,8 @@ import androidx.navigation.Navigation
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.profile.profile_settings
 import android.provider.MediaStore
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.replace
@@ -59,10 +61,15 @@ class ProfileFragment : Fragment() {
 // Replace fragments
         val navController = activity?.let { Navigation.findNavController(it, fragment_profile_main) }
 
+        val imcardappeal = activity?.findViewById<ImageView>(R.id.imageView1)
+        val imcardproblem = activity?.findViewById<ImageView>(R.id.imageView2)
+        val imopros = activity?.findViewById<ImageView>(R.id.imageView3)
+        val iminic = activity?.findViewById<ImageView>(R.id.imageView4)
 
-      activity?.findViewById<CardView>(R.id.cardButton_profile_appeals)?.setOnClickListener {
+        activity?.findViewById<CardView>(R.id.cardButton_profile_appeals)?.setOnClickListener {
           navController?.navigate(R.id.fragment_appeals)
-      }
+
+        }
 
         activity?.findViewById<CardView>(R.id.cardButton_profile_problems)?.setOnClickListener {
             navController?.navigate(R.id.fragment_problems)

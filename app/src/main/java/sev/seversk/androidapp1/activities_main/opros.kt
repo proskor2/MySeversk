@@ -4,6 +4,7 @@ import android.graphics.Path
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,6 +31,10 @@ class opros : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk_opros)
+
+        findViewById<ImageButton>(R.id.button_back).setOnClickListener(){
+            finish()
+        }
 
         val kVault = KVault(context = applicationContext)
         val token = kVault.string("TOKEN")

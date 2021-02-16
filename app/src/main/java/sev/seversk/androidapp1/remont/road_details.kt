@@ -65,7 +65,7 @@ class road_details : AppCompatActivity() {
                     }
 
                 } else {
-                    Toast.makeText(applicationContext, "Данных нет", Toast.LENGTH_SHORT).show()
+
                 }
 
 

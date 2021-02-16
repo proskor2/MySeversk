@@ -8,6 +8,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -25,6 +26,9 @@ class district_description : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_district_description)
 
+        findViewById<ImageButton>(R.id.button_closedistrdet).setOnClickListener(){
+            finish()
+        }
 
         val kVault = KVault(context = applicationContext)
         val token = kVault.string("TOKEN")

@@ -3,6 +3,7 @@ package sev.seversk.androidapp1.activities_main
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import com.google.firebase.auth.FirebaseAuth
 import com.liftric.kvault.KVault
 import sev.seversk.androidapp1.R
@@ -15,9 +16,15 @@ class appeal : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_appeal)
+
+        findViewById<ImageButton>(R.id.button_back).setOnClickListener(){
+            finish()
+        }
+
     }
         override fun onStart() {
             super.onStart()
+
 
             val kVault = KVault(context = applicationContext)
             val token = kVault.string("TOKEN")

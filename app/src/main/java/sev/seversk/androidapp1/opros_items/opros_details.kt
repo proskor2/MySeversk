@@ -15,8 +15,7 @@ class opros_details : AppCompatActivity() {
         setContentView(R.layout.activity_opros_details)
 
   findViewById<ImageButton>(R.id.button_backopros).setOnClickListener {
-      val intent = Intent(this, seversk::class.java)
-      startActivity(intent)
+      finish()
   }
 
     }

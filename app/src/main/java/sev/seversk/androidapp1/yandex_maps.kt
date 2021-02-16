@@ -9,6 +9,7 @@ import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.*
 import com.yandex.mapkit.mapview.MapView
 import android.Manifest
+import android.widget.ImageButton
 import androidx.core.app.ActivityCompat
 
 class yandex_maps : AppCompatActivity() {
@@ -21,6 +22,10 @@ class yandex_maps : AppCompatActivity() {
         MapKitFactory.initialize(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_yandex_maps)
+
+        findViewById<ImageButton>(R.id.button_back).setOnClickListener(){
+            finish()
+        }
 
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
 

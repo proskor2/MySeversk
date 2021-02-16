@@ -2,6 +2,7 @@ package sev.seversk.androidapp1.activities_main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.liftric.kvault.KVault
@@ -24,6 +25,9 @@ class events : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk_events)
 
+        findViewById<ImageButton>(R.id.button_back).setOnClickListener(){
+            finish()
+        }
 
         val kVault = KVault(context = applicationContext)
         val token = kVault.string("TOKEN")

@@ -22,6 +22,8 @@ class utilities_details : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_utilities_details)
 
+        val butmap = findViewById<Button>(R.id.button3)
+
         findViewById<ImageButton>(R.id.button_closeact).setOnClickListener(){
             finish()
         }
@@ -58,14 +60,14 @@ class utilities_details : AppCompatActivity() {
                     val latitude = coords.getJSONObject(0).getString("latitude")
                     val longitude = coords.getJSONObject(0).getString("longitude")
 
-                    findViewById<Button>(R.id.button5).setOnClickListener {
+                    butmap.setOnClickListener {
                         val intent = Intent(this@utilities_details, yandex_maps::class.java)
                         intent.putExtra("lat", latitude)
                         intent.putExtra("long", longitude)
                         startActivity(intent)
                     }
                 } else {
-                    Toast.makeText(applicationContext, "Данных нет", Toast.LENGTH_SHORT).show()
+
                 }
 
 

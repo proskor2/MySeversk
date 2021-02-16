@@ -33,6 +33,10 @@ class szo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_szo)
 
+        findViewById<ImageButton>(R.id.button_back).setOnClickListener(){
+            finish()
+        }
+
         val kVault = KVault(context = applicationContext)
         val token = kVault.string("TOKEN")
         val token2: String = "Bearer $token"

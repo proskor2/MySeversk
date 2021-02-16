@@ -15,15 +15,32 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/button_back"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/left" />
+
+
             <TextView
                 android:id="@+id/textView182"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
+                android:paddingRight="70dp"
                 android:text="Экстренные службы"
                 android:textAlignment="center"
-                android:textColor="#000000"
+                android:textColor="@color/mainColor"
                 android:textSize="14sp" />
+
+        </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_emerg"
@@ -38,7 +55,7 @@
                 android:layout_margin="5dp"
                 android:text="Социально-значимые объекты"
                 android:textAlignment="center"
-                android:textColor="#000000"
+                android:textColor="@color/mainColor"
                 android:textSize="14sp" />
 
             <androidx.recyclerview.widget.RecyclerView
