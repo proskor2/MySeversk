@@ -71,7 +71,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.github.bumptech.glide:glide:4.4.0'
     implementation 'com.github.kittinunf.fuel:fuel:2.2.0'
-    implementation 'com.yandex.android:mapkit:3.5.0'
     implementation 'com.google.firebase:firebase-auth:9.2.1'
     implementation 'org.jsoup:jsoup:1.11.3'
     implementation 'androidx.browser:browser:1.2.0'
@@ -80,6 +79,5 @@ dependencies {
     implementation("com.liftric:kvault:1.2.1")
     implementation 'com.rbddevs.splashy:splashy:1.1.0'
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0"
-
 
 }

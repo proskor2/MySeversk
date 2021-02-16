@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".remont.utilities_details">
+    tools:context=".remont.road_details">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/text_util_title"
+                    android:id="@+id/text_roaddet_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -29,7 +29,7 @@
                     android:textColor="#000000" />
 
                 <ImageButton
-                    android:id="@+id/button_closeact"
+                    android:id="@+id/button_closeact2"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_margin="5dp"
@@ -46,7 +46,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/text_util_locationdet"
+                    android:id="@+id/text_roaddet_area"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -54,7 +54,7 @@
                     android:textColor="#000000" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/button4"
                     android:layout_width="80dp"
                     android:layout_height="30dp"
                     android:layout_margin="5dp"
@@ -82,12 +82,44 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="Организация: "
+                    android:text="Начальный км:"
                     android:textColor="#000000"
                     android:textSize="10sp" />
 
                 <TextView
-                    android:id="@+id/text_util_service"
+                    android:id="@+id/text_roaddet_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider477"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="5dp"
+                android:background="?android:attr/listDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView64"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Конечный км:"
+                    android:textColor="#000000"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/text_roaddet_finish"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -114,12 +146,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="Сроки работ по плану: "
+                    android:text="Дата начала работ: "
                     android:textColor="#000000"
                     android:textSize="10sp" />
 
                 <TextView
-                    android:id="@+id/text_util_dateplandet"
+                    android:id="@+id/text_roaddet_datebegin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -146,12 +178,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="Сроки работ по факту: "
+                    android:text="Дата окончания работ: "
                     android:textColor="#000000"
                     android:textSize="10sp" />
 
                 <TextView
-                    android:id="@+id/text_util_datefactdet"
+                    android:id="@+id/text_roaddet_dateend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -174,16 +206,48 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView61"
+                    android:id="@+id/textView621"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="Дополнительно: "
+                    android:text="Длина отрезка: "
                     android:textColor="#000000"
                     android:textSize="10sp" />
 
                 <TextView
-                    android:id="@+id/text_util_comment"
+                    android:id="@+id/text_roaddet_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider511"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:layout_margin="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView61"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Стоимость: "
+                    android:textColor="#000000"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/text_roaddet_cost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"

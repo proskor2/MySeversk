@@ -10,6 +10,9 @@
     <uses-permission android:name="android.permission.INTERNET" /> <!-- <uses-permission android:name="android.permission.CAMERA"/> -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -22,15 +25,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".remont.utilities_details"
+        <activity android:name=".remont.excavation_details"
             android:configChanges="orientation"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".transport_items.buscarriersauto"
+        <activity android:name=".remont.road_details"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
-        <activity android:name=".transport_items.busstreetsstops"
+        <activity
+            android:name=".remont.utilities_details"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".transport_items.buscarriersauto"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".transport_items.busstreetsstops"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".emergency.emerg_detail"
             android:configChanges="orientation"
@@ -75,10 +87,10 @@
             android:name=".opros_items.opros_details"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-         <activity
-         android:name=".comment.comments1"
-         android:configChanges="orientation"
-         android:screenOrientation="portrait" />
+        <activity
+            android:name=".comment.comments1"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".news_items.news_web"
             android:configChanges="orientation"

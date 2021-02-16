@@ -36,8 +36,11 @@ class AdapterRoads (val context: Context): RecyclerView.Adapter<AdapterRoads.MyV
         val date1 = Html.fromHtml(roadList.get(position).dateBegin)
         val date2 =  Html.fromHtml(roadList.get(position).dateEnd)
 
-
-//        var emplstring = Html.fromHtml(szoList.get(position).employees.toString())
+        val area1 = Html.fromHtml(roadList.get(position).area)
+        val start1 = Html.fromHtml(roadList.get(position).start)
+        val finish1 = Html.fromHtml(roadList.get(position).finish)
+        val length = Html.fromHtml(roadList.get(position).length)
+        val cost = Html.fromHtml(roadList.get(position).cost)
 
 
         holder.roads_title.text = title1
@@ -46,8 +49,16 @@ class AdapterRoads (val context: Context): RecyclerView.Adapter<AdapterRoads.MyV
 
 
         holder.card.setOnClickListener {
-            val intent1 = Intent(this.context, utilities_details::class.java)
+            val intent1 = Intent(this.context, road_details::class.java)
             intent1.putExtra("position", position)
+            intent1.putExtra("title", title1)
+            intent1.putExtra("datebegin", date1)
+            intent1.putExtra("dateend", date2)
+            intent1.putExtra("area", area1)
+            intent1.putExtra("start", start1)
+            intent1.putExtra("finish", finish1)
+            intent1.putExtra("length", length)
+            intent1.putExtra("cost", cost)
             ContextCompat.startActivity(context, intent1, null)
         }
     }
