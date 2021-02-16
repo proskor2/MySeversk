@@ -49,11 +49,13 @@ class ProfileFragment : Fragment() {
             transaction?.replace(R.id.nav_host_fragment, fragment_nonauth())
             transaction?.commit()
         }
-            notificationsViewModel = ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
+//          notificationsViewModel = ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
+
             val root = inflater.inflate(R.layout.fragment_profile, container, false)
             return root
 
     }
+
     @SuppressLint("ResourceType")
     override fun onStart() {
         super.onStart()

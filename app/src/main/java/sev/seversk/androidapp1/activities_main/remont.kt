@@ -46,6 +46,7 @@ class remont : AppCompatActivity() {
         recyclerView1.adapter = recyclerAdapter1
 
 
+
         val apiinterface1 = ApiRoads.create().getRoads(token2)
 
         apiinterface1.enqueue(object : Callback<List<roads>> {
@@ -54,7 +55,7 @@ class remont : AppCompatActivity() {
                 val res = response?.body()
 
                 if (response?.body() != null)
-                    recyclerAdapter1.setRoadsListItems(response.body()!!)
+                    recyclerAdapter1.setRoadsListItems(response.body()!!.take(5))
 
             }
 
