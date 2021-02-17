@@ -8,11 +8,13 @@ import android.webkit.WebView
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import com.liftric.kvault.KVault
 import okhttp3.FormBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONArray
+import org.json.JSONObject
 import sev.seversk.androidapp1.R
 import sev.seversk.androidapp1.yandex_maps
 import java.io.IOException
@@ -40,24 +42,32 @@ class opros_start : AppCompatActivity() {
         val getnum = intent2?.get("num").toString()
         val descr = intent2?.get("desc").toString()
         val getstatus = intent2?.get("status").toString()
-        val getid = intent2?.get("id").toString()
+        val getid = intent2?.get("id").toString().toInt()
+        val strid = getid.toString().trimMargin()
 
 
 
 
-            title.text = gettitle
+        title.text = gettitle
         num.text = ("Количество вопросов: "+getnum)
-        webv.loadDataWithBaseURL("", descr, "text/html", "utf-8", "")
+
+        val upl = "/uploads/ckfinder/userfiles/"
+        val descr2 = if (descr.contains(upl)) {
+            descr.replace("/uploads/ckfinder/userfiles/", "https://xn----7sbhlbh0a1awgee.xn--p1ai/uploads/ckfinder/userfiles/")
+        } else {
+            descr
+        }
+        webv.loadDataWithBaseURL("", descr2, "text/html", "utf-8", "")
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         buttonstart.setOnClickListener(){
-            val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/questionnaires/{$getid}/start"
+            val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/questionnaires/$getid/start"
             var okHttpClient: OkHttpClient = OkHttpClient()
 
             val formBody = FormBody.Builder()
-                .add("id", getid)
+                .add("id", strid)
                 .build()
 
             val request: Request = Request.Builder().url(URL).addHeader("Authorization", token2).post(formBody).build()
@@ -69,10 +79,35 @@ class opros_start : AppCompatActivity() {
                 @SuppressLint("WrongConstant")
                 override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
                     val json1 = response.body()?.string()
+                    val one = JSONObject(json1).get("status")
+
 
 
 
                     runOnUiThread {
+
+                        if (one == "noactual") {
+                            Toast.makeText(applicationContext,
+                                "Выбранный опрос не актуален",
+                                Toast.LENGTH_LONG).show()
+
+                        } else if (one == "close") {
+                            Toast.makeText(applicationContext,
+                                "Выбранный опрос завершен",
+                                Toast.LENGTH_LONG).show()
+
+                        } else if (one == "start") {
+                            val intent1 = Intent(this@opros_start, opros_details::class.java)
+                            startActivity(intent1)
+                        } else if (one == "continue") {
+                            Toast.makeText(applicationContext,
+                                "Продолжение прохождения опроса",
+                                Toast.LENGTH_LONG).show()
+                            val intent1 = Intent(this@opros_start, opros_details::class.java)
+                            startActivity(intent1)
+                        } else {
+                            Toast.makeText(applicationContext, "Ошибка", Toast.LENGTH_LONG).show()
+                        }
                     }
                     }
         })
