@@ -90,18 +90,15 @@ class profile_settings : AppCompatActivity() {
 
                 runOnUiThread {
 
-                    profile_name_settings.text = ("Имя: "+ jname)
-                    profile_surname_settings.text = ("Фамилия: "+ jsurname)
+                    if (jname != "null")   profile_name_settings.text = ("Имя: "+ jname) else profile_name_settings.text = ("Имя: ")
+                    if (jsurname != "null")   profile_surname_settings.text = ("Фамилия: "+ jsurname) else profile_surname_settings.text = ("Фамилия: ")
                     profile_phone_settings.text = ("Телефон: "+ jphone)
 
                     Glide.with(applicationContext)
                         .load(javatar)
                         .into(imview)
-
                 }
             }
-
-
         })
 
 

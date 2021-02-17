@@ -7,6 +7,6 @@ data class createUserInfo (
     @SerializedName("phone") val phone: String?,
     @SerializedName("token") val token: String?,
     @SerializedName("name") val name: String?,
-    @SerializedName("gender") val gender: Int?,
+    @SerializedName("gender") val gender: String?,
     @SerializedName("birthday") val birthday: String?
         )

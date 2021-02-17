@@ -1,36 +1,19 @@
 package sev.seversk.androidapp1.ui.profilescreen
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Intent
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.profile.profile_settings
-import android.provider.MediaStore
-import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.Toast
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.replace
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_newproblem.*
-import kotlinx.android.synthetic.main.activity_prodile_settings2.*
 
-import kotlinx.android.synthetic.main.fragment_notifications.*
 import sev.seversk.androidapp1.R.id.fragment_profile_main
 import sev.seversk.androidapp1.profile.fragment_nonauth
-import sev.seversk.androidapp1.profile.newprofileset
-import sev.seversk.androidapp1.profile.newprofileset2
-import java.io.IOException
 
 @Suppress("UNREACHABLE_CODE", "DEPRECATION")
 class ProfileFragment : Fragment() {

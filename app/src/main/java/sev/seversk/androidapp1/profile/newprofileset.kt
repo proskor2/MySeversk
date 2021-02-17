@@ -76,16 +76,20 @@ class newprofileset: Fragment() {
 
                 activity?.runOnUiThread {
 
-                    cardnamesurname?.text = "$jname $jsurname"
-
-                    Glide.with(this@newprofileset)
-                        .load(javatar)
-                        .into(imview!!)
-
+                  if (jname != "null") {
+                      cardnamesurname?.text = jname
+                      if (jsurname != "null"){
+                          cardnamesurname?.text = "$jname $jsurname"
+                      }
+                  }
+                    
+                    if (javatar != null) {
+                        Glide.with(this@newprofileset)
+                            .load(javatar)
+                            .into(imview!!)
+                    }
                 }
             }
-
-
         })
     }
 }

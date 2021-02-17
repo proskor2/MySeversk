@@ -183,21 +183,21 @@ class sms : AppCompatActivity() {
 
     fun addTokenUser(token: String, phoneNumber: String) {
         val apiService = RestApiService()
-        val tokenInfo = tokenInfo(  status = null,
+        val tokenInfo = tokenInfo(  message = null,
             code = null,
         token = token,
         phonenumber = phoneNumber)
 
         apiService.addToken(tokenInfo) {
-            if (it?.status == "Токен подтвержден. Обновлены данные пользователя") {
+            if (it?.message == "Токен подтвержден. Обновлены данные пользователя") {
                 val intent = Intent(this, seversk::class.java)
                 startActivity(intent)
                 finish()
-            } else if (it?.status == "Токен подтвержден") {
+            } else if (it?.message == "Токен подтвержден") {
                 val intent = Intent(this, preset1::class.java)
                 startActivity(intent)
                 finish()
-        } else if(it?.status == "Токен подтвержден. Анонимный пользователь") {
+        } else if(it?.message == "Токен подтвержден. Анонимный пользователь") {
                 val intent = Intent(this, seversk::class.java)
                 startActivity(intent)
                 finish()

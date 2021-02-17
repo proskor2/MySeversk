@@ -33,14 +33,21 @@ class OprosAdapter (val context: Context): RecyclerView.Adapter<OprosAdapter.MyV
 
     override fun onBindViewHolder(holder: OprosAdapter.MyViewHolder, position: Int) {
 
-        var title1 = Html.fromHtml(oprosList.get(position).name_questionnaire)
-        var status1 = Html.fromHtml(oprosList.get(position).status)
+        val id1 = Html.fromHtml(oprosList.get(position).id.toString())
+        val title1 = Html.fromHtml(oprosList.get(position).name_questionnaire)
+        val status1 = Html.fromHtml(oprosList.get(position).status)
+        val desc1 = Html.fromHtml(oprosList.get(position).text_before)
+        val num1 = Html.fromHtml(oprosList.get(position).questionCount.toString())
 
         holder.opros_title.text = title1
         holder.opros_status.text = status1
         holder.card.setOnClickListener {
-            Toast.makeText(this.context, "Position $position", Toast.LENGTH_SHORT).show()
-            val intent1 = Intent(this.context, opros_details::class.java)
+            val intent1 = Intent(this.context, opros_start::class.java)
+            intent1.putExtra("id", id1)
+            intent1.putExtra("title", title1)
+            intent1.putExtra("status", status1)
+            intent1.putExtra("desc", desc1)
+            intent1.putExtra("num", num1)
            startActivity(context, intent1, null)
         }
     }

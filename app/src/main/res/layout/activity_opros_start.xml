@@ -5,83 +5,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".activities_main.eventid">
+    tools:context=".opros_items.opros_start">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/button_closeeventdet"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center|right"
-            android:layout_margin="10dp"
+            android:id="@+id/button_backopros"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
             android:background="@null"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/iconclose" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/left" />
 
         <TextView
-            android:id="@+id/text_title_eventid"
+            android:id="@+id/text_startopros_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="14sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/text_date_eventid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textSize="12sp" />
-
-        <ImageView
-            android:id="@+id/image_eventid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp" />
 
         <WebView
-            android:id="@+id/web_eventid"
+            android:id="@+id/web_startopros"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp">
+            android:layout_height="wrap_content">
 
         </WebView>
 
         <View
-            android:id="@+id/divider42"
+            android:id="@+id/divider54"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_margin="5dp"
             android:background="?android:attr/listDivider" />
 
         <TextView
-            android:id="@+id/text_place_eventid"
-            android:layout_width="match_parent"
+            android:id="@+id/text_startopros_numberq"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:textColor="#000000" />
 
         <View
-            android:id="@+id/divider43"
+            android:id="@+id/divider53"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_margin="5dp"
             android:background="?android:attr/listDivider" />
 
-        <TextView
-            android:id="@+id/text_eventidcomm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textColor="#000000" />
+        <Button
+            android:id="@+id/button_startopros"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="#FFFFFF"
+            android:text="Начать опрос"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/mainColor"
+            android:textSize="14sp" />
+
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

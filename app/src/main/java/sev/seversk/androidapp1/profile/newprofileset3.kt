@@ -69,7 +69,7 @@ class newprofileset3: AppCompatActivity() {
                 val jphone = parentObject.getString("phonenumber")
                 val jaddress = parentObject.getString("address")
                 val jbirthday = parentObject.getString("birthday")
-                val jgender = parentObject.getInt("gender")
+                val jgender = parentObject.getString("gender")
                 val javatar = parentObject.getString("avatar")
 
 
@@ -87,19 +87,22 @@ class newprofileset3: AppCompatActivity() {
 
 
                 runOnUiThread {
-                    usersurname.setText(jsurname)
-                    username.setText(jname)
-                    userpatr.setText(jpatron)
-                    usermail.setText(jmail)
-                    userphone.setText(jphone)
-                    useraddress.setText(jaddress)
-                    userdate.setText(jbirthday)
-                    if (jgender == 1) usergender.setText("Мужской") else usergender.setText("Женский")
 
-                    Glide.with(applicationContext)
-                        .load(javatar)
-                        .into(imview)
+                    if (jsurname != "null") usersurname?.setText(jsurname) else usersurname?.setText("")
+                    if (jname != "null") username.setText(jname) else username?.setText("")
+                    if (jpatron != "null")  userpatr.setText(jpatron) else userpatr?.setText("")
+                    if (jmail != "null")  usermail.setText(jmail) else usermail?.setText("")
+                    if (jphone != "null") userphone.setText(jphone) else userphone?.setText("")
+                    if (jaddress != "null") useraddress.setText(jaddress) else useraddress?.setText("")
+                    if (jbirthday != "null")  userdate.setText(jbirthday) else userdate?.setText("")
+                    if (jgender != "null") usergender.setText(jgender) else usergender.setText("")
 
+
+                    if (javatar != null) {
+                        Glide.with(applicationContext)
+                            .load(javatar)
+                            .into(imview)
+                    }
                 }
             }
 
@@ -160,7 +163,6 @@ class newprofileset3: AppCompatActivity() {
         var insertmail = usermail?.text.toString()
         var insertaddress = useraddress?.text.toString()
         var insertgender = usergender?.text.toString()
-        val intgender = if (insertgender == "Мужской"|| insertgender == "мужской"|| insertgender =="муж" || insertgender == "Муж") 1 else 0
 
 
         val editor = sharedPreferences?.edit()
@@ -179,7 +181,7 @@ class newprofileset3: AppCompatActivity() {
             insertpatr,
             insertmail,
             insertphone,
-            intgender,
+            insertgender,
             insertdate,
             insertaddress)
 
@@ -280,7 +282,7 @@ class newprofileset3: AppCompatActivity() {
         patronymic: String,
         email: String,
         phonenumber: String,
-        gender: Int,
+        gender: String,
         birthday: String,
         address: String
     ) {

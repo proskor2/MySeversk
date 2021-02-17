@@ -10,5 +10,5 @@ data class saveProfile (
     @SerializedName("phonenumber") val phonenumber: String?,
     @SerializedName("address") val address: String?,
     @SerializedName("birthday") val birthday: String?,
-    @SerializedName("gender") val gender: Int?
+    @SerializedName("gender") val gender: String?
     )
