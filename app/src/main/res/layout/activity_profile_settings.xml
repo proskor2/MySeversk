@@ -116,7 +116,8 @@
             android:id="@+id/card_settings_notification"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="2dp">
+            android:layout_margin="2dp"
+            android:stateListAnimator="@animator/lift">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -156,7 +157,8 @@
             android:id="@+id/card_settings_conf"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="2dp">
+            android:layout_margin="2dp"
+            android:stateListAnimator="@animator/lift">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -196,7 +198,8 @@
             android:id="@+id/card_settings_memory"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="2dp">
+            android:layout_margin="2dp"
+            android:stateListAnimator="@animator/lift">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -225,7 +228,6 @@
             </LinearLayout>
 
 
-
             <View
                 android:id="@+id/divider6"
                 android:layout_width="match_parent"
@@ -238,7 +240,8 @@
             android:id="@+id/card_settings_deleteprofile"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="2dp">
+            android:layout_margin="2dp"
+            android:stateListAnimator="@animator/lift">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -268,7 +271,6 @@
             </LinearLayout>
 
 
-
             <View
                 android:id="@+id/divider66"
                 android:layout_width="match_parent"
@@ -281,7 +283,8 @@
             android:id="@+id/card_settings_logout"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="2dp">
+            android:layout_margin="2dp"
+            android:stateListAnimator="@animator/lift">
 
             <LinearLayout
                 android:layout_width="match_parent"

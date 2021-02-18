@@ -75,8 +75,8 @@ class newprofileset: Fragment() {
                     val parentObject = JSONObject(json)
 
                     val javatar = parentObject.getString("avatar")
-                    val jname = parentObject.getString("firstName")
-                    val jsurname = parentObject.getString("lastName")
+                    val jname = parentObject.getString("firstName").toString()
+                    val jsurname = parentObject.getString("lastName").toString()
 
 
                     activity?.runOnUiThread {
@@ -84,9 +84,8 @@ class newprofileset: Fragment() {
                         val profile_name_settings =
                             activity?.findViewById<TextView>(R.id.profile_setcard_name)
 
-                        if (jname != "null") profile_name_settings?.text = jname
-                        else if (jname != "null" && jsurname != "null") profile_name_settings?.text =
-                            "$jname $jsurname"
+                        if (jname != "null" && jsurname != "null") profile_name_settings?.text = (jname+" "+jsurname)
+                        else if (jname != "null") profile_name_settings?.text = jname
                         else profile_name_settings?.text = ""
 
                         if (javatar != "null") {
