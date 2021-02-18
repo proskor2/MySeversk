@@ -22,7 +22,7 @@ class news_web : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_news_web)
 
-        findViewById<ImageButton>(R.id.button_closenewsdet).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_closenewsdet).setOnClickListener {
             finish()
         }
 

@@ -14,7 +14,7 @@ import androidx.core.app.ActivityCompat
 
 class yandex_maps : AppCompatActivity() {
 
-    private final val MAPKIT_API_KEY = "3ad79f77-ac08-49b0-af8d-3a39283cd78a";
+    private val MAPKIT_API_KEY = "3ad79f77-ac08-49b0-af8d-3a39283cd78a"
     lateinit var mapView: MapView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +23,7 @@ class yandex_maps : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_yandex_maps)
 
-        findViewById<ImageButton>(R.id.button_back).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_back).setOnClickListener {
             finish()
         }
 
@@ -33,8 +33,8 @@ class yandex_maps : AppCompatActivity() {
         
        val intent2 = intent?.extras
         if (intent2 != null) {
-            val lat = intent2?.get("lat").toString().toDouble()
-            val long = intent2?.get("long").toString().toDouble()
+            val lat = intent2.get("lat").toString().toDouble()
+            val long = intent2.get("long").toString().toDouble()
             addMark(lat, long)
         } else {
             mapView.map.move(CameraPosition(Point(56.602780, 84.880626), 15.0f, 0.0f, 0.0f), Animation(Animation.Type.SMOOTH, 0F), null)

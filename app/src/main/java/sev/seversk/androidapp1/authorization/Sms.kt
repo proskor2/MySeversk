@@ -189,7 +189,8 @@ class sms : AppCompatActivity() {
         phonenumber = phoneNumber)
 
         apiService.addToken(tokenInfo) {
-            if (it?.message == "Токен подтвержден. Обновлены данные пользователя") {
+//            if (it?.message == "Токен подтвержден. Обновлены данные пользователя") {
+            if (it?.message == null) {
                 val intent = Intent(this, seversk::class.java)
                 startActivity(intent)
                 finish()

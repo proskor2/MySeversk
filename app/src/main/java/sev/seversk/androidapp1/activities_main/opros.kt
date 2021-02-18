@@ -32,7 +32,7 @@ class opros : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk_opros)
 
-        findViewById<ImageButton>(R.id.button_back).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_back).setOnClickListener {
             finish()
         }
 

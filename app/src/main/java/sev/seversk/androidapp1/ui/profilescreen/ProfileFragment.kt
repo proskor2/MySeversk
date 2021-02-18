@@ -18,7 +18,7 @@ import sev.seversk.androidapp1.profile.fragment_nonauth
 @Suppress("UNREACHABLE_CODE", "DEPRECATION")
 class ProfileFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+//    private lateinit var notificationsViewModel: NotificationsViewModel
     private var auth = FirebaseAuth.getInstance().currentUser
     private var auth2 = FirebaseAuth.getInstance().currentUser?.isAnonymous
 
@@ -27,21 +27,29 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         if (auth == null || auth2 == true) {
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.nav_host_fragment, fragment_nonauth())
             transaction?.commit()
         }
-//          notificationsViewModel = ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
 
+//          notificationsViewModel = ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
             val root = inflater.inflate(R.layout.fragment_profile, container, false)
             return root
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
 
     }
 
     @SuppressLint("ResourceType")
     override fun onStart() {
         super.onStart()
+
+
 
 // Replace fragments
         val navController = activity?.let { Navigation.findNavController(it, fragment_profile_main) }
@@ -53,7 +61,6 @@ class ProfileFragment : Fragment() {
 
         activity?.findViewById<CardView>(R.id.cardButton_profile_appeals)?.setOnClickListener {
           navController?.navigate(R.id.fragment_appeals)
-
         }
 
         activity?.findViewById<CardView>(R.id.cardButton_profile_problems)?.setOnClickListener {

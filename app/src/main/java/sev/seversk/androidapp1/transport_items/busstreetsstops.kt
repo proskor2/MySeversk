@@ -25,15 +25,15 @@ class busstreetsstops : AppCompatActivity() {
         val ssB = intent2?.get("streetB")
         val title = intent2?.get("title")
         val ssf2 = listOf("ул.Трудовая", "ул.Лесная", "ул.Первомайская", "пр.Коммунистический", "пр.Коммунистический (кольцо на въезде в город)", "ул.Победы", "пр.Коммунистический (кольцо на въезде в город)", "ул.Восточная", "ул.Калинина", "ул.Солнечная", "Северная автомагистраль", "ул.Сосновая")
-            buttonforward.setOnClickListener(){
+            buttonforward.setOnClickListener {
 
         }
 
-            buttonback.setOnClickListener(){
+            buttonback.setOnClickListener {
 
         }
 
-        buttonleft.setOnClickListener(){
+        buttonleft.setOnClickListener {
             finish()
         }
 

@@ -22,7 +22,7 @@ class emerg_detail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_emerg_detail)
 
-        findViewById<ImageButton>(R.id.button_closeactivity2).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_closeactivity2).setOnClickListener {
             finish()
         }
 

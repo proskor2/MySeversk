@@ -21,7 +21,7 @@ class road_details : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_remont_details)
 
-        findViewById<ImageButton>(R.id.button_closeact2).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_closeact2).setOnClickListener {
             finish()
         }
 

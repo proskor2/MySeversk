@@ -28,7 +28,7 @@ class szo_details : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_szo_details)
 
-        findViewById<ImageButton>(R.id.button_closeactivity).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_closeactivity).setOnClickListener {
             finish()
         }
 

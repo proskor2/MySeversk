@@ -24,7 +24,7 @@ class opros_start : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_opros_start)
 
-        findViewById<ImageButton>(R.id.button_backopros).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_backopros).setOnClickListener {
             finish()
         }
 
@@ -46,8 +46,6 @@ class opros_start : AppCompatActivity() {
         val strid = getid.toString().trimMargin()
 
 
-
-
         title.text = gettitle
         num.text = ("Количество вопросов: "+getnum)
 
@@ -62,7 +60,7 @@ class opros_start : AppCompatActivity() {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        buttonstart.setOnClickListener(){
+        buttonstart.setOnClickListener {
             val URL = "https://xn--80aqu.xn----7sbhlbh0a1awgee.xn--p1ai/v1/questionnaires/$getid/start"
             var okHttpClient: OkHttpClient = OkHttpClient()
 
@@ -80,9 +78,6 @@ class opros_start : AppCompatActivity() {
                 override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
                     val json1 = response.body()?.string()
                     val one = JSONObject(json1).get("status")
-
-
-
 
                     runOnUiThread {
 

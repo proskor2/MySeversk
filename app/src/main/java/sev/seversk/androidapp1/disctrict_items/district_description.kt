@@ -26,7 +26,7 @@ class district_description : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_district_description)
 
-        findViewById<ImageButton>(R.id.button_closedistrdet).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_closedistrdet).setOnClickListener {
             finish()
         }
 

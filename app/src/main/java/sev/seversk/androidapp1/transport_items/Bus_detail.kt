@@ -45,12 +45,12 @@ class bus_detail : AppCompatActivity() {
             findViewById<TextView>(R.id.busdetail_stoprules).text = "Только в установленных остановочных пунктах"
 
   // Button close activity
-        findViewById<ImageButton>(R.id.button_closeactivity).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_closeactivity).setOnClickListener {
             finish()
         }
 // Button bus streets
         val butstreet = findViewById<TextView>(R.id.busdetail_streets)
-            butstreet.setOnClickListener(){
+            butstreet.setOnClickListener {
             butstreet.setTextColor(R.color.otherColor)
         val title = "Улицы на пути следования"
         val intent = Intent(this, busstreetsstops::class.java)
@@ -62,7 +62,7 @@ class bus_detail : AppCompatActivity() {
         }
 // Button bus stops
         val butstops = findViewById<TextView>(R.id.busdetail_stops)
-        butstops.setOnClickListener(){
+        butstops.setOnClickListener {
             val title = "Остановочные пункты"
             butstops.setTextColor(R.color.otherColor)
             val intent = Intent(this, busstreetsstops::class.java)
@@ -73,7 +73,7 @@ class bus_detail : AppCompatActivity() {
         }
 // Button bus carriers
         val butcarriers = findViewById<TextView>(R.id.busdetail_owners)
-        butcarriers.setOnClickListener(){
+        butcarriers.setOnClickListener {
             butcarriers.setTextColor(R.color.otherColor)
             val title = "Перевозчики"
             val intent = Intent(this, buscarriersauto::class.java)
@@ -84,7 +84,7 @@ class bus_detail : AppCompatActivity() {
         }
 // Button vehicles
         val butvehicles = findViewById<TextView>(R.id.busdetail_vehicles)
-        butvehicles.setOnClickListener(){
+        butvehicles.setOnClickListener {
             butvehicles.setTextColor(R.color.otherColor)
             val title = "Транспортные средства"
             val intent = Intent(this, buscarriersauto::class.java)

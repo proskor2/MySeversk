@@ -13,7 +13,7 @@ class buscarriersauto : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buscarriersauto)
 
-        findViewById<ImageButton>(R.id.button_left2).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_left2).setOnClickListener {
             finish()
         }
 

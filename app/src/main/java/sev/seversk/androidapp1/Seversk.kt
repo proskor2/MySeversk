@@ -36,13 +36,10 @@ class seversk : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seversk)
 
-
-
         Splashy(this)
             .setLogo(R.drawable.seversk)
             .setTitle("Мой Северск")
             .show()
-
 
         val intent = intent.extras
         val n1 = intent?.getString("name")
@@ -66,7 +63,7 @@ class seversk : AppCompatActivity() {
 
         val auth = FirebaseAuth.getInstance().currentUser
         val auth2 = FirebaseAuth.getInstance().currentUser?.isAnonymous
-        val token = FirebaseAuth.getInstance().currentUser?.uid
+
 
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)

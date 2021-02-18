@@ -12,7 +12,7 @@ class alert_description : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alert_description)
 
-        findViewById<ImageView>(R.id.button_backtoalert).setOnClickListener(){
+        findViewById<ImageView>(R.id.button_backtoalert).setOnClickListener {
             finish()
         }
 

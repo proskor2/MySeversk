@@ -38,11 +38,11 @@ class Comment1Event : AppCompatActivity() {
                 recycler_coomentnews.layoutManager = LinearLayoutManager(this)
                 recyclerView.adapter = recyclerAdapter
 
-                recyclerView.setOnClickListener(){
+                recyclerView.setOnClickListener {
                     hideKeyboard()
                 }
 
-                findViewById<LinearLayout>(R.id.linear_comm).setOnClickListener(){
+                findViewById<LinearLayout>(R.id.linear_comm).setOnClickListener {
                     hideKeyboard()
                 }
                 val apiinterface = ApiEventComment.create().getComment(idevent, token2)
@@ -114,7 +114,7 @@ class Comment1Event : AppCompatActivity() {
                     }
                 }
 /// Click Send comment
-                findViewById<ImageButton>(R.id.button_sendcomment).setOnClickListener(){
+                findViewById<ImageButton>(R.id.button_sendcomment).setOnClickListener {
                     Toast.makeText(this, "Ваше сообщение отправлено на модерацию", Toast.LENGTH_LONG).show()
                     val textcom = findViewById<EditText>(R.id.text_sendcomment).text.toString()
                     sendCommentsNew(textcom)
@@ -122,7 +122,7 @@ class Comment1Event : AppCompatActivity() {
 //            recreate()
                 }
 // Click close comment
-                findViewById<ImageButton>(R.id.button_close_comment).setOnClickListener() {
+                findViewById<ImageButton>(R.id.button_close_comment).setOnClickListener {
 
                     finish()
 

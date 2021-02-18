@@ -25,7 +25,7 @@ class excavation_details : AppCompatActivity() {
 
 
         val butmap = findViewById<Button>(R.id.button5)
-        findViewById<ImageButton>(R.id.button_closeact3).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_closeact3).setOnClickListener {
             finish()
         }
 

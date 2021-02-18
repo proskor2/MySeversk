@@ -24,7 +24,7 @@ class utilities_details : AppCompatActivity() {
 
         val butmap = findViewById<Button>(R.id.button3)
 
-        findViewById<ImageButton>(R.id.button_closeact).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_closeact).setOnClickListener {
             finish()
         }
 

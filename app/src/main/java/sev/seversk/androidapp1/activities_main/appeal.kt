@@ -17,7 +17,7 @@ class appeal : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_appeal)
 
-        findViewById<ImageButton>(R.id.button_back).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_back).setOnClickListener {
             finish()
         }
 

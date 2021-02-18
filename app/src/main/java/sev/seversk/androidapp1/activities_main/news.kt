@@ -26,7 +26,7 @@ package sev.seversk.androidapp1.activities_main
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_seversk_news)
 
-            findViewById<ImageButton>(R.id.button_back).setOnClickListener(){
+            findViewById<ImageButton>(R.id.button_back).setOnClickListener {
                 finish()
             }
 

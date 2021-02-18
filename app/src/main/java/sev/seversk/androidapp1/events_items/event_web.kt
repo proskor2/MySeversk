@@ -23,7 +23,7 @@ class event_web : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_eventid)
 
-        findViewById<ImageButton>(R.id.button_closeeventdet).setOnClickListener(){
+        findViewById<ImageButton>(R.id.button_closeeventdet).setOnClickListener {
             finish()
         }
 

@@ -53,13 +53,9 @@ class HomeFragment : Fragment() {
         var auth = FirebaseAuth.getInstance().currentUser
         var auth2 = FirebaseAuth.getInstance().currentUser?.isAnonymous
 
-
-
-
         val sharedPreferences = activity?.getSharedPreferences("profiles", Context.MODE_PRIVATE)
         val token = sharedPreferences?.getString("token", null)
         val token2 = "Bearer $token"
-
 
         button_news.setOnClickListener {
             val news = Intent(context, news::class.java)
@@ -121,10 +117,6 @@ class HomeFragment : Fragment() {
                         val intent = Intent(context, profile_settings::class.java)
                         startActivity(intent)
                     }
-
-
-
-
         }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
