@@ -236,6 +236,14 @@
                 android:background="?android:attr/listDivider" />
         </androidx.cardview.widget.CardView>
 
+        <View
+            android:id="@+id/divider55"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#E7EFFF" />
+
         <androidx.cardview.widget.CardView
             android:id="@+id/card_settings_deleteprofile"
             android:layout_width="match_parent"

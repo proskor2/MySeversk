@@ -93,12 +93,14 @@ class opros_start : AppCompatActivity() {
 
                         } else if (one == "start") {
                             val intent1 = Intent(this@opros_start, opros_details::class.java)
+                            intent1.putExtra("idquestionnaire", getid)
                             startActivity(intent1)
                         } else if (one == "continue") {
                             Toast.makeText(applicationContext,
                                 "Продолжение прохождения опроса",
                                 Toast.LENGTH_LONG).show()
                             val intent1 = Intent(this@opros_start, opros_details::class.java)
+                            intent1.putExtra("idquestionnaire", getid)
                             startActivity(intent1)
                         } else {
                             Toast.makeText(applicationContext, "Ошибка", Toast.LENGTH_LONG).show()

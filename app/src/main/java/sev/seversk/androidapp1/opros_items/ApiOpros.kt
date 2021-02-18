@@ -14,7 +14,6 @@ interface ApiOpros {
 
     @Headers("Accept: application/json")
 
-
     fun getOpros(@Header("Authorization") token: String) : retrofit2.Call<List<Opros>>
 
     companion object {

@@ -11,7 +11,6 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import sev.seversk.androidapp1.R
-import sev.seversk.androidapp1.activities_main.emergency_detail
 
 class EmergAdapter (val context: Context): RecyclerView.Adapter<EmergAdapter.MyViewHolder>() {
 
@@ -65,7 +64,7 @@ class EmergAdapter (val context: Context): RecyclerView.Adapter<EmergAdapter.MyV
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val emerg_title = itemView.findViewById<TextView>(R.id.text_emerg_title)
         val emerg_address = itemView.findViewById<TextView>(R.id.text_emerg_address)
-        val card = itemView.findViewById<CardView>(R.id.card_emerg)
+        val card = itemView.findViewById<CardView>(R.id.card_variant)
     }
 
 

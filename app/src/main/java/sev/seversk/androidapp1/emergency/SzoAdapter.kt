@@ -65,7 +65,7 @@ class SzoAdapter (val context: Context): RecyclerView.Adapter<SzoAdapter.MyViewH
         class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
             val szo_title = itemView.findViewById<TextView>(R.id.text_szo_title)
             val szo_address = itemView.findViewById<TextView>(R.id.text_szo_address)
-            val card = itemView.findViewById<CardView>(R.id.card_emerg)
+            val card = itemView.findViewById<CardView>(R.id.card_szo)
         }
 
 
